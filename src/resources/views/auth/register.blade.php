@@ -12,7 +12,7 @@
 
         <div>
             <label for="name">名前</label>
-            <input id="name" type="text" name="name" value="{{ old('name') }}" required autofocus>
+            <input id="name" type="text" name="name" value="{{ old('name') }}" autofocus>
             @error('name')
                 <span>{{ $message }}</span>
             @enderror
@@ -20,7 +20,7 @@
 
         <div>
             <label for="email">メールアドレス</label>
-            <input id="email" type="email" name="email" value="{{ old('email') }}" required>
+            <input id="email" type="email" name="email" value="{{ old('email') }}">
             @error('email')
                 <span>{{ $message }}</span>
             @enderror
@@ -28,7 +28,7 @@
 
         <div>
             <label for="password">パスワード</label>
-            <input id="password" type="password" name="password" required autocomplete="new-password">
+            <input id="password" type="password" name="password" autocomplete="new-password">
             @error('password')
                 <span>{{ $message }}</span>
             @enderror
@@ -36,7 +36,7 @@
 
         <div>
             <label for="password_confirmation">パスワード（確認用）</label>
-            <input id="password_confirmation" type="password" name="password_confirmation" required autocomplete="new-password">
+            <input id="password_confirmation" type="password" name="password_confirmation" autocomplete="new-password">
         </div>
 
         <div>
