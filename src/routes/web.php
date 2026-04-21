@@ -1,37 +1,32 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 use App\Http\Controllers\ItemController;
-
-Route::get('/', [ItemController::class, 'index'])->name('items.index');
-
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\CommentController;
 
-/*
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('register');
-
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');
-*/
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
-});
-
+//gest閲覧可能ルート
+Route::get('/', [ItemController::class, 'index'])->name('items.index');
 Route::get('/item/{id}', [ItemController::class, 'show'])->name('items.show');
+
+//認証必須ルート
+Route::middleware(['auth'])->group(function () {
+    // Route::middleware(['auth', 'verified'])->group(function (){
+    // プロフィール関連
+    Route::get('/mypage', [ProfileController::class, 'index'])->name('mypage');
+    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile/edit', [ProfileController::class, 'update'])->name('profile.update');
+    //出品関連
+    Route::get('/sell', [ItemController::class, 'create'])->name('items.create');
+    Route::post('/sell', [ItemController::class, 'store'])->name('items.store');
+    //購入関連
+    Route::get('/purchase/{item_id}', [PurchaseController::class, 'create'])->name('purchase.create');
+    Route::post('/purchase/{item_id}', [PurchaseController::class, 'store'])->name('purchase.store');
+    Route::get('/purchase/address/{item_id}', [ProfileController::class, 'editAddress'])->name('purchase.address');
+    Route::post('/purchase/address/{item_id}', [ProfileController::class, 'updateAddress'])->name('purchase.address.update');
+    //いいね・コメント
+    Route::post('/item/{item_id}/like', [LikeController::class, 'toggle'])->name('items.like');
+    Route::post('/item/{item_id}/comment', [CommentController::class, 'store'])->name('items.comment');
+});

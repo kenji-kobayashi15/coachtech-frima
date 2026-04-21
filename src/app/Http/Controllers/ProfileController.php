@@ -8,19 +8,45 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
+    /**
+     * PG09: プロフィール画面（マイページ）を表示
+     */
+    public function index()
+    {
+        return view('profile.index');
+    }
+
     public function edit()
     {
-        $profile = Profile::where('user_id', Auth::id())->first();
-        return view('profile.edit', compact('profile'));
+        // ログインしているユーザー自身を取得（これに付随するプロフィールも一緒に取れる）
+        $user = Auth::user();
+
+        // プロフィール情報も変数に入れておく（既存のコードに合わせて）
+        $profile = $user->profile;
+
+        // 両方を画面に渡す！
+        return view('profile.edit', compact('user', 'profile'));
     }
 
     public function update(Request $request)
     {
+        // 現在のユーザーを取得
         $user = Auth::user();
+
+        // バリデーション：画像がなくても通るように 'nullable' を指定
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'post_code' => 'required',
+            'address' => 'required',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        // ユーザー名の更新
         $user->name = $request->name;
         $user->save();
 
-        $profile = Profile::updateOrCreate(
+        // プロフィールの更新
+        Profile::updateOrCreate(
             ['user_id' => $user->id],
             [
                 'post_code' => $request->post_code,
@@ -29,6 +55,25 @@ class ProfileController extends Controller
             ]
         );
 
+        // 【重要】リダイレクト先を編集画面（profile.edit）に戻す
         return redirect()->route('profile.edit')->with('success', 'プロフィールを更新しました。');
+    }
+
+    /**
+     * PG07: 送付先住所変更画面を表示
+     */
+    public function editAddress($item_id)
+    {
+        // 購入画面から渡ってきた $item_id を保持したままビューを返します
+        return view('purchase.address', compact('item_id'));
+    }
+
+    /**
+     * 送付先住所の更新処理
+     */
+    public function updateAddress(Request $request, $item_id)
+    {
+        // ここに住所更新のロジックを後ほど実装します
+        // 更新後は購入画面に戻るなどの処理を予定
     }
 }
