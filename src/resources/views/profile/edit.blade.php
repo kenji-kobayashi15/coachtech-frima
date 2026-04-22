@@ -11,7 +11,7 @@
     </div>
     @endif
 
-    <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data" class="profile-form">
+    <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data" class="profile-form" novalidate>
         @csrf
         @method('PATCH')
 
@@ -29,24 +29,38 @@
                 画像を選択する
                 <input type="file" name="image" class="file-input" onchange="previewImage(this);">
             </label>
+            {{-- 画像のエラー表示を追加 --}}
+            @error('image')
+            <p class="error-message" style="color: red;">{{ $message }}</p>
+            @enderror
         </div>
 
         {{-- ユーザー名 --}}
         <div class="form-group">
             <label class="form-label">ユーザー名</label>
             <input type="text" name="name" value="{{ old('name', Auth::user()->name) }}" class="form-control">
+            @error('name')
+            <p class="error-message" style="color: red;">{{ $message }}</p>
+            @enderror
         </div>
 
         {{-- 郵便番号 --}}
         <div class="form-group">
             <label class="form-label">郵便番号</label>
             <input type="text" name="post_code" value="{{ old('post_code', $profile->post_code ?? '') }}" class="form-control">
+            @error('post_code')
+            <p class="error-message" style="color: red;">{{ $message }}</p>
+            @enderror
         </div>
+
 
         {{-- 住所 --}}
         <div class="form-group">
             <label class="form-label">住所</label>
             <input type="text" name="address" value="{{ old('address', $profile->address ?? '') }}" class="form-control">
+            @error('address')
+            <p class="error-message" style="color: red;">{{ $message }}</p>
+            @enderror
         </div>
 
         {{-- 建物名 --}}

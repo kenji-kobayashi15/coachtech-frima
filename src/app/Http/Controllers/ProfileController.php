@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ProfileRequest;
 use Illuminate\Http\Request;
 use App\Models\Profile;
 use Illuminate\Support\Facades\Auth;
@@ -28,18 +29,10 @@ class ProfileController extends Controller
         return view('profile.edit', compact('user', 'profile'));
     }
 
-    public function update(Request $request)
+    public function update(ProfileRequest $request)
     {
         // 現在のユーザーを取得
         $user = Auth::user();
-
-        // バリデーション：画像がなくても通るように 'nullable' を指定
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'post_code' => 'required',
-            'address' => 'required',
-            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
 
         // ユーザー名の更新
         $user->name = $request->name;
