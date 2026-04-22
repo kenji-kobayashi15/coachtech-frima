@@ -16,8 +16,8 @@ Route::middleware(['auth'])->group(function () {
     // Route::middleware(['auth', 'verified'])->group(function (){
     // プロフィール関連
     Route::get('/mypage', [ProfileController::class, 'index'])->name('mypage');
-    Route::get('/profile/edit', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::put('/profile/edit', [ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/mypage/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/mypage/profile', [ProfileController::class, 'update'])->name('profile.update');
     //出品関連
     Route::get('/sell', [ItemController::class, 'create'])->name('items.create');
     Route::post('/sell', [ItemController::class, 'store'])->name('items.store');

@@ -45,6 +45,14 @@ class ProfileController extends Controller
         $user->name = $request->name;
         $user->save();
 
+        // 画像の保存処理
+        $imageUrl = $user->profile->image_url ?? null;
+
+        if ($request->hasFile('image')) {
+            // public/profiles フォルダに画像を保存し、そのパスを取得
+            $imageUrl = $request->file('image')->store('profiles', 'public');
+        }
+
         // プロフィールの更新
         Profile::updateOrCreate(
             ['user_id' => $user->id],
@@ -52,6 +60,7 @@ class ProfileController extends Controller
                 'post_code' => $request->post_code,
                 'address' => $request->address,
                 'building' => $request->building,
+                'image_url' => $imageUrl,
             ]
         );
 
