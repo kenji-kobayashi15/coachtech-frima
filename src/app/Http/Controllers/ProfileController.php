@@ -19,7 +19,10 @@ class ProfileController extends Controller
         if ($page === 'buy') {
             // 【購入した商品】
             // 自分の注文(orders)に紐づく商品(item)をまとめて取得（Eager Loading）
-            $items = $user->orders()->with('item')->get()->pluck('item');
+            $items = $user->orders()->with('item')->get()->map(function ($order) {
+                return $order->item;
+            })
+            ->filter();
         } else {
             // 【出品した商品】
             $items = $user->items;
