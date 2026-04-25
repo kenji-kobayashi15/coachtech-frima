@@ -6,11 +6,11 @@
     <div class="profile-header">
         <div class="user-icon-wrapper">
             @php
-            $imageUrl = (Auth::user()->profile && Auth::user()->profile->image_url)
-            ? asset('storage/' . Auth::user()->profile->image_url)
+            $imagePath = (Auth::user()->profile && Auth::user()->profile->image_path)
+            ? asset('storage/' . Auth::user()->profile->image_path)
             : asset('storage/default-icon.png');
             @endphp
-            <img src="{{ $imageUrl }}" class="user-icon-img">
+            <img src="{{ $imagePath }}" class="user-icon-img">
         </div>
         <h1 class="user-name">{{ Auth::user()->name }}</h1>
         <a href="{{ route('profile.edit') }}" class="btn-outline-primary edit-profile-btn">プロフィールを編集</a>

@@ -25,7 +25,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/purchase/{item_id}', [PurchaseController::class, 'create'])->name('purchase.create');
     Route::post('/purchase/{item_id}', [PurchaseController::class, 'store'])->name('purchase.store');
     Route::get('/purchase/address/{item_id}', [ProfileController::class, 'editAddress'])->name('purchase.address');
-    Route::post('/purchase/address/{item_id}', [ProfileController::class, 'updateAddress'])->name('purchase.address.update');
+    Route::patch('/purchase/address/{item_id}', [ProfileController::class, 'updateAddress'])->name('purchase.address.update');
     //いいね・コメント
     Route::post('/item/{item_id}/like', [LikeController::class, 'toggle'])->name('items.like');
     Route::post('/item/{item_id}/comment', [CommentController::class, 'store'])->name('items.comment');

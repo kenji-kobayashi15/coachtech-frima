@@ -15,13 +15,13 @@
             <a href="{{ route('items.show', $item->id) }}" class="item-link">
                 <div class="item-thumbnail-wrapper">
                     @php
-                    $imageSrc = str_starts_with($item->image_path, 'http')
-                    ? $item->image_path
-                    : asset('storage/' . $item->image_path);
+                    $imageSrc = str_starts_with($item->image_url, 'http')
+                    ? $item->image_url
+                    : asset('storage/' . $item->image_url);
                     @endphp
                     <img src="{{ $imageSrc }}" alt="{{ $item->name }}" class="item-thumbnail">
 
-                    @if ($item->is_sold)
+                    @if ($item->order)
                     <div class="sold-badge">
                         <span>SOLD</span>
                     </div>

@@ -8,10 +8,16 @@
             {{-- 商品確認 --}}
             <div class="item-summary">
                 <div class="item-image-wrapper">
-                    @if (str_starts_with($item->image_path, 'http'))
-                    <img src="{{ $item->image_path }}" class="item-image">
+                    @php
+                    $imageSrc = (isset($item->image_url) && strpos($item->image_url, 'http') === 0)
+                    ? $item->image_url
+                    : asset('storage/' . ($item->image_url ?? ''));
+                    @endphp
+
+                    @if($item->image_url)
+                    <img src="{{ $imageSrc }}" class="item-image" alt="{{ $item->name }}">
                     @else
-                    <img src="{{ asset('storage/' . $item->image_path) }}" class="item-image">
+                    <div class="no-image">No Image</div>
                     @endif
                 </div>
                 <div class="item-info">
@@ -69,4 +75,21 @@
         </div>
     </div>
 </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const methodSelect = document.querySelector('select[name="payment_method"]');
+        const displayTarget = document.querySelector('.method-row td');
+
+        methodSelect.addEventListener('change', function() {
+            // 選択されたテキスト（「コンビニ払い」など）を取得
+            const selectedText = methodSelect.options[methodSelect.selectedIndex].text;
+
+            if (methodSelect.value === "") {
+                displayTarget.textContent = '選択してください';
+            } else {
+                displayTarget.textContent = selectedText;
+            }
+        });
+    });
+</script>
 @endsection

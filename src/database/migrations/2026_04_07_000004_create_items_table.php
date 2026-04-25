@@ -21,7 +21,7 @@ class CreateItemsTable extends Migration
             $table->string('brand')->nullable();
             $table->text('description');
             $table->unsignedInteger('price');
-            $table->string('image_path');
+            $table->string('image_url');
             $table->timestamps();
         });
     }

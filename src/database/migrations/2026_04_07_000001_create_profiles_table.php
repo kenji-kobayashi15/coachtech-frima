@@ -16,7 +16,7 @@ class CreateProfilesTable extends Migration
         Schema::create('profiles', function (Blueprint $attribute) {
             $attribute->id();
             $attribute->foreignId('user_id')->constrained()->onDelete('cascade');
-            $attribute->string('image_url')->nullable();
+            $attribute->string('image_path')->nullable();
             $attribute->string('post_code');
             $attribute->string('address');
             $attribute->string('building')->nullable();

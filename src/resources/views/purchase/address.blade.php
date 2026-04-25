@@ -6,7 +6,7 @@
 
     <form action="{{ route('purchase.address.update', $item_id) }}" method="POST" class="address-form">
         @csrf
-        @method('PUT')
+        @method('PATCH')
 
         <div class="form-group">
             <label class="form-label">郵便番号</label>

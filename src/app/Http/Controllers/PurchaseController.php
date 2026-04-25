@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Order;
 
 class PurchaseController extends Controller
 {
@@ -28,6 +29,30 @@ class PurchaseController extends Controller
      */
     public function store(Request $request, $item_id)
     {
-        // ここに決済処理などを書いていきます
+        $user = Auth::user();
+        $item = Item::findOrFail($item_id);
+
+        // 支払い方法が選択されているか確認
+        if (!$request->payment_method) {
+            return back()->with('error', '支払い方法を選択してください');
+        }
+
+        // すでに売れていないかチェック
+        if ($item->order) {
+            return back()->with('error', 'この商品はすでに売り切れています');
+        }
+
+        // 注文情報の保存
+        Order::create([
+            'user_id' => $user->id,
+            'item_id' => $item->id,
+            'payment_method' => $request->payment_method,
+            'post_code' => $user->profile->post_code,
+            'address' => $user->profile->address,
+            'building' => $user->profile->building,
+        ]);
+
+        // 購入完了後、商品一覧へ戻る
+        return redirect()->route('items.index')->with('success', '購入が完了しました');
     }
 }

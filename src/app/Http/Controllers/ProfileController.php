@@ -9,12 +9,24 @@ use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
-    /**
-     * PG09: プロフィール画面（マイページ）を表示
-     */
-    public function index()
+    public function index(Request $request)
     {
-        return view('profile.index');
+        /** @var \App\Models\User $user */
+        $user = Auth::user();
+
+        $page = $request->query('page', 'sell');
+
+        if ($page === 'buy') {
+            // 【購入した商品】
+            // 自分の注文(orders)に紐づく商品(item)をまとめて取得（Eager Loading）
+            $items = $user->orders()->with('item')->get()->pluck('item');
+        } else {
+            // 【出品した商品】
+            $items = $user->items;
+        }
+
+        // $user, $items, $page（現在のタブ判定用）をビューに渡す
+        return view('profile.index', compact('user', 'items', 'page'));
     }
 
     public function edit()
@@ -39,11 +51,11 @@ class ProfileController extends Controller
         $user->save();
 
         // 画像の保存処理
-        $imageUrl = $user->profile->image_url ?? null;
+        $imagePath = $user->profile->image_path ?? null;
 
         if ($request->hasFile('image')) {
             // public/profiles フォルダに画像を保存し、そのパスを取得
-            $imageUrl = $request->file('image')->store('profiles', 'public');
+            $imagePath = $request->file('image')->store('profiles', 'public');
         }
 
         // プロフィールの更新
@@ -53,7 +65,7 @@ class ProfileController extends Controller
                 'post_code' => $request->post_code,
                 'address' => $request->address,
                 'building' => $request->building,
-                'image_url' => $imageUrl,
+                'image_path' => $imagePath,
             ]
         );
 
@@ -66,8 +78,12 @@ class ProfileController extends Controller
      */
     public function editAddress($item_id)
     {
-        // 購入画面から渡ってきた $item_id を保持したままビューを返します
-        return view('purchase.address', compact('item_id'));
+        /** @var \App\Models\User $user */ //
+        $user = Auth::user();
+        // プロフィールが未作成の場合に備え、Eager Loadしておく
+        $user->load('profile');
+
+        return view('purchase.address', compact('user', 'item_id'));
     }
 
     /**
@@ -75,7 +91,20 @@ class ProfileController extends Controller
      */
     public function updateAddress(Request $request, $item_id)
     {
-        // ここに住所更新のロジックを後ほど実装します
-        // 更新後は購入画面に戻るなどの処理を予定
+        /** @var \App\Models\User $user */ //
+        $user = Auth::user();
+
+        // profilesテーブルを更新、または新規作成
+        $user->profile()->updateOrCreate(
+            ['user_id' => $user->id],
+            [
+                'post_code' => $request->post_code,
+                'address'   => $request->address,
+                'building'  => $request->building,
+            ]
+        );
+
+        // 更新後、その商品の購入画面に戻る
+        return redirect()->route('purchase.create', ['item_id' => $item_id]);
     }
 }

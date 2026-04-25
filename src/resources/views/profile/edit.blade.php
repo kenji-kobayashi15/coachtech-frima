@@ -19,11 +19,11 @@
         <div class="profile-image-section">
             <div class="image-preview-wrapper">
                 @php
-                $imageUrl = ($user->profile && $user->profile->image_url)
-                ? asset('storage/' . $user->profile->image_url)
+                $imagePath = ($user->profile && $user->profile->image_path)
+                ? asset('storage/' . $user->profile->image_path)
                 : asset('storage/default-icon.png');
                 @endphp
-                <img src="{{ $imageUrl }}" id="preview" class="image-preview">
+                <img src="{{ $imagePath }}" id="preview" class="image-preview">
             </div>
             <label class="btn-outline-primary">
                 画像を選択する

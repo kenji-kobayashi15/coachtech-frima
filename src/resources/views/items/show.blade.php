@@ -7,9 +7,9 @@
         {{-- 商品画像エリア --}}
         <div class="item-image-wrapper">
             @php
-            $imageSrc = str_starts_with($item->image_path, 'http')
-            ? $item->image_path
-            : asset('storage/' . $item->image_path);
+            $imageSrc = str_starts_with($item->image_url, 'http')
+            ? $item->image_url
+            : asset('storage/' . $item->image_url);
             @endphp
             <img src="{{ $imageSrc }}" alt="{{ $item->name }}" class="item-detail-img">
         </div>
@@ -34,7 +34,15 @@
                     @endauth
                 </div>
 
-                <a href="{{ route('purchase.create', $item->id) }}" class="btn-purchase">購入手続きへ</a>
+                {{-- 購入ボタンエリアの修正 --}}
+                <div class="action-button">
+                    {{-- すでに注文(order)が存在するかチェック --}}
+                    @if($item->order)
+                    <button class="btn-sold-out" disabled>SOLD OUT</button>
+                    @else
+                    <a href="{{ route('purchase.create', $item->id) }}" class="btn-purchase">購入手続きへ</a>
+                    @endif
+                </div>
             </div>
 
             <div class="detail-section">
@@ -64,7 +72,7 @@
             @foreach ($item->comments as $comment)
             <div class="comment-item">
                 <p class="comment-user">{{ $comment->user->name }}</p>
-                <p class="comment-content">{{ $comment->content }}</p>
+                <p class="comment-content">{{ $comment->comment }}</p>
             </div>
             @endforeach
         </div>
@@ -73,7 +81,7 @@
         <form action="{{ route('items.comment', $item->id) }}" method="POST" class="comment-form">
             @csrf
             <label class="form-label">商品へのコメント</label>
-            <textarea name="content" required class="form-textarea-small"></textarea>
+            <textarea name="comment" required class="form-textarea-small">{{ old('comment') }}</textarea>
             <button type="submit" class="btn-dark">コメントを送信する</button>
         </form>
         @endauth
