@@ -8,6 +8,11 @@
         <a href="{{ route('items.index', ['tab' => 'mylist']) }}" class="tab-link {{ request()->get('tab') == 'mylist' ? 'active' : '' }}">マイリスト</a>
     </div>
 
+    {{-- メッセージ表示部分 --}}
+    @if (session('success'))
+    <p>{{ session('success') }}</p>
+    @endif
+
     {{-- 商品一覧表示エリア --}}
     <div class="item-grid">
         @forelse ($items as $item)
