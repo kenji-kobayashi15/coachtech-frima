@@ -22,9 +22,14 @@
         {{-- カテゴリー --}}
         <div class="form-group mt-medium">
             <label class="form-label">カテゴリー</label>
-            <select name="category_id" class="form-select">
-                <option value="">選択してください</option>
-            </select>
+            <div class="category-group">
+                @foreach($categories as $category)
+                <label class="category-label">
+                    <input type="checkbox" name="category_ids[]" value="{{ $category->id }}">
+                    {{ $category->name }}
+                </label>
+                @endforeach
+            </div>
         </div>
 
         {{-- 商品の状態 --}}
@@ -32,6 +37,9 @@
             <label class="form-label">商品の状態</label>
             <select name="condition_id" class="form-select">
                 <option value="">選択してください</option>
+                @foreach($conditions as $condition)
+                <option value="{{ $condition->id }}">{{ $condition->name }}</option>
+                @endforeach
             </select>
         </div>
 
