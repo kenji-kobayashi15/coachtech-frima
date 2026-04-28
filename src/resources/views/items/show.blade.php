@@ -34,14 +34,27 @@
                     @endauth
                 </div>
 
-                {{-- 購入ボタンエリアの修正 --}}
+                {{-- 購入ボタンエリア --}}
                 <div class="action-button">
-                    {{-- すでに注文(order)が存在するかチェック --}}
+                    @auth
+                    @if(Auth::id() === $item->user_id)
+                    {{-- 1. ログインユーザーが出品者本人の場合 --}}
+                    <button disabled>自分が出品した商品です</button>
+                    @elseif($item->order)
+                    {{-- 2. 自分以外で、すでに売り切れている場合 --}}
+                    <button class="btn-sold-out" disabled>SOLD OUT</button>
+                    @else
+                    {{-- 3. 自分以外で、購入可能な場合 --}}
+                    <a href="{{ route('purchase.create', $item->id) }}" class="btn-purchase">購入手続きへ</a>
+                    @endif
+                    @else
+                    {{-- 4. 未ログインの場合 --}}
                     @if($item->order)
                     <button class="btn-sold-out" disabled>SOLD OUT</button>
                     @else
-                    <a href="{{ route('purchase.create', $item->id) }}" class="btn-purchase">購入手続きへ</a>
+                    <a href="{{ route('login') }}" class="btn-purchase">ログインして購入</a>
                     @endif
+                    @endauth
                 </div>
             </div>
 

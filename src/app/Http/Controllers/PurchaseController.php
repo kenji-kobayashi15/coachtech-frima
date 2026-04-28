@@ -17,6 +17,11 @@ class PurchaseController extends Controller
         // 1. URLの {item_id} を元に、データベースから商品情報を取得
         $item = Item::findOrFail($item_id);
 
+        // 出品者本人が購入画面に来た場合、詳細画面に戻す
+        if ($item->user_id === Auth::id()) {
+            return redirect()->route('items.show', $item->id);
+        }
+
         // 2. 現在ログインしているユーザー情報を取得（プロフィール画像や住所表示のため）
         $user = Auth::user();
 
