@@ -22,16 +22,31 @@
 
             {{-- アクションエリア（いいね・購入） --}}
             <div class="item-actions">
-                <div class="like-section">
-                    <p class="like-count">いいね数: {{ $item->likes->count() }}</p>
+                {{-- いいねエリア --}}
+                <div class="action-item">
                     @auth
+                    {{-- ログイン中：クリックで送信できるボタン形式 --}}
                     <form action="{{ route('items.like', $item->id) }}" method="POST">
                         @csrf
-                        <button type="submit" class="btn-like {{ $item->likes->contains('user_id', Auth::id()) ? 'is-liked' : '' }}">
-                            {{ $item->likes->contains('user_id', Auth::id()) ? '★ いいね解除' : '☆ いいね' }}
+                        <button type="submit">
+                            @if($item->likes->contains('user_id', Auth::id()))
+                            <img src="{{ asset('img/icon-heart_logo_pink.png') }}" alt="いいね済み">
+                            @else
+                            <img src="{{ asset('img/icon-heart_logo.png') }}" alt="いいね">
+                            @endif
                         </button>
                     </form>
+                    @else
+                    {{-- 未ログイン：画像のみ表示 --}}
+                    <img src="{{ asset('img/icon-heart_logo.png') }}" alt="いいね">
                     @endauth
+                    <p>{{ $item->likes->count() }}</p>
+                </div>
+
+                {{-- コメント件数エリア --}}
+                <div class="action-item">
+                    <img src="{{ asset('img/icon-comment_logo.png') }}" alt="コメント数">
+                    <p>{{ $item->comments->count() }}</p>
                 </div>
 
                 {{-- 購入ボタンエリア --}}
