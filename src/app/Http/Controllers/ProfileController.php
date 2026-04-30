@@ -53,6 +53,10 @@ class ProfileController extends Controller
         $user->name = $request->name;
         $user->save();
 
+        // 郵便番号の全角ハイフンや数字を半角に変換
+        $postCode = mb_convert_kana($request->post_code, 'as');
+        $postCode = str_replace(['ー', '－', '‐'], '-', $postCode);
+
         // 画像の保存処理
         $imagePath = $user->profile->image_path ?? null;
 
@@ -65,7 +69,7 @@ class ProfileController extends Controller
         Profile::updateOrCreate(
             ['user_id' => $user->id],
             [
-                'post_code' => $request->post_code,
+                'post_code' => $postCode,
                 'address' => $request->address,
                 'building' => $request->building,
                 'image_path' => $imagePath,
