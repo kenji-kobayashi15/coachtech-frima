@@ -42,12 +42,13 @@ class ItemController extends Controller
 
         // 2. 商品の保存
         $item = Item::create([
-            'user_id' => Auth::id(),
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
+            'user_id'      => Auth::id(),
+            'name'         => $request->name,
+            'brand'        => $request->brand,
+            'description'  => $request->description,
+            'price'        => $request->price,
             'condition_id' => $request->condition_id,
-            'image_url' => $imagePath,
+            'image_url'    => $imagePath,
         ]);
 
         // 3. カテゴリの紐付け（中間テーブル）
