@@ -31,7 +31,7 @@
             </label>
             {{-- 画像のエラー表示を追加 --}}
             @error('image')
-            <p class="error-message" style="color: red;">{{ $message }}</p>
+            <p class="error-message">{{ $message }}</p>
             @enderror
         </div>
 
@@ -40,7 +40,7 @@
             <label class="form-label">ユーザー名</label>
             <input type="text" name="name" value="{{ old('name', Auth::user()->name) }}" class="form-control">
             @error('name')
-            <p class="error-message" style="color: red;">{{ $message }}</p>
+            <p class="error-message">{{ $message }}</p>
             @enderror
         </div>
 
@@ -49,7 +49,7 @@
             <label class="form-label">郵便番号</label>
             <input type="text" name="post_code" value="{{ old('post_code', $profile->post_code ?? '') }}" class="form-control">
             @error('post_code')
-            <p class="error-message" style="color: red;">{{ $message }}</p>
+            <p class="error-message">{{ $message }}</p>
             @enderror
         </div>
 
@@ -59,7 +59,7 @@
             <label class="form-label">住所</label>
             <input type="text" name="address" value="{{ old('address', $profile->address ?? '') }}" class="form-control">
             @error('address')
-            <p class="error-message" style="color: red;">{{ $message }}</p>
+            <p class="error-message">{{ $message }}</p>
             @enderror
         </div>
 
