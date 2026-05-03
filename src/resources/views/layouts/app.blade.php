@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>coachtechフリマ</title>
+    <!-- 1. 基本設定 -->
+    <link rel="stylesheet" href="{{ asset('css/common.css') }}">
+    <!-- 2. 共通パーツ -->
+    <link rel="stylesheet" href="{{ asset('css/components.css') }}">
+    <!-- 3. バリデーション（エラー時用） -->
+    <link rel="stylesheet" href="{{ asset('css/validation.css') }}">
+    <!-- 4. 各画面固有 -->
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
 <body>

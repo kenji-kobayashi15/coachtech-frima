@@ -41,8 +41,6 @@ cd coachtech-frima
 
 ### 2. 環境設定ファイルの準備
 
-機密情報（DBパスワード等）は直接READMEに記載しないでください。必ず `.env.example` をコピーして設定を行ってください。
-
 ```bash
 cp src/.env.example src/.env
 ```
@@ -76,15 +74,6 @@ docker-compose exec php php artisan migrate
 docker-compose exec php php artisan db:seed
 ```
 
-### 6. フロントエンドアセットのビルド（必要に応じて）
-
-※ ローカル環境に Node.js がインストールされている場合
-
-```bash
-npm install
-npm run dev
-```
-
 ## ディレクトリ構造
 
 主要なディレクトリの構成は以下の通りです。
@@ -105,17 +94,3 @@ npm run dev
 │   └── tests/           # テストコード
 └── docker-compose.yml   # Docker Compose構成ファイル
 ```
-
-## テスト手順
-
-PHPUnitを使用してテストを実行します。
-
-```bash
-docker-compose exec php php artisan test
-```
-
-## 注意点
-
-- **環境設定**: 実際のDBパスワードやAPIキーなどの機密情報は、`.env` ファイルに記述してください。`.env` ファイルはGitの管理対象外（`.gitignore` に記載済み）としてください。
-- **ファイル権限**: `storage` および `bootstrap/cache` ディレクトリには、Webサーバーからの書き込み権限が必要です。
-# laravel-docker-template

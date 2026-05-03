@@ -1,0 +1,36 @@
+/* リセット・基本設定 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', "Noto Sans JP", sans-serif;
+    color: #333;
+    background-color: #fff;
+}
+
+/* 共通カラー変数 */
+:root {
+    --primary-red: #FF5555; /* image_fbf009より */
+    --header-bg: #000000;
+}
+
+/* 共通ヘッダー (auth-header) */
+.auth-header {
+    width: 100%;
+    height: 82px; /* image_fbf329より */
+    background-color: var(--header-bg);
+    display: flex;
+    align-items: center;
+    padding: 0 40px; /* ロゴの左余白などは現場で微調整 */
+}
+
+.header-logo {
+    /* ロゴ画像やテキストのスタイル */
+    color: #fff;
+    font-weight: bold;
+    font-size: 24px;
+    text-decoration: none;
+}
