@@ -16,11 +16,11 @@
 </head>
 
 <body>
-    <header>
+    <header class="auth-header">
         <div class="header-left">
             <a href="{{ route('items.index') }}">
                 {{-- ロゴ画像があればここに配置 --}}
-                <img src="{{ asset('img/coachtech-logo.png') }}" alt="COACHTECH" style="height: 40px;">
+                <img src="{{ asset('img/coachtech-logo.png') }}" alt="COACHTECH">
             </a>
         </div>
 

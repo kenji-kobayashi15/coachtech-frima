@@ -1,0 +1,21 @@
+/* --- エラーメッセージのテキストスタイル --- */
+.error-message {
+    color: var(--primary-red);
+    font-size: 14px;
+    margin-top: 4px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* --- 入力枠にエラーがある時のスタイル --- */
+/* 枠線を赤くし、少し太くすることで視認性を高めます */
+.is-invalid {
+    border: 2px solid var(--primary-red) !important;
+    background-color: #fff5f5;
+}
+
+/* --- (オプション) 成功時のスタイル --- */
+/* 「入力OK」のチェックを入れたい場合 */
+.is-valid {
+    border: 1px solid #28a745;
+}
