@@ -1,6 +1,10 @@
-/* --- 会員登録画面固有のスタイル (style.css) --- */
-/* コンテナ全体 */
-.auth-container {
+/* ==========================================================================
+   Register Page (会員登録画面) 専用スタイル
+   ========================================================================== */
+
+/* --- レイアウト・コンテナ --- */
+
+.register-page.auth-container {
     width: 100%;
     min-height: 100vh;
     background-color: #fff;
@@ -12,14 +16,14 @@
     padding-bottom: 80px;
 }
 
-/* 内側のコンテンツ */
-.auth-content {
+.register-page .auth-content {
     width: 680px;
     text-align: center;
 }
 
-/* ページタイトル  */
-.page-title {
+/* --- ページタイトル --- */
+
+.register-page .page-title {
     width: 144px;
     height: 47.58px;
     margin: 0 auto 30px;
@@ -27,94 +31,131 @@
     font-size: 36px;
     font-weight: 700;
     line-height: 47.58px;
-    letter-spacing: 0%;
-    text-align: center;
     color: rgba(0, 0, 0, 1);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* 各フォームグループの共通設定 */
-.form-group {
+/* --- フォーム共通ベース --- */
+
+.register-page .form-group {
     text-align: left;
     margin-bottom: 24px;
 }
 
-.form-label {
+/* ラベルの共通設定 */
+.register-page .form-label {
     display: block;
     width: 680px;
     font-family: "Inter", sans-serif;
     font-size: 24px;
     font-weight: 700;
-    color: #000000;
+    color: rgba(0, 0, 0, 1);
     margin-bottom: 10px;
 }
 
-/* ユーザー名、パスワード */
-label[for="name"],
-label[for="password"] {
-    height: 35px;
-    line-height: 35px;
-}
-/* メールアドレス、確認用パスワード */
-label[for="email"],
-label[for="password_confirmation"] {
-    height: 36px;
-    line-height: 36px;
-}
-
-/* 入力欄の基本設定（共通部分） */
-.form-control {
-    width: 100%;
-    padding: 0 16px;
-    border: 1px solid #5f5f5f;
+/* 入力欄の共通設定 */
+.register-page .form-control {
+    width: 680px;
+    border: 1px solid rgba(95, 95, 95, 1);
     border-radius: 4px;
     box-sizing: border-box;
+    padding: 0 16px;
     outline: none;
 }
 
-/* 各項目ごとの個別の高さ指定 */
-#name {
+/* --- 項目別の個別調整  --- */
+
+/* ラベル35px / 入力59px */
+.register-label--name,
+.register-label--password {
+    height: 35px;
+    line-height: 35px;
+}
+.register-input--name,
+.register-input--password {
     height: 59px;
 }
-#email {
+
+/* ラベル36px / 入力58px */
+.register-label--email,
+.register-label--password-confirmation {
+    height: 36px;
+    line-height: 36px;
+}
+.register-input--email,
+.register-input--password-confirmation {
     height: 58px;
 }
-#password {
-    height: 59px;
-}
-#password_confirmation {
-    height: 58px;
-}
+
+/* --- 5. ボタン・リンク --- */
 
 /* 登録ボタン */
-.btn-submit {
+.register-page .register-btn-submit {
     width: 680px;
     height: 65.25px;
-    background-color: #ff5555;
-    color: #fff;
+    background-color: rgba(255, 85, 85, 1);
     border: none;
     border-radius: 5px;
-    font-size: 20px;
-    font-weight: bold;
     cursor: pointer;
     margin-top: 40px;
+    /* テキスト設定 */
+    color: rgba(255, 255, 255, 1);
+    font-family: "Inter", sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* ログインはこちら */
-.auth-footer {
-    margin-top: 24px;
+.register-page .register-btn-submit:hover {
+    opacity: 0.9;
 }
 
-.auth-link {
-    color: #0073cc;
+/* フッターリンク */
+.register-page .register-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 257px;
+    height: 53.29px;
+    margin: 18px auto 0;
+    color: rgba(0, 115, 204, 1);
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400; /* Regular */
     text-decoration: none;
-    font-family: "Inter";
+}
+
+.register-page .register-link:hover {
+    text-decoration: underline;
+}
+
+/* --- ログインはこちら部分 --- */
+.register-page .register-link {
+    /* レイアウト */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 257px;
+    height: 53.29px; /* 小数点までFigma通りに */
+    margin: 18px auto 0; /* ボタンとの距離（計算上の余白） */
+
+    /* タイポグラフィ(文字部分) */
+    color: rgba(0, 115, 204, 1);
+    font-family: "Inter", sans-serif;
     font-size: 20px;
     font-weight: 400;
+    text-decoration: none;
+    text-align: center;
 }
 
+/* ホバー */
+.register-page .register-link:hover {
+    text-decoration: underline;
+}
 
 /* --- login画面style --- */
 /* 1. 全体の余白  */
@@ -149,4 +190,32 @@ label[for="password_confirmation"] {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+/* --- ログイン画面：フッターリンク--- */
+
+.login-page .auth-footer {
+    margin-top: 24px; /* ボタンとの距離 */
+}
+
+.login-page .auth-link {
+    /* レイアウト (image_f20b3f) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 257px;
+    height: 53.29px; /* Figmaの指定数値を直記 */
+    margin: 0 auto; /* 中央寄せ */
+
+    /* タイポグラフィ (image_f20b3f) */
+    font-family: "Inter", sans-serif;
+    font-size: 20px;
+    font-weight: 400; /* 重要：太さ400(Regular) */
+    line-height: 53.29px; /* 垂直中央配置のため高さと合わせる */
+    letter-spacing: 0%;
+    text-align: center;
+
+    /* カラー */
+    color: rgba(0, 115, 204, 1);
+    text-decoration: none; /* 下線なし（Figmaのスタイルに従う） */
 }

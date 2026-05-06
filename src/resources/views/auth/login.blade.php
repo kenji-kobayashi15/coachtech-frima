@@ -10,7 +10,7 @@
 
             <div class="form-group">
                 <label for="email" class="form-label">メールアドレス</label>
-                <input id="email" type="email" name="email" value="{{ old('email') }}" autofocus class="form-control">
+                <input id="email" type="email" name="email" value="{{ old('email') }}" autofocus class="form-control register-input--name">
                 @error('email')
                 <span class="error-message">{{ $message }}</span>
                 @enderror
