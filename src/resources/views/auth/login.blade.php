@@ -9,33 +9,28 @@
             @csrf
 
             <div class="form-group">
-                <label for="email" class="form-label">メールアドレス</label>
-                <input id="email" type="email" name="email" value="{{ old('email') }}" autofocus class="form-control register-input--name">
+                <label for="email" class="form-label login-label--email">メールアドレス</label>
+                <input id="email" type="email" name="email" value="{{ old('email') }}" autofocus class="form-control login-input--email">
                 @error('email')
                 <span class="error-message">{{ $message }}</span>
                 @enderror
             </div>
 
             <div class="form-group">
-                <label for="password" class="form-label">パスワード</label>
-                <input id="password" type="password" name="password" autocomplete="current-password" class="form-control">
+                <label for="password" class="form-label login-label--password">パスワード</label>
+                <input id="password" type="password" name="password" autocomplete="current-password" class="form-control login-input--password">
                 @error('password')
                 <span class="error-message">{{ $message }}</span>
                 @enderror
             </div>
 
-            <div class="form-group-checkbox">
-                <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }} class="form-checkbox">
-                <label for="remember" class="checkbox-label">ログイン情報を記憶する</label>
-            </div>
-
-            <div class="form-actions">
-                <button type="submit" class="btn-submit">ログインする</button>
+            <div class="form-actions login-form-actions">
+                <button type="submit" class="login-btn-submit">ログインする</button>
             </div>
         </form>
 
         <div class="auth-footer">
-            <a href="{{ route('register') }}" class="auth-link">会員登録はこちら</a>
+            <a href="{{ route('register') }}" class="login-link">会員登録はこちら</a>
         </div>
     </div>
 </div>

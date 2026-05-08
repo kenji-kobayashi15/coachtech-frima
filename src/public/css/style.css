@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Register Page (会員登録画面) 専用スタイル
+Register Page (会員登録画面) 専用スタイル
    ========================================================================== */
 
 /* --- レイアウト・コンテナ --- */
@@ -157,65 +157,130 @@
     text-decoration: underline;
 }
 
-/* --- login画面style --- */
-/* 1. 全体の余白  */
-.login-page {
+/* ==========================================================================
+Login Page (ログイン画面) 専用スタイル
+   ========================================================================== */
+/* --- 1. レイアウト・コンテナ--- */
+.login-page.auth-container {
+    width: 100%;
+    min-height: 100vh;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+
     padding-top: 200px;
+    padding-bottom: 80px;
 }
 
-/* 2. タイトルの高さ  */
+.login-page .login-content {
+    width: 680px; /* Figma: 幅 680px */
+    text-align: center;
+}
+
+/* --- 2. ページタイトル --- */
+
 .login-page .login-title {
+    width: 144px;
     height: 46.04px;
+    margin: 0 auto 24px;
+    font-family: "Inter", sans-serif;
+    font-size: 36px;
+    font-weight: 700;
     line-height: 46.04px;
-    margin-bottom: 24px;
-}
-
-/* 3. メールアドレスラベル  */
-.login-page label[for="email"] {
-    height: 33.86px;
-    line-height: 33.86px;
-}
-
-/* 4. パスワードラベル (image_e5bdb3) */
-.login-page label[for="password"] {
-    height: 34.83px;
-    line-height: 34.83px;
-}
-
-/* 5. ログインボタンの文字サイズ (image_e5489f) */
-.login-page .btn-submit {
-    font-size: 26px;
-    line-height: 34px;
-    background-color: rgba(255, 85, 85, 1);
+    color: rgba(0, 0, 0, 1);
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-/* --- ログイン画面：フッターリンク--- */
-
-.login-page .auth-footer {
-    margin-top: 24px; /* ボタンとの距離 */
+/* ラベル：メールアドレス */
+.login-page .login-label--email {
+    display: block;
+    width: 680px;
+    height: 33.86px;
+    line-height: 33.86px;
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 10px;
 }
 
-.login-page .auth-link {
-    /* レイアウト (image_f20b3f) */
+/* 入力欄：メールアドレス */
+.login-page .login-input--email {
+    width: 680px;
+    height: 57.09px;
+    border: 1px solid rgba(95, 95, 95, 1);
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 0 16px;
+    outline: none;
+}
+
+/* ラベル：パスワード  */
+.login-page .login-label--password {
+    display: block;
+    width: 680px;
+    height: 34.83px;
+    line-height: 34.83px;
+    font-family: "Inter", sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 1);
+    margin-bottom: 10px;
+}
+
+/* 入力欄：パスワード */
+.login-page .login-input--password {
+    width: 680px;
+    height: 56.12px;
+    border: 1px solid rgba(95, 95, 95, 1);
+    border-radius: 4px;
+    box-sizing: border-box;
+    padding: 0 16px;
+    outline: none;
+}
+
+/* --- ログインボタン --- */
+.login-page .login-btn-submit {
+    width: 680px;
+    height: 65.25px;
+    background-color: rgba(255, 85, 85, 1);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 40px;
+
+    /* タイポグラフィ */
+    color: rgba(255, 255, 255, 1);
+    font-family: "Inter", sans-serif;
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* --- Login: フッターリンク専用 --- */
+.login-page .login-link {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 257px;
-    height: 53.29px; /* Figmaの指定数値を直記 */
-    margin: 0 auto; /* 中央寄せ */
-
-    /* タイポグラフィ (image_f20b3f) */
+    height: 53.29px;
+    margin: 24px auto 0;
     font-family: "Inter", sans-serif;
     font-size: 20px;
-    font-weight: 400; /* 重要：太さ400(Regular) */
-    line-height: 53.29px; /* 垂直中央配置のため高さと合わせる */
-    letter-spacing: 0%;
-    text-align: center;
-
-    /* カラー */
+    font-weight: 400;      /* Regular */
     color: rgba(0, 115, 204, 1);
-    text-decoration: none; /* 下線なし（Figmaのスタイルに従う） */
+    text-decoration: none;
+    text-align: center;
+}
+
+.login-page .login-link:hover {
+    text-decoration: underline;
 }
