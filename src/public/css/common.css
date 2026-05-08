@@ -6,47 +6,158 @@
 }
 
 body {
-    font-family: 'Inter', "Noto Sans JP", sans-serif;
+    font-family: "Inter", "Noto Sans JP", sans-serif;
     color: #333;
     background-color: #fff;
+    min-width: 1400px;
 }
 
 /* 共通カラー変数 */
 :root {
-    --primary-red: #FF5555; /* image_fbf009より */
+    --primary-red: #ff5555;
     --header-bg: #000000;
 }
 
-/* 共通ヘッダー (auth-header) */
-.auth-header {
+/* フォームグループ部分 */
+.auth-container {
     width: 100%;
-    height: 82px;
-    background-color: #000;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 9999;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    padding: 0 25px;
+    margin: 0 auto;
 }
 
-.header-logo {
-    /* ロゴ画像やテキストのスタイル */
-    width: 370px;
-    height: 36.01px;
-    position: absolute;
-    top: 22px;
-    left: 25px;
-    display: flex;
-    color: rgba(255, 255, 255, 1);
-    font-weight: bold;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
+/* --- レスポンシブ　--- */
+@media screen and (min-width: 1400px) {
+    /* 共通ヘッダー (auth-header) */
+    .auth-header {
+        width: 100%;
+        height: 82px;
+        background-color: #000;
+        position: absolute;
+        top: 0;
+        left: 0%;
+        z-index: 9999;
+    }
 
-.header-logo img {
-    height: 100%;
-    width: auto;
+    .header-inner {
+        width: 100%;
+        max-width: 1515px;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .header-logo {
+        display: flex;
+        align-items: center;
+        margin-left: 40px;
+    }
+
+    .header-logo img {
+        width: 370px;
+        height: 36px;
+        object-fit: contain;
+    }
+
+    /* 検索エリア */
+    .header-search {
+        width: 563px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: none;
+        margin: 0 auto;
+    }
+
+    .header-search form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .header-search input {
+        width: 500px;
+        height: 50px;
+        background-color: #ffffff;
+        border-radius: 5px;
+        border: none;
+        outline: none;
+
+    /* タイポグラフィ設定 */
+        padding: 0 31px;
+        font-family: 'Inter', sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        color: #000000;
+    }
+
+    /* 「なにをお探しですか？」 */
+    .header-search input::placeholder {
+        color: rgba(0, 0, 0, 1);
+        text-align: left;
+    }
+
+    /* ナビゲーションエリア */
+    .header-nav {
+    width: 463px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 0;
+    }
+
+    .header-nav ul {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap: 0;
+        padding: 0;
+        margin: 0;
+    }
+
+    /* 2. ログアウト・マイページ共通  */
+    .header-nav a,
+    .header-nav button {
+        color: #ffffff;
+        font-family: 'Inter', sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        text-decoration: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 135px;
+        height: 47px;
+    }
+
+    /* 3. 出品ボタン */
+    .header-nav .btn-sell {
+        background-color: #ffffff;
+        color: #000000;
+        width: 100px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 4px;
+        font-family: 'Inter', sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+        margin-left: 21px;
+        transition: opacity 0.3s;
+    }
+
+    .header-nav .btn-sell:hover {
+        opacity: 0.8;
+    }
 }

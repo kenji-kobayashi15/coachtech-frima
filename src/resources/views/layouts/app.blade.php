@@ -17,42 +17,43 @@
 
 <body>
     <header class="auth-header">
-        <div class="header-left">
-            <a href="{{ route('items.index') }}">
-                {{-- ロゴ画像があればここに配置 --}}
-                <img src="{{ asset('img/coachtech-logo.png') }}" alt="COACHTECH">
-            </a>
-        </div>
+        <div class="header-inner">
+            <div class="header-logo">
+                <a href="{{ route('items.index') }}">
+                    <img src="{{ asset('img/coachtech-logo.png') }}" alt="COACHTECH">
+                </a>
+            </div>
 
-        <div class="header-center">
-            <!-- loginとregisterの時は表示させない -->
-            @if (!Route::is('login') && !Route::is('register'))
-            <form action="{{ route('items.index') }}" method="GET">
-                <input type="text" name="keyword" placeholder="なにをお探しですか？">
-            </form>
-            @endif
-        </div>
 
-        <nav class="header-right">
-            <ul>
+            <div class="header-search">
+                <!-- loginとregisterの時は表示させない -->
                 @if (!Route::is('login') && !Route::is('register'))
-                @auth
-                <li>
-                    <form action="{{ route('logout') }}" method="POST">
-                        @csrf
-                        <button type="submit">ログアウト</button>
-                    </form>
-                </li>
-                <li><a href="{{ route('mypage') }}">マイページ</a></li>
-                <li><a href="{{ route('items.create') }}">出品</a></li>
-                @else
-                <li><a href="{{ route('login') }}">ログイン</a></li>
-                <li><a href="{{ route('register') }}">マイページ</a></li>
-                <li><a href="{{ route('items.create') }}">出品</a></li>
-                @endauth
+                <form action="{{ route('items.index') }}" method="GET">
+                    <input type="text" name="keyword" placeholder="なにをお探しですか？">
+                </form>
                 @endif
-            </ul>
-        </nav>
+            </div>
+            <nav class="header-nav">
+                <ul>
+                    @if (!Route::is('login') && !Route::is('register'))
+                    @auth
+                    <li>
+                        <form action="{{ route('logout') }}" method="POST">
+                            @csrf
+                            <button type="submit">ログアウト</button>
+                        </form>
+                    </li>
+                    <li><a href="{{ route('mypage') }}">マイページ</a></li>
+                    <li><a href="{{ route('items.create') }}">出品</a></li>
+                    @else
+                    <li><a href="{{ route('login') }}">ログイン</a></li>
+                    <li><a href="{{ route('register') }}">マイページ</a></li>
+                    <li><a href="{{ route('items.create') }}" class="btn-sell">出品</a></li>
+                    @endauth
+                    @endif
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main>
