@@ -29,7 +29,7 @@
                 <!-- loginとregisterの時は表示させない -->
                 @if (!Route::is('login') && !Route::is('register'))
                 <form action="{{ route('items.index') }}" method="GET">
-                    <input type="text" name="keyword" placeholder="なにをお探しですか？">
+                    <input type="text" name="keyword" placeholder="なにをお探しですか？" value="{{ request('keyword') }}">
                 </form>
                 @endif
             </div>

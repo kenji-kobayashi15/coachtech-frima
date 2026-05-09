@@ -48,4 +48,15 @@ class Item extends Model
     {
         return $this->hasOne(Order::class);
     }
+
+    /**
+     * 商品名によるキーワード検索スコープ
+     */
+    public function scopeKeywordSearch($query, $keyword)
+    {
+        if (!empty($keyword)) {
+            $query->where('name', 'LIKE', "%{$keyword}%");
+        }
+        return $query;
+    }
 }

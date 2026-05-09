@@ -11,10 +11,24 @@ use Illuminate\Support\Facades\Auth;
 
 class ItemController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $items = Item::with('order')->get();
-        return view('items.index', compact('items'));
+        $keyword = $request->input('keyword');
+
+        // クエリビルダの開始
+        $query = Item::with('order');
+
+        // 検索キーワードがある場合、部分一致検索を実行
+        $query->keywordSearch($keyword);
+
+        // ログインしている場合、自分が出品した商品を除外
+        if (Auth::check()) {
+            $query->where('user_id', '!=', Auth::id());
+        }
+
+        $items = $query->get();
+
+        return view('items.index', compact('items', 'keyword'));
     }
 
     public function show($item_id)

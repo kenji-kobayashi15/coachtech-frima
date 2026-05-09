@@ -1,54 +1,57 @@
 @media screen and (min-width: 1400px) {
-    /* ---------------------------------------------------------
-    Register Page (会員登録画面)
-    --------------------------------------------------------- */
+    /* ==========================================================================
+    1. Auth Pages 共通スタイル (Register & Login)
+       ========================================================================== */
 
-    .register-page.auth-container {
-        padding-top: 178px;
+    /* コンテナの基本設定 */
+    .register-page.auth-container,
+    .login-page.auth-container {
         padding-bottom: 80px;
     }
 
-    .register-page .auth-content {
+    /* コンテンツの幅680px */
+    .register-page .auth-content,
+    .login-page .login-content {
         width: 680px;
         text-align: center;
     }
 
-    /* --- ページタイトル --- */
-
-    .register-page .page-title {
+    /* ページタイトル共通 */
+    .register-page .page-title,
+    .login-page .login-title {
         width: 144px;
-        height: 47.58px;
-        margin: 0 auto 30px;
+        margin: 0 auto;
         font-family: "Inter", sans-serif;
         font-size: 36px;
         font-weight: 700;
-        line-height: 47.58px;
-        color: rgba(0, 0, 0, 1);
+        color: #000;
         display: flex;
         align-items: center;
         justify-content: center;
     }
 
-    /* --- フォーム共通ベース --- */
-
-    .register-page .form-group {
+    /* フォームグループ共通 */
+    .register-page .form-group,
+    .login-page .form-group {
         text-align: left;
         margin-bottom: 24px;
     }
 
-    /* ラベルの共通設定 */
-    .register-page .form-label {
+    /* ラベル共通 */
+    .register-page .form-label,
+    .login-page [class*="label--"] {
         display: block;
         width: 680px;
         font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 700;
-        color: rgba(0, 0, 0, 1);
+        color: #000;
         margin-bottom: 10px;
     }
 
-    /* 入力欄の共通設定 */
-    .register-page .form-control {
+    /* 入力欄共通 */
+    .register-page .form-control,
+    .login-page [class*="input--"] {
         width: 680px;
         border: 1px solid rgba(95, 95, 95, 1);
         border-radius: 4px;
@@ -57,9 +60,67 @@
         outline: none;
     }
 
-    /* --- 各項目別スタイル  --- */
+    /* 送信ボタン共通 */
+    .register-btn-submit,
+    .login-btn-submit {
+        width: 680px;
+        height: 65.25px;
+        background-color: rgba(255, 85, 85, 1);
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 40px;
+        color: #fff;
+        font-family: "Inter", sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.3s;
+    }
 
-    /* ラベル35px / 入力59px */
+    .register-btn-submit:hover,
+    .login-btn-submit:hover {
+        opacity: 0.9;
+    }
+
+    /* 下部リンク共通 */
+    .register-link,
+    .login-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 257px;
+        height: 53.29px;
+        margin: 18px auto 0;
+        color: rgba(0, 115, 204, 1);
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        text-decoration: none;
+        text-align: center;
+    }
+
+    .register-link:hover,
+    .login-link:hover {
+        text-decoration: underline;
+    }
+
+    /* ==========================================================================
+    2. 各画面 固有数値
+       ========================================================================== */
+
+    /* --- 会員登録固有 --- */
+    .register-page.auth-container {
+        padding-top: 178px;
+    }
+    .register-page .page-title {
+        height: 47.58px;
+        line-height: 47.58px;
+        margin-bottom: 30px;
+    }
+
     .register-label--name,
     .register-label--password {
         height: 35px;
@@ -69,8 +130,6 @@
     .register-input--password {
         height: 59px;
     }
-
-    /* ラベル36px / 入力58px */
     .register-label--email,
     .register-label--password-confirmation {
         height: 36px;
@@ -81,189 +140,31 @@
         height: 58px;
     }
 
-    /* 登録ボタン */
-    .register-page .register-btn-submit {
-        width: 680px;
-        height: 65.25px;
-        background-color: rgba(255, 85, 85, 1);
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 40px;
-        /* テキスト設定 */
-        color: rgba(255, 255, 255, 1);
-        font-family: "Inter", sans-serif;
-        font-size: 26px;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .register-page .register-btn-submit:hover {
-        opacity: 0.9;
-    }
-
-    /* フッターリンク */
-    .register-page .register-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 257px;
-        height: 53.29px;
-        margin: 18px auto 0;
-        color: rgba(0, 115, 204, 1);
-        font-family: "Inter", sans-serif;
-        font-size: 20px;
-        font-weight: 400; /* Regular */
-        text-decoration: none;
-    }
-
-    .register-page .register-link:hover {
-        text-decoration: underline;
-    }
-
-    /* --- ログインはこちら部分 --- */
-    .register-page .register-link {
-        /* レイアウト */
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 257px;
-        height: 53.29px; /* 小数点までFigma通りに */
-        margin: 18px auto 0; /* ボタンとの距離（計算上の余白） */
-
-        /* タイポグラフィ(文字部分) */
-        color: rgba(0, 115, 204, 1);
-        font-family: "Inter", sans-serif;
-        font-size: 20px;
-        font-weight: 400;
-        text-decoration: none;
-        text-align: center;
-    }
-
-    /* ホバー */
-    .register-page .register-link:hover {
-        text-decoration: underline;
-    }
-
-    /* ==========================================================================
-Login Page (ログイン画面) 専用スタイル
-   ========================================================================== */
-    /* --- 1. レイアウト・コンテナ--- */
+    /* --- ログイン固有 --- */
     .login-page.auth-container {
         padding-top: 200px;
-        padding-bottom: 80px;
     }
-
-    .login-page .login-content {
-        width: 680px;
-        text-align: center;
-    }
-
-    /* --- 2. ページタイトル --- */
-
     .login-page .login-title {
-        width: 144px;
         height: 46.04px;
-        margin: 0 auto 24px;
-        font-family: "Inter", sans-serif;
-        font-size: 36px;
-        font-weight: 700;
         line-height: 46.04px;
-        color: rgba(0, 0, 0, 1);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        margin-bottom: 24px;
     }
+    .login-page .login-link {
+        margin-top: 24px;
+    } /* ログイン側は24px */
 
-    /* ラベル：メールアドレス */
-    .login-page .login-label--email {
-        display: block;
-        width: 680px;
+    .login-label--email {
         height: 33.86px;
         line-height: 33.86px;
-        font-family: "Inter", sans-serif;
-        font-size: 24px;
-        font-weight: 700;
-        color: rgba(0, 0, 0, 1);
-        margin-bottom: 10px;
     }
-
-    /* 入力欄：メールアドレス */
-    .login-page .login-input--email {
-        width: 680px;
+    .login-input--email {
         height: 57.09px;
-        border: 1px solid rgba(95, 95, 95, 1);
-        border-radius: 4px;
-        box-sizing: border-box;
-        padding: 0 16px;
-        outline: none;
     }
-
-    /* ラベル：パスワード  */
     .login-page .login-label--password {
-        display: block;
-        width: 680px;
         height: 34.83px;
         line-height: 34.83px;
-        font-family: "Inter", sans-serif;
-        font-size: 24px;
-        font-weight: 700;
-        color: rgba(0, 0, 0, 1);
-        margin-bottom: 10px;
     }
-
-    /* 入力欄：パスワード */
     .login-page .login-input--password {
-        width: 680px;
         height: 56.12px;
-        border: 1px solid rgba(95, 95, 95, 1);
-        border-radius: 4px;
-        box-sizing: border-box;
-        padding: 0 16px;
-        outline: none;
-    }
-
-    /* --- ログインボタン --- */
-    .login-page .login-btn-submit {
-        width: 680px;
-        height: 65.25px;
-        background-color: rgba(255, 85, 85, 1);
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        margin-top: 40px;
-
-        /* タイポグラフィ */
-        color: rgba(255, 255, 255, 1);
-        font-family: "Inter", sans-serif;
-        font-size: 26px;
-        font-weight: 700;
-        line-height: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-
-    /* --- Login: フッターリンク専用 --- */
-    .login-page .login-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 257px;
-        height: 53.29px;
-        margin: 24px auto 0;
-        font-family: "Inter", sans-serif;
-        font-size: 20px;
-        font-weight: 400; /* Regular */
-        color: rgba(0, 115, 204, 1);
-        text-decoration: none;
-        text-align: center;
-    }
-
-    .login-page .login-link:hover {
-        text-decoration: underline;
     }
 }
