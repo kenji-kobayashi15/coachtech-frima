@@ -167,4 +167,414 @@
     .login-page .login-input--password {
         height: 56.12px;
     }
+    /* ==========================================================================
+    items/index「マイリスト」「おすすめ」
+       ========================================================================== */
+    .main-tabs {
+        width: 100%;
+        height: 47px;
+        margin-top: 120px;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .tabs-inner {
+        width: 100%;
+        max-width: 1512px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        padding-left: 129px;
+    }
+
+    /* 共通：選択されていない方はグレー */
+    .tab-link {
+        width: 155px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 24px;
+        font-weight: 700;
+        color: rgba(95, 95, 95, 1);
+    }
+
+    /* 選択されている方だけ赤く*/
+    .tab-link.is-active {
+        color: rgba(255, 0, 0, 1);
+    }
+
+    /* タブの間隔 */
+    .tab-link + .tab-link {
+        margin-left: 52px;
+    }
+    /* ==========================================================================
+    items/index item-card
+       ========================================================================== */
+    /* 親要素 home-container */
+    .home-container {
+        width: 100%;
+        max-width: 1512px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    /* 商品グリッド全体*/
+    .item-grid {
+        display: grid;
+        width: 1013.01px;
+        margin-left: 69px;
+        margin-top: 76px;
+        margin-bottom: 80px;
+        grid-template-columns: repeat(3, 290px);
+        justify-content: space-between;
+        row-gap: 40px;
+    }
+
+    /* 商品カード本体 */
+    .item-card {
+        width: 290px;
+    }
+
+    .item-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    /* 商品画像部分 */
+    .item-thumbnail-wrapper {
+        width: 290px;
+        height: 290px;
+        position: relative;
+        background-color: #f0f0f0;
+        overflow: hidden;
+    }
+
+    .item-thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* 商品名 (image_ba1b1e) */
+    .item-body {
+        margin-top: 10px;
+    }
+
+    .item-name {
+        width: 290px;
+        height: 30px;
+        line-height: 30px;
+        font-family: "Inter", sans-serif;
+        font-size: 25px;
+        font-weight: 400;
+        color: #000;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    /* SOLDバッジ */
+    .sold-badge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(255, 0, 0, 0.8);
+        color: #fff;
+        padding: 5px 10px;
+        font-weight: bold;
+    }
+}
+/* ==========================================================================
+profile/index プロフィール画面
+========================================================================== */
+@media screen and (min-width: 1400px) {
+    /*  マイページ全体のコンテナ */
+    .mypage-container {
+        width: 100%;
+        max-width: 1512px;
+        margin: 0 auto;
+        padding-top: 158px;
+    }
+
+    /*  プロフィールヘッダーエリア */
+    .profile-header {
+        display: flex;
+        align-items: center;
+        width: 1017px;
+        height: 150px;
+        margin-left: 299px;
+    }
+
+    /* ユーザーアイコンの器 */
+    .user-icon-wrapper {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: 48px;
+    }
+
+    .user-icon-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* ユーザー名 */
+    .user-name {
+        font-family: "Inter", sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        margin-right: auto;
+    }
+
+    /* プロフィール編集ボタン  */
+    .edit-profile-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 250px;
+        height: 50px;
+        border: 2px solid rgba(255, 85, 85, 1);
+        border-radius: 4px;
+        background-color: transparent;
+        color: rgba(255, 85, 85, 1);
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+
+    .edit-profile-btn:hover {
+        background-color: rgba(255, 85, 85, 1);
+        color: #fff;
+    }
+
+    /* タブ全体の親 */
+    .profile-tabs {
+        width: 100%;
+        height: 47px;
+        border-bottom: 2px solid rgba(95, 95, 95, 1);
+        margin-top: 80px;
+    }
+
+    /* 内枠：1512pxの中で文字の位置を固定 */
+    .profile-tabs .tabs-inner {
+        width: 100%;
+        max-width: 1512px;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        padding-left: 129px;
+    }
+
+    /* 各タブの共通スタイル */
+    .tab-item {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-family: "Inter", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: rgba(95, 95, 95, 1);
+        transition: color 0.3s;
+        margin-right: 52px;
+    }
+
+    /* 文字選択時少し赤みを帯びるスタイル */
+    .tab-item:hover {
+        color: rgba(255, 0, 0, 0.7);
+    }
+
+    /* 選択中のスタイル */
+    .tab-item.is-active {
+        color: rgba(255, 0, 0, 1);
+    }
+
+    /* マイページ専用のグリッド設定 */
+    .mypage-container .item-grid {
+        width: 1374.52px;
+        margin-left: 69px;
+        margin-top: 59px;
+        display: grid;
+        /* カードを4列 */
+        grid-template-columns: repeat(4, 290px);
+        justify-content: space-between;
+        row-gap: 40px;
+        margin-bottom: 80px;
+    }
+}
+/* ==========================================================================
+profile/edit プロフィール画面
+========================================================================== */
+@media screen and (min-width: 1400px) {
+    /* 1. 初回ログイン時のプロフィール設定画面全体コンテナ */
+    .profile-edit-container {
+        width: 100%;
+        max-width: 680px;
+        margin: 0 auto;
+        padding-top: 139px;
+        min-height: 1229px;
+    }
+
+    /* 初回ログインページ（タイトル） */
+    .page-title {
+        width: 100%;
+        height: 47px;
+        margin-left: 0px;
+        /* タイポグラフィ */
+        font-family: "Inter", sans-serif;
+        font-size: 36px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 1);
+        line-height: 100%;
+        text-align: center;
+        margin-bottom: 60px;
+    }
+
+    /* プロフィール画像 親コンテナ */
+    .profile-image-section {
+        width: 100%;
+        margin: 47px auto 48px;
+        text-align: center;
+    }
+
+    /* 中のグループ */
+    .profile-image-flex {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 50px;
+        margin-bottom: 10px;
+    }
+
+    /* 画像プレビュー */
+    .image-preview-wrapper {
+        width: 150px;
+        height: 150px;
+        flex-shrink: 0;
+        background-color: rgba(217, 217, 217, 1);
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    .image-preview {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* 画像を選択するボタン */
+    .profile-image-section .btn-outline-primary {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 179px;
+        height: 49px;
+        flex-shrink: 0;
+        border: 2px solid rgba(255, 85, 85, 1);
+        border-radius: 10px;
+        background-color: transparent;
+        color: rgba(255, 85, 85, 1);
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 700;
+        transition: all 0.3s;
+    }
+
+    /* 実際の input[type="file"] は隠す */
+    .file-input {
+        display: none;
+    }
+
+    .profile-image-section .btn-outline-primary:hover {
+        background-color: rgba(255, 85, 85, 1);
+        color: #fff;
+    }
+
+    /* 1. 各入力グループの間隔設定 */
+    .form-group {
+        width: 680px;
+        margin-bottom: 62px;
+    }
+
+    /* 2. ラベルの微調整 */
+    .profile-edit-container .form-label {
+        display: block;
+        width: 100%;
+        height: 36px;
+        font-family: "Inter", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 1px;
+    }
+
+    /* 3. 入力欄本体 */
+    .profile-edit-container .form-control {
+        width: 100%;
+        height: 55px;
+        background-color: #fff;
+        border: 1px solid rgba(95, 95, 95, 1);
+        border-radius: 4px;
+        padding: 0 16px;
+        font-family: "Inter", sans-serif;
+        font-size: 18px;
+        color: #000;
+        outline: none;
+    }
+
+    /* フォーカス時に少し色を変える */
+    .profile-edit-container .form-control:focus {
+        border-color: rgba(255, 85, 85, 1);
+    }
+
+    /* 建物名の下余白 */
+    .mb-large {
+        margin-bottom: 100px;
+    }
+
+    /* 更新するボタン本体*/
+    .btn-submit {
+        width: 680px;
+        height: 60px;
+
+        margin-top: 67px;
+        margin-bottom: 100px;
+
+        /* 背景とボーダー */
+        background-color: rgba(255, 85, 85, 1);
+        border: none;
+        border-radius: 4px;
+
+        /* タイポグラフィ  */
+        color: rgba(255, 255, 255, 1);
+        font-family: "Inter", sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+
+        /* 中央寄せ */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    /* ホバー演出 */
+    .btn-submit:hover {
+        background-color: rgba(220, 60, 60, 1);
+    }
+
+    /* ボタンクリック感 */
+    .btn-submit:active {
+        transform: translateY(2px);
+    }
 }

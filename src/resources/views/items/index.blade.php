@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="home-container">
     {{-- タブ切り替え部分 --}}
     <div class="main-tabs">
-        <a href="{{ route('items.index') }}" class="tab-link {{ !request()->get('tab') ? 'active' : '' }}">おすすめ</a>
-        <a href="{{ route('items.index', ['tab' => 'mylist']) }}" class="tab-link {{ request()->get('tab') == 'mylist' ? 'active' : '' }}">マイリスト</a>
+        <div class="tabs-inner">
+        <a href="{{ route('items.index') }}" class="tab-link {{ !request()->get('tab') ? 'is-active' : '' }}">おすすめ</a>
+        <a href="{{ route('items.index', ['tab' => 'mylist']) }}" class="tab-link {{ request()->get('tab') == 'mylist' ? 'is-active' : '' }}">マイリスト</a>
+        </div>
     </div>
-
+<div class="home-container">
     {{-- メッセージ表示部分 --}}
     @if (session('success'))
     <p>{{ session('success') }}</p>

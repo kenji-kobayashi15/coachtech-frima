@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 
-<body>
+<body class="@yield('page-class')">
     <header class="auth-header">
         <div class="header-inner">
             <div class="header-logo">

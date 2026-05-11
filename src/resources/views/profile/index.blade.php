@@ -18,12 +18,14 @@
 
     {{-- タブ切り替え --}}
     <div class="profile-tabs">
-        <a href="{{ route('mypage', ['page' => 'sell']) }}" class="tab-item {{ $page === 'sell' ? 'active' : '' }}">
-            出品した商品
-        </a>
-        <a href="{{ route('mypage', ['page' => 'buy']) }}" class="tab-item {{ $page === 'buy' ? 'active' : '' }}">
-            購入した商品
-        </a>
+        <div class="tabs-inner">
+            <a href="{{ route('mypage', ['page' => 'sell']) }}" class="tab-item {{ $page === 'sell' ? 'is-active' : '' }}">
+                出品した商品
+            </a>
+            <a href="{{ route('mypage', ['page' => 'buy']) }}" class="tab-item {{ $page === 'buy' ? 'is-active' : '' }}">
+                購入した商品
+            </a>
+        </div>
     </div>
 
     {{-- 商品一覧表示 --}}
@@ -54,5 +56,5 @@
         <p class="empty-message">該当する商品がありません</p>
         @endforelse
     </div>
-    </div>
-    @endsection
+</div>
+@endsection

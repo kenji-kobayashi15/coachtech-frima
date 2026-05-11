@@ -42,13 +42,19 @@ body {
 
     .header-inner {
         width: 100%;
-        max-width: 1515px;
+        max-width: 1513px;
         height: 100%;
         margin: 0 auto;
         display: flex;
         align-items: center;
         justify-content: space-between;
         position: relative;
+    }
+
+    /* Login画面とRegister画面1515px  */
+    .login-page .header-inner,
+    .register-page .header-inner {
+        max-width: 1515px;
     }
 
     .header-logo {

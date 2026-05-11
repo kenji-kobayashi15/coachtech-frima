@@ -17,18 +17,20 @@
 
         {{-- プロフィール画像設定 --}}
         <div class="profile-image-section">
-            <div class="image-preview-wrapper">
-                @php
-                $imagePath = ($user->profile && $user->profile->image_path)
-                ? asset('storage/' . $user->profile->image_path)
-                : asset('storage/default-icon.png');
-                @endphp
-                <img src="{{ $imagePath }}" id="preview" class="image-preview">
+            <div class="profile-image-flex">
+                <div class="image-preview-wrapper">
+                    @php
+                    $imagePath = ($user->profile && $user->profile->image_path)
+                    ? asset('storage/' . $user->profile->image_path)
+                    : asset('storage/default-icon.png');
+                    @endphp
+                    <img src="{{ $imagePath }}" id="preview" class="image-preview">
+                </div>
+                <label class="btn-outline-primary">
+                    画像を選択する
+                    <input type="file" name="image" class="file-input" onchange="previewImage(this);">
+                </label>
             </div>
-            <label class="btn-outline-primary">
-                画像を選択する
-                <input type="file" name="image" class="file-input" onchange="previewImage(this);">
-            </label>
             {{-- 画像のエラー表示を追加 --}}
             @error('image')
             <p class="error-message">{{ $message }}</p>
