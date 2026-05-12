@@ -1,6 +1,6 @@
 @media screen and (min-width: 1400px) {
     /* ==========================================================================
-    1. Auth Pages 共通スタイル (Register & Login)
+    1. Auth Pages 共通スタイル (Register & Login & verify)
        ========================================================================== */
 
     /* コンテナの基本設定 */
@@ -167,6 +167,64 @@
     .login-page .login-input--password {
         height: 56.12px;
     }
+    /* ==========================================================================
+    3. verify-email
+       ========================================================================== */
+    .verify-email-container {
+        width: 100%;
+        max-width: 1512px;
+        margin: 0 auto;
+        padding-top: 319px;
+        text-align: center;
+    }
+
+    /* メッセージテキスト (image_fefff5) */
+    .verify-text {
+        font-family: "Inter", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 1);
+        line-height: 1.5;
+        margin-bottom: 5px;
+    }
+
+    /* 認証ボタン */
+    .verify-btn-main {
+        width: 257px;
+        height: 69px;
+        margin: 61px auto 0;
+        background-color: rgba(217, 217, 217, 1);
+        border: 1px solid rgba(0, 0, 0, 1);
+        border-radius: 10px;
+        font-family: "Inter", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 1);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* 再送リンク */
+    .verify-link-resend {
+        background: none;
+        border: none;
+        width: 257px;
+        height: 53.29px;
+        margin-top: 52px;
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: rgba(0, 115, 204, 1);
+        cursor: pointer;
+        text-align: center;
+    }
+
+    .verify-link-resend:hover {
+        text-decoration: underline;
+    }
+
     /* ==========================================================================
     items/index「マイリスト」「おすすめ」
        ========================================================================== */
@@ -576,5 +634,464 @@ profile/edit プロフィール画面
     /* ボタンクリック感 */
     .btn-submit:active {
         transform: translateY(2px);
+    }
+}
+
+/* ==========================================================================
+ITEM DETAIL - 商品詳細画面 (show.blade.php)
+========================================================================== */
+@media screen and (min-width: 1400px) {
+    .item-detail-container {
+        width: 1380px;
+        margin: 0 auto;
+        padding-top: 175px;
+        min-height: 1702px;
+    }
+
+    /* 画像と情報のレイアウト枠 */
+    .item-detail__main {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    /* 左カラム：幅を690px（画像専用空間） */
+    .item-detail__left-col {
+        width: 690px;
+        flex: 0 0 690px;
+        min-height: 1704.4px;
+    }
+
+    /* 右カラム：幅を690px（情報＆コメント空間） */
+    .item-detail__right-col {
+        width: 690px;
+        flex: 0 0 690px;
+        min-height: 1704.4px;
+    }
+
+    /* 2. 商品画像 */
+    .item-detail__left-col .item-detail-img {
+        width: 600px;
+        height: 600px;
+        object-fit: cover;
+        margin-top: 36px;
+        margin-left: 45px;
+        display: block;
+        max-width: 600px;
+    }
+
+    .item-detail__right-col .item-detail__title-box {
+        width: 570px;
+        margin-left: 65px;
+        margin-top: 36px;
+    }
+
+    /* 商品名 */
+    .item-detail__title {
+        width: 570px;
+        height: 77px;
+        font-family: "Inter", sans-serif;
+        font-size: 45px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 1);
+        line-height: 1;
+        margin-bottom: 0;
+    }
+
+    /* ブランド名  */
+    .item-detail__brand {
+        width: 570px;
+        height: 28px;
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: rgba(0, 0, 0, 1);
+        line-height: 1;
+        margin-top: 0;
+        margin-bottom: 28px;
+    }
+
+    /* 価格表示全体 */
+    .item-detail__price-large {
+        width: 570px;
+        height: 45px;
+        font-family: "Inter", sans-serif;
+        font-size: 30px;
+        font-weight: 400;
+        color: rgba(0, 0, 0, 1);
+        line-height: 1;
+        display: flex;
+        align-items: baseline;
+    }
+
+    /* Blade側で価格を <span> で囲む必要があります */
+    .item-detail__price-large .price-number {
+        font-size: 45px; /* Figma: span(47,000) 45px */
+        font-weight: 400;
+        margin-right: 4px; /* 税込との間の微調整 */
+    }
+
+    /* アクションエリア全体の枠 (image_d52dd4) */
+    .item-detail__actions {
+        width: 144px; /* Figma: 幅 144px */
+        height: 67px; /* Figma: 高さ 67px */
+        margin-top: 28px; /* 上206px - (価格178px) = 28px */
+        margin-left: 45px; /* 画像の左余白と揃える */
+    }
+
+    /* 横並び */
+    .item-detail__status-group {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 60px;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* いいね・コメントそれぞれの縦並びの箱 (image_d4b938 / image_d4d078) */
+    .item-detail__like-item,
+    .item-detail__comment-item {
+        width: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    /* アイコン共通スタイル */
+    .item-detail__icon-btn img,
+    .item-detail__comment-item > img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+    }
+
+    /* カウント数字共通スタイル (image_d4b669 / image_d4d017) */
+    .item-like__count,
+    .item-comments__count {
+        width: auto; /* 桁数が増えてもいいように auto に */
+        height: 22px; /* Figma: 22px */
+        margin-top: 5px; /* アイコンとの隙間 */
+        font-family: "Inter", sans-serif;
+        font-size: 18px; /* Figma: 18px */
+        font-weight: 700; /* Figma: Bold */
+        color: rgba(0, 0, 0, 1);
+        line-height: 1;
+        text-align: center;
+        display: block;
+    }
+
+    /* 1. 購入ボタンを包むラッパー (image_d453fc) */
+    .item-detail__right-col .item-detail__buy-wrapper {
+        width: 570px; /* Figma: 幅 570px */
+        height: 100px; /* Figma: 高さ 100px */
+        margin-left: 65px; /* Figma: 左 65px (タイトル等と揃える) */
+        margin-top: 0; /* 273px(ボタン位置) - 206px(アクションエリア位置) = 67px */
+        padding-top: 22px; /* image_d45075: ボタンの上の余白 22px */
+    }
+
+    /* 2. ボタン自体の基本スタイル (image_d45075 / image_d44d4c) */
+    .item-detail__buy-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 570px; /* Figma: 幅 570px */
+        height: 56px; /* Figma: 高さ 56px */
+        background-color: #ff4b4b; /* デザインに合わせた赤色（必要に応じて調整） */
+        color: rgba(255, 255, 255, 1); /* Figma: 白色 */
+        font-family: "Inter", sans-serif;
+        font-size: 30px; /* Figma: 30px */
+        font-weight: 700; /* Figma: Bold */
+        text-decoration: none;
+        border: none;
+        border-radius: 4px; /* Figma: 半径 4px */
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .item-detail__buy-btn:hover {
+        opacity: 0.9;
+    }
+
+    /* 3. SOLD OUT または 無効状態のスタイル */
+    .item-detail__buy-btn.is-sold,
+    .item-detail__buy-btn.is-disabled {
+        background-color: #888; /* グレーアウト */
+        cursor: not-allowed;
+    }
+
+    /* 商品の説明：セクション全体 (image_d3d414) */
+    .item-detail__right-col .item-detail__section {
+        width: 570px; /* Figma: 幅 570px */
+        min-height: 321px; /* Figma: 高さ 321px */
+        margin-left: 67px; /* Figma: 左 67px */
+        margin-top: 40px; /* 購入ボタンラッパーとの間隔調整 */
+        margin-bottom: 40px;
+    }
+
+    /* セクション見出し (image_d3d0d3) */
+    .item-detail__section-title {
+        width: 559px;
+        height: 74px;
+        font-family: "Inter", sans-serif;
+        font-size: 36px; /* Figma: 36px */
+        font-weight: 700; /* Figma: Bold */
+        color: rgba(0, 0, 0, 1);
+        line-height: 1;
+        border-bottom: 1px solid #000; /* デザイン案に線がある場合 */
+        display: flex;
+        align-items: center; /* 垂直方向中央 */
+        margin-bottom: 0;
+    }
+
+    /* 本文テキスト (image_d3cd54) */
+    .item-detail__description-text {
+        width: 559px;
+        min-height: 247px;
+        padding-top: 24px; /* 見出しとの距離感（高さ74px分を考慮） */
+        font-family: "Inter", sans-serif;
+        font-size: 24px; /* Figma: 24px */
+        font-weight: 400; /* Figma: Regular */
+        color: rgba(0, 0, 0, 1);
+        line-height: 1.5; /* 本文なので読みやすく1.5倍程度に調整 */
+        white-space: pre-wrap; /* 改行を反映させる */
+    }
+
+    /* セクション全体 (image_d35fd3) */
+    .item-detail__info-section {
+        width: 570px; /* Figma: 570px */
+        min-height: 230px; /* Figma: 230px */
+        margin-left: 65px; /* Figma: 65px */
+        margin-top: 40px;
+    }
+
+    /* セクション見出し (image_d35c57) */
+    .item-detail__info-title {
+        width: 559px;
+        height: 100px; /* Figma: 100px */
+        font-family: "Inter", sans-serif;
+        font-size: 36px; /* Figma: 36px */
+        font-weight: 700; /* Figma: Bold */
+        color: rgba(0, 0, 0, 1);
+        border-bottom: 1px solid #000;
+        display: flex;
+        align-items: center;
+        margin-bottom: 24px; /* リストとの間隔 */
+    }
+
+    /* 項目ごとの行設定 */
+    .item-detail__meta-group {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 24px; /* 行同士の間隔 */
+    }
+
+    /* 「カテゴリー」ラベル (image_d2fed5) */
+    .item-detail__meta-label {
+        width: 122.39px; /* Figma: 122.39px */
+        font-family: "Inter", sans-serif;
+        font-size: 24px; /* Figma: 24px */
+        font-weight: 700; /* Figma: Bold */
+        color: rgba(0, 0, 0, 1);
+        flex-shrink: 0;
+    }
+
+    /* タグが並ぶコンテナ (image_d358b2) */
+    .item-detail__tag-container {
+        display: flex;
+        flex-wrap: wrap; /* 数が多い時に折り返す */
+        gap: 12px 24px; /* タグ同士の横幅 */
+        margin-left: 60px; /* ラベルとの距離感調整 */
+        max-width: 410px;
+    }
+
+    /* カテゴリータグ (image_d2fb3a / image_d2f378) */
+    .item-detail__category-tag {
+        min-width: 101.99px; /* Figma: 101.99px */
+        height: 30px; /* Figma: 30px */
+        padding: 0 16px; /* 左右の余白 */
+        background-color: rgba(217, 217, 217, 1); /* Figma: グレー */
+        border-radius: 15px; /* Figma: 半径 15px */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Inter", sans-serif;
+        font-size: 20px; /* タグ内の文字サイズ調整 */
+        font-weight: 400;
+        color: rgba(0, 0, 0, 1);
+        white-space: nowrap;
+    }
+
+    /* 商品の状態の値 */
+    .item-detail__condition-value {
+        margin-left: 60px;
+        font-family: "Inter", sans-serif;
+        font-size: 24px;
+        font-weight: 400;
+    }
+
+    /* 商品の状態：行全体の枠 (image_9f33fc) */
+    .item-detail__condition-group {
+        display: flex;
+        align-items: flex-start;
+        margin-top: 24px; /* カテゴリー行との間隔 */
+        width: 100%;
+    }
+
+    /* 商品の状態：ラベル (image_9f33a2) */
+    .item-detail__condition-label {
+        width: 137.28px; /* Figma: 137.28px */
+        font-family: "Inter", sans-serif;
+        font-size: 24px; /* Figma: 24px */
+        font-weight: 700; /* Figma: Bold */
+        color: #000;
+        line-height: 1;
+        flex-shrink: 0;
+    }
+
+    /* 商品の状態：値 (image_9f30d8) */
+    .item-detail__condition {
+        margin-left: 76.72px; /* 214px(値の左) - 137.28px(ラベル) ≒ 76.72px */
+        font-family: "Inter", sans-serif;
+        font-size: 20px; /* Figma: 20px */
+        font-weight: 400; /* Figma: Regular */
+        color: #000;
+        line-height: 1;
+        padding-top: 4px; /* ラベルとの視覚的な中心合わせ */
+    }
+
+    /* コメントエリア全体 (image_9ecae2) */
+    .item-detail__right-col .item-comment {
+        width: 570px; /* Figma: 幅 570px */
+        min-height: 743px; /* Figma: 高さ 743px（中身に応じて伸びるようmin-heightに） */
+        margin-left: 65px; /* Figma: 左 65px */
+        margin-top: 48px; /* 商品情報セクションからの余白（デザインに合わせて調整） */
+        margin-bottom: 100px; /* 画面最下部との余白 */
+    }
+
+    /* ユーザー情報（画像と名前を横に並べる） */
+    .item-comment__user-info {
+        display: flex;
+        align-items: center; /* 上下中央で揃える */
+        margin-bottom: 15px; /* 下の吹き出しとの隙間 */
+    }
+
+    /* ユーザー画像のサイズ固定 (Figma: 70px) */
+    .item-comment__user-image,
+    .item-comment__default-avatar {
+        width: 70px;
+        height: 70px;
+        background-color: #d9d9d9; /* image_9eb7fcのグレー */
+        border-radius: 50%; /* 円形にする */
+        overflow: hidden;
+        flex-shrink: 0; /* 画像が潰れないように固定 */
+    }
+
+    .item-comment__user-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* ユーザー名 (Figma: 30px Bold) */
+    .item-comment__user {
+        margin-left: 18px;
+        font-size: 30px;
+        font-weight: 700;
+    }
+
+    /* 吹き出しの外枠 (image_9e4781) */
+    .item-comment__bubble {
+        width: 570px;         /* Figma: 幅 570px */
+        min-height: 70px;     /* Figma: 高さ 70px (中身が増えてもいいようにmin-height) */
+        background-color: #F5F5F5; /* 一般的な吹き出しの薄いグレー（Figmaに色指定があれば変更してください） */
+        border-radius: 5px;   /* Figma: 半径 5px */
+        display: flex;
+        align-items: center;  /* 中の文字を垂直中央に */
+        padding: 15px 20px;   /* 読みやすさのための内側の余白 */
+        margin-top: 10px;     /* ユーザー名との距離 */
+        margin-bottom: 30px;  /* 次のコメントとの距離 */
+    }
+
+    /* コメント本文 */
+    .item-comment__text {
+        font-family: 'Inter', sans-serif;
+        font-size: 20px;      /* ユーザー名より少し小さくしてメリハリを */
+        font-weight: 400;     /* Regular */
+        color: #000;
+        line-height: 1.5;     /* 文章なので行間を少し広めに */
+        white-space: pre-wrap; /* コメント内の改行を反映させる */
+    }
+
+    /* 1. フォーム全体の親要素 (image_9de2d9) */
+    .item-comment__form {
+        width: 570px;         /* Figma: 570px */
+        min-height: 422px;    /* Figma: 422px */
+        margin-top: 40px;     /* コメントリストとの間隔 */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 2. ラベル：商品へのコメント (image_9de227) */
+    .item-comment__label {
+        width: 570px;
+        height: 50px;
+        font-family: 'Inter', sans-serif;
+        font-size: 28px;      /* Figma: 28px */
+        font-weight: 700;     /* Figma: Bold */
+        color: #000;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0;     /* textareaの位置はtextareaの高さで調整 */
+    }
+
+    /* 3. テキスト入力エリア (image_9ddee0) */
+    .item-comment__textarea {
+        width: 570px;         /* Figma: 570px */
+        height: 294px;        /* Figma: 294px */
+        background-color: #fff;
+        border: 1px solid #ccc; /* 枠線（デザインに合わせて調整） */
+        border-radius: 4px;
+        padding: 15px;
+        font-size: 18px;
+        font-family: inherit;
+        resize: vertical;     /* 縦方向にのみサイズ変更可能 */
+        margin-top: 0;
+    }
+
+    /* 4 & 5. 送信ボタン本体 (image_9dde0a / image_9ddadd) */
+    .item-comment__submit-btn {
+        width: 570px;         /* Figma: 570px */
+        height: 56px;         /* Figma: 56px */
+        background-color: #ff4b4b; /* デザインに合わせたボタン色 */
+        color: #fff;          /* image_9dda60: 白文字 */
+        border: none;
+        border-radius: 4px;   /* Figma: 4px */
+        cursor: pointer;
+        
+        /* 6. ボタン内テキストスタイル (image_9dda60) */
+        font-family: 'Inter', sans-serif;
+        font-size: 25px;      /* Figma: 25px */
+        font-weight: 700;     /* Figma: Bold */
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        margin-top: 22px;     /* image_9ddadd: 上 22px */
+        transition: background-color 0.3s;
+    }
+
+    .item-comment__submit-btn:hover {
+        opacity: 0.9;
+    }
+
+    /* エラーメッセージ */
+    .item-comment__error {
+        color: #ff4b4b;
+        font-size: 14px;
+        margin-top: 5px;
     }
 }
