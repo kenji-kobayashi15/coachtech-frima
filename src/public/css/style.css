@@ -1270,7 +1270,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         border-bottom: 1px solid #000;
     }
 
-/* ラベル(th)と値(td)の共通設定 */
+    /* ラベル(th)と値(td)の共通設定 */
     .summary-table th,
     .summary-table td {
         vertical-align: middle;
@@ -1280,7 +1280,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     /* <th> 項目名のスタイル */
     .summary-table th {
         width: 220px;
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         font-size: 20px;
         font-weight: 400; /* Regular */
         color: #000;
@@ -1291,7 +1291,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     /* <td> 値（金額・方法）のスタイル  */
     .summary-table td {
         width: 220px;
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 400; /* Regular */
         color: #000;
@@ -1310,14 +1310,14 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     .purchase-sidebar .btn-submit {
         width: 403px;
         height: 48px;
-        background-color: #FF4B4B;
+        background-color: #ff4b4b;
         border: none;
         border-radius: 4px;
         cursor: pointer;
         transition: opacity 0.2s;
         /* 文字スタイル */
         color: #fff;
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         font-size: 18px;
         font-weight: 700;
         display: flex;
@@ -1347,7 +1347,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
 
     /* 2. ページタイトル  */
     .address-edit-container .page-title {
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         font-size: 36px;
         font-weight: 700;
         color: #000;
@@ -1363,7 +1363,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     /* 3-5. フォームラベル  */
     .address-form .form-label {
         display: block;
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 700;
         color: #000;
@@ -1381,7 +1381,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         border: 1px solid rgba(95, 95, 95, 1);
         border-radius: 4px;
         padding: 0 15px;
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         font-size: 18px;
         box-sizing: border-box;
         background-color: #fff;
@@ -1403,7 +1403,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         color: #fff;
         cursor: pointer;
         /* 文字スタイル  */
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         font-size: 26px;
         font-weight: 700;
         display: flex;
@@ -1418,4 +1418,304 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     }
 }
 
+/* ==========================================================================
+商品出品画面 (item/create.blade.php)
+========================================================================== */
+@media screen and (min-width: 1400px) {
+    /* 1. 全体のコンテナ  */
+    .item-create-container {
+        width: 1512px;
+        margin: 0 auto;
+        padding-top: 131px; /* タイトルの「上 131px」に合わせる */
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* 全体を中央寄せ */
+        background-color: #fff;
+    }
 
+    /* 2. ページタイトル (image_3b9c12) */
+    .item-create-container .page-title {
+        font-family: "Inter", sans-serif;
+        font-size: 36px;
+        font-weight: 700;
+        margin-bottom: 40px;
+        color: rgba(0, 0, 0, 1);
+    }
+
+    /* フォームの道幅を680pxに固定 */
+    .item-form {
+        width: 680px;
+    }
+
+    /* セクション全体のコンテナ (image_2d7859) */
+    .form-section {
+        width: 680px;
+        height: 477px; /* Figmaの数値: 477px を厳守 */
+        margin-top: 40px; /* 前のセクション（画像アップロード）との距離 */
+        /* ここでボーダーを入れると、Figmaの区切り線を再現できます */
+        border-top: 1px solid #e5e5e5;
+        padding-top: 40px; /* セクション内の上部余白 */
+        /* 中の要素を縦に並べる */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* セクション内のサブタイトル (image_2d8bb7) */
+    .section-subtitle {
+        height: 36px; /* Figma: 36px */
+        font-size: 30px; /* Figma: 30px */
+        font-weight: 700;
+        color: #5f5f5f;
+        margin-bottom: 24px; /* 下のカテゴリーラベルまでの距離 */
+        display: flex;
+        align-items: center;
+    }
+
+    /* 1. カテゴリーのラベル (image_2c35df) */
+    .category-group .form-label {
+        font-family: "Inter", sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: rgba(0, 0, 0, 1);
+        margin-bottom: 16px;
+        display: block;
+    }
+
+    /* 2. チップを並べるコンテナ */
+    .category-group {
+        display: flex;
+        flex-wrap: wrap; /* 折り返しを許可 */
+        gap: 12px; /* チップ同士の間隔 */
+        margin-top: 10px;
+    }
+
+    /* 3. 各カテゴリーラベル（チップ本体）(image_2c2e3f) */
+    .category-label {
+        display: inline-block;
+        padding: 6px 16px; /* 上下 6px, 左右 16px で文字数に合わせる */
+        border: 2px solid rgba(255, 86, 85, 1); /* 2pxの赤枠 */
+        border-radius: 200px; /* 角を完全に丸くする */
+        color: rgba(255, 86, 85, 1); /* 文字色：赤 */
+        font-size: 15px; /* image_2c31dc 指定 */
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s;
+        background-color: transparent;
+    }
+
+    /* 4. 本物のチェックボックスは隠す */
+    .category-label input[type="checkbox"] {
+        display: none;
+    }
+
+    /* 5. 【重要】チェックされた時のスタイル (image_2c2795) */
+    /* チェックボックスが選ばれたら、親のラベル（チップ）を赤く塗る */
+    .category-label:has(input:checked) {
+        background-color: rgba(255, 86, 85, 1); /* 背景を赤に */
+        color: #ffffff; /* 文字を白に */
+    }
+
+    /* 各入力グループの高さ調整 */
+    .form-group {
+        width: 680px;
+        /* セクション全体の高さ477pxに収まるように、各項目の余白を調整します */
+        margin-bottom: 32px;
+    }
+
+    /* 2. サブタイトル（商品名と説明）の精密設定 (image_3b2b34 / image_3b2791) */
+    .section-subtitle {
+        width: 680px;
+        height: 46px; /* Figmaの「高さ 46px」をここに適用 */
+
+        display: flex;
+        align-items: center; /* 46pxの中で文字を上下中央に */
+
+        font-family: "Inter", sans-serif;
+        font-size: 30px; /* Figma: 24px */
+        font-weight: 700; /* Figma: Bold */
+        color: rgba(95, 95, 95, 1);
+
+        border-bottom: 1px solid rgba(95, 95, 95, 1); /* 下線 */
+        margin-bottom: 40px; /* 次の「商品名」入力欄までの距離 */
+    }
+
+    /* 3-4. 各フォームグループのサイズ (image_3b26f6 / image_3b23b7) */
+    .form-group {
+        width: 680px;
+        margin-bottom: 40px; /* 項目ごとの下余白 */
+    }
+
+    /* 1. ラベル：商品の状態 (image_2ba7ed) */
+    .item-form .form-label {
+        width: 120px; /* Figma: 120px */
+        height: 29px; /* Figma: 29px */
+
+        /* タイポグラフィ */
+        font-family: "Inter", sans-serif;
+        font-size: 24px; /* Figma: 24px */
+        font-weight: 700; /* Figma: Bold */
+        color: rgba(0, 0, 0, 1);
+
+        display: flex;
+        align-items: center; /* 29pxの高さ内で垂直中央 */
+        margin-bottom: 19px; /* 次のセレクトボックス(906px)との差分 [906-(858+29)] */
+    }
+
+    /* 2. セレクトボックス本体 (image_2ba713) */
+    .item-form .form-select {
+        width: 680px; /* Figma: 680px */
+        height: 45px; /* Figma: 45px */
+
+        /* ボーダーと色 */
+        border: 1px solid rgba(95, 95, 95, 1); /* Figma: 1px / グレー */
+        border-radius: 4px; /* 標準的な角丸 */
+        background-color: rgba(255, 255, 255, 1);
+
+        /* 入力テキストの調整 */
+        padding: 0 16px;
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        color: rgba(0, 0, 0, 1);
+
+        cursor: pointer;
+        outline: none;
+    }
+
+
+    /* セクション全体の見出しスタイル */
+    .item-form .section-subtitle {
+        width: 680px;         /* 親のitem-formと同じ幅にして、線を端まで伸ばす */
+        height: 46px;         /* Figma: 46px（image_3b2b34の数値を優先） */
+        
+        /* タイポグラフィ */
+        font-family: 'Inter', sans-serif;
+        font-size: 30px;      /* Figma: 30px */
+        font-weight: 700;     /* Figma: Bold */
+        color: rgba(95, 95, 95, 1); /* 指定のグレー */
+        
+        /* アンダーバー（border-bottom）の再現 */
+        border-bottom: 1px solid rgba(95, 95, 95, 1); /* image_2b3e35 指定 */
+        
+        display: flex;
+        align-items: center;
+        margin-top: 60px;     /* 前の「商品の状態」との距離（目分量ですがバランス重視！） */
+        margin-bottom: 40px;  /* 次の「商品名」入力欄までの距離 */
+        padding-bottom: 10px; /* 文字と線の間の絶妙な隙間 */
+    }
+
+    
+    /* 5. 商品の説明エリア（textareaを想定） (image_3b2339) */
+    /* ここは後ほど詳細を詰めますが、高さの目安として */
+    .form-textarea {
+        width: 680px;
+        height: 160px; /* デザイン上の目安サイズ */
+    }
+
+    /* 6. 下部の大きな余白設定 (image_3b2011) */
+    .mb-large {
+        margin-bottom: 80px; /* 販売価格セクションへ続く余白 */
+    }
+
+    /* 1. ボタンを包むエリアの調整 (image_3aba74) */
+    .item-create-container .btn-submit {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        /* 3. ボタン本体のスタイル (image_3ab9db) */
+        width: 680px; /* Figma: 680px */
+        height: 60px; /* Figma: 60px */
+        background-color: #ff5555; /* Figma: rgba(255, 85, 85, 1) */
+        border: none;
+        border-radius: 5px; /* Figma: 半径5px */
+        cursor: pointer;
+
+        /* 2. 文字のスタイル (image_3aba1d) */
+        color: #ffffff;
+        font-family: "Inter", sans-serif;
+        font-size: 26px; /* Figma: 26px */
+        font-weight: 700; /* Figma: Bold */
+
+        /* 配置位置：FigmaのTop 1735px付近に合わせるための余白 */
+        margin-top: 80px; /* 前の要素（販売価格）からの距離 */
+        margin-bottom: 120px; /* 画面最下部との余白 */
+
+        transition:
+            background-color 0.3s,
+            opacity 0.2s;
+    }
+
+    /* ホバー時の演出 */
+    .item-create-container .btn-submit:hover {
+        background-color: #ff3333; /* 少し濃くする */
+        opacity: 0.9;
+    }
+
+    /* 1. ラベル：商品画像 (image_3aafac) */
+    .item-create-container .form-label {
+        display: block;
+        font-family: "Inter", sans-serif;
+        font-size: 24px; /* Figma: 24px */
+        font-weight: 700; /* Figma: Bold */
+        color: rgba(0, 0, 0, 1);
+        margin-bottom: 16px;
+    }
+
+    /* 2. アップロードボックス本体 (image_3aaeb4) */
+    .image-upload-box {
+        width: 680px; /* Figma: 680px */
+        height: 150px; /* Figma: 150px */
+        border: 1px dashed rgba(95, 95, 95, 1); /* 破線設定 */
+        border-radius: 4px; /* Figma: 4px */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative; /* 内部のinputを全域に広げるため */
+        cursor: pointer;
+        background-color: #f9f9f9; /* ほんのり背景色をつけると「エリア感」が出ます */
+    }
+
+    /* 実際のファイル選択ボタンは透明にしてボックス全域に被せる */
+    .file-input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+    /* 3. クリックして画像を選択 (image_3aab8e) */
+    .upload-placeholder {
+        display: inline-block;
+        padding: 8px 16px;
+        background-color: transparent; /* 背景を透明（または白）に */
+        /* 枠線の設定 */
+        border: 2px solid #ff5555; /* Figma: 2px / 赤色 */
+        border-radius: 10px; /* Figma: 10px */
+        /* 文字の設定 */
+        color: #ff5555; /* 文字色も赤に変更 */
+        font-family: "Inter", sans-serif;
+        font-size: 16px;
+        font-weight: 700; /* 文字も少し太め（Bold）にすると視認性が上がります */
+        pointer-events: none;
+    }
+
+    /* プレビュー画像が表示された時のスタイル */
+    .upload-preview {
+        display: none; /* 初期状態は非表示 */
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    /* JSでクラスがついた時の制御 */
+    .upload-preview.is-active {
+        display: block;
+    }
+    .upload-placeholder.is-hidden {
+        display: none;
+    }
+}

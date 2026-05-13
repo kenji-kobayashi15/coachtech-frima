@@ -13,46 +13,48 @@
             <div class="image-upload-box">
                 <input type="file" name="image" class="file-input" onchange="previewImage(this);">
                 <img id="preview" class="upload-preview">
-                <p id="preview-text" class="upload-placeholder">クリックして画像を選択</p>
+                <p id="preview-text" class="upload-placeholder">画像を選択する</p>
             </div>
             @error('image')
-            <p class="error-message" >{{ $message }}</p>
+            <p class="error-message">{{ $message }}</p>
             @enderror
         </div>
 
-        <h2 class="section-subtitle">商品の詳細</h2>
-
-        {{-- カテゴリー --}}
-        <div class="form-group mt-medium">
-            <label class="form-label">カテゴリー</label>
-            <div class="category-group">
-                @foreach($categories as $category)
-                <label class="category-label">
-                    <input type="checkbox" name="category_ids[]" value="{{ $category->id }}" {{ (is_array(old('category_ids')) && in_array($category->id, old('category_ids'))) ? 'checked' : '' }}>
-                    {{ $category->name }}
-                </label>
-                @endforeach
+        <div class="form-section">
+            <h2 class="section-subtitle">商品の詳細</h2>
+            {{-- カテゴリー --}}
+            <div class="form-group mt-medium">
+                <label class="form-label">カテゴリー</label>
+                <div class="category-group">
+                    @foreach($categories as $category)
+                    <label class="category-label">
+                        <input type="checkbox" name="category_ids[]" value="{{ $category->id }}" {{ (is_array(old('category_ids')) && in_array($category->id, old('category_ids'))) ? 'checked' : '' }}>
+                        {{ $category->name }}
+                    </label>
+                    @endforeach
+                </div>
+                @error('category_ids')
+                <p class="error-message">{{ $message }}</p>
+                @enderror
             </div>
-            @error('category_ids')
-            <p class="error-message">{{ $message }}</p>
-            @enderror
+            {{-- 商品の状態 --}}
+            <div class="form-group">
+                <label class="form-label">商品の状態</label>
+                <select name="condition_id" class="form-select">
+                    <option value="">選択してください</option>
+                    @foreach($conditions as $condition)
+                    <option value="{{ $condition->id }}" {{ old('condition_id') == $condition->id ? 'selected' : '' }}>{{ $condition->name }}</option>
+                    @endforeach
+                </select>
+                @error('condition_id')
+                <p class="error-message">{{ $message }}</p>
+                @enderror
+            </div>
         </div>
 
-        {{-- 商品の状態 --}}
-        <div class="form-group">
-            <label class="form-label">商品の状態</label>
-            <select name="condition_id" class="form-select">
-                <option value="">選択してください</option>
-                @foreach($conditions as $condition)
-                <option value="{{ $condition->id }}" {{ old('condition_id') == $condition->id ? 'selected' : '' }}>{{ $condition->name }}</option>
-                @endforeach
-            </select>
-            @error('condition_id')
-            <p class="error-message">{{ $message }}</p>
-            @enderror
+        <div class="form-section">
+            <h2 class="section-subtitle">商品名と説明</h2>
         </div>
-
-        <h2 class="section-subtitle">商品名と説明</h2>
 
         {{-- 商品名 --}}
         <div class="form-group mt-medium">
