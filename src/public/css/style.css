@@ -725,19 +725,17 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         align-items: baseline;
     }
 
-    /* Blade側で価格を <span> で囲む必要があります */
     .item-detail__price-large .price-number {
-        font-size: 45px; /* Figma: span(47,000) 45px */
+        font-size: 45px;
         font-weight: 400;
-        margin-right: 4px; /* 税込との間の微調整 */
+        margin-right: 4px;
     }
 
-    /* アクションエリア全体の枠 (image_d52dd4) */
+    /* アクションエリア全体の枠 */
     .item-detail__actions {
-        width: 144px; /* Figma: 幅 144px */
-        height: 67px; /* Figma: 高さ 67px */
-        margin-top: 28px; /* 上206px - (価格178px) = 28px */
-        margin-left: 45px; /* 画像の左余白と揃える */
+        width: 144px;
+        height: 67px;
+        margin-top: 28px;
     }
 
     /* 横並び */
@@ -750,7 +748,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         height: 100%;
     }
 
-    /* いいね・コメントそれぞれの縦並びの箱 (image_d4b938 / image_d4d078) */
+    /* いいね・コメントそれぞれの縦並びの箱 */
     .item-detail__like-item,
     .item-detail__comment-item {
         width: 40px;
@@ -768,45 +766,45 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         object-fit: contain;
     }
 
-    /* カウント数字共通スタイル (image_d4b669 / image_d4d017) */
+    /* カウント数字共通スタイル　*/
     .item-like__count,
     .item-comments__count {
-        width: auto; /* 桁数が増えてもいいように auto に */
-        height: 22px; /* Figma: 22px */
-        margin-top: 5px; /* アイコンとの隙間 */
+        width: auto;
+        height: 22px;
+        margin-top: 5px;
         font-family: "Inter", sans-serif;
-        font-size: 18px; /* Figma: 18px */
-        font-weight: 700; /* Figma: Bold */
+        font-size: 18px;
+        font-weight: 700;
         color: rgba(0, 0, 0, 1);
         line-height: 1;
         text-align: center;
         display: block;
     }
 
-    /* 1. 購入ボタンを包むラッパー (image_d453fc) */
+    /* 1. 購入ボタンを包むラッパー */
     .item-detail__right-col .item-detail__buy-wrapper {
-        width: 570px; /* Figma: 幅 570px */
-        height: 100px; /* Figma: 高さ 100px */
-        margin-left: 65px; /* Figma: 左 65px (タイトル等と揃える) */
-        margin-top: 0; /* 273px(ボタン位置) - 206px(アクションエリア位置) = 67px */
-        padding-top: 22px; /* image_d45075: ボタンの上の余白 22px */
+        width: 570px;
+        height: 100px;
+        margin-left: 65px;
+        margin-top: 0;
+        padding-top: 22px;
     }
 
-    /* 2. ボタン自体の基本スタイル (image_d45075 / image_d44d4c) */
+    /* 2. ボタン自体の基本スタイル  */
     .item-detail__buy-btn {
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 570px; /* Figma: 幅 570px */
-        height: 56px; /* Figma: 高さ 56px */
-        background-color: #ff4b4b; /* デザインに合わせた赤色（必要に応じて調整） */
-        color: rgba(255, 255, 255, 1); /* Figma: 白色 */
+        width: 570px;
+        height: 56px;
+        background-color: #ff4b4b;
+        color: rgba(255, 255, 255, 1);
         font-family: "Inter", sans-serif;
-        font-size: 30px; /* Figma: 30px */
-        font-weight: 700; /* Figma: Bold */
+        font-size: 30px;
+        font-weight: 700;
         text-decoration: none;
         border: none;
-        border-radius: 4px; /* Figma: 半径 4px */
+        border-radius: 4px;
         cursor: pointer;
         transition: background-color 0.3s;
     }
@@ -818,107 +816,107 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     /* 3. SOLD OUT または 無効状態のスタイル */
     .item-detail__buy-btn.is-sold,
     .item-detail__buy-btn.is-disabled {
-        background-color: #888; /* グレーアウト */
+        background-color: #888;
         cursor: not-allowed;
     }
 
-    /* 商品の説明：セクション全体 (image_d3d414) */
+    /* 商品の説明：セクション全体 */
     .item-detail__right-col .item-detail__section {
-        width: 570px; /* Figma: 幅 570px */
-        min-height: 321px; /* Figma: 高さ 321px */
-        margin-left: 67px; /* Figma: 左 67px */
-        margin-top: 40px; /* 購入ボタンラッパーとの間隔調整 */
+        width: 570px;
+        min-height: 321px;
+        margin-left: 67px;
+        margin-top: 40px;
         margin-bottom: 40px;
     }
 
-    /* セクション見出し (image_d3d0d3) */
+    /* セクション見出し */
     .item-detail__section-title {
         width: 559px;
         height: 74px;
         font-family: "Inter", sans-serif;
-        font-size: 36px; /* Figma: 36px */
-        font-weight: 700; /* Figma: Bold */
+        font-size: 36px;
+        font-weight: 700;
         color: rgba(0, 0, 0, 1);
         line-height: 1;
-        border-bottom: 1px solid #000; /* デザイン案に線がある場合 */
+        border-bottom: 1px solid #000;
         display: flex;
-        align-items: center; /* 垂直方向中央 */
+        align-items: center;
         margin-bottom: 0;
     }
 
-    /* 本文テキスト (image_d3cd54) */
+    /* 本文テキスト */
     .item-detail__description-text {
         width: 559px;
         min-height: 247px;
-        padding-top: 24px; /* 見出しとの距離感（高さ74px分を考慮） */
+        padding-top: 24px;
         font-family: "Inter", sans-serif;
-        font-size: 24px; /* Figma: 24px */
-        font-weight: 400; /* Figma: Regular */
+        font-size: 24px;
+        font-weight: 400;
         color: rgba(0, 0, 0, 1);
-        line-height: 1.5; /* 本文なので読みやすく1.5倍程度に調整 */
-        white-space: pre-wrap; /* 改行を反映させる */
+        line-height: 1.5;
+        white-space: pre-wrap;
     }
 
-    /* セクション全体 (image_d35fd3) */
+    /* セクション全体  */
     .item-detail__info-section {
-        width: 570px; /* Figma: 570px */
-        min-height: 230px; /* Figma: 230px */
-        margin-left: 65px; /* Figma: 65px */
+        width: 570px;
+        min-height: 230px;
+        margin-left: 65px;
         margin-top: 40px;
     }
 
-    /* セクション見出し (image_d35c57) */
+    /* セクション見出し */
     .item-detail__info-title {
         width: 559px;
-        height: 100px; /* Figma: 100px */
+        height: 100px;
         font-family: "Inter", sans-serif;
-        font-size: 36px; /* Figma: 36px */
-        font-weight: 700; /* Figma: Bold */
+        font-size: 36px;
+        font-weight: 700;
         color: rgba(0, 0, 0, 1);
         border-bottom: 1px solid #000;
         display: flex;
         align-items: center;
-        margin-bottom: 24px; /* リストとの間隔 */
+        margin-bottom: 24px;
     }
 
     /* 項目ごとの行設定 */
     .item-detail__meta-group {
         display: flex;
         align-items: flex-start;
-        margin-bottom: 24px; /* 行同士の間隔 */
+        margin-bottom: 24px;
     }
 
-    /* 「カテゴリー」ラベル (image_d2fed5) */
+    /* 「カテゴリー」ラベル */
     .item-detail__meta-label {
-        width: 122.39px; /* Figma: 122.39px */
+        width: 122.39px;
         font-family: "Inter", sans-serif;
-        font-size: 24px; /* Figma: 24px */
-        font-weight: 700; /* Figma: Bold */
+        font-size: 24px;
+        font-weight: 700;
         color: rgba(0, 0, 0, 1);
         flex-shrink: 0;
     }
 
-    /* タグが並ぶコンテナ (image_d358b2) */
+    /* タグが並ぶコンテナ */
     .item-detail__tag-container {
         display: flex;
-        flex-wrap: wrap; /* 数が多い時に折り返す */
-        gap: 12px 24px; /* タグ同士の横幅 */
-        margin-left: 60px; /* ラベルとの距離感調整 */
+        flex-wrap: wrap;
+        gap: 12px 24px;
+        margin-left: 60px;
         max-width: 410px;
     }
 
-    /* カテゴリータグ (image_d2fb3a / image_d2f378) */
+    /* カテゴリータグ  */
     .item-detail__category-tag {
-        min-width: 101.99px; /* Figma: 101.99px */
-        height: 30px; /* Figma: 30px */
-        padding: 0 16px; /* 左右の余白 */
-        background-color: rgba(217, 217, 217, 1); /* Figma: グレー */
-        border-radius: 15px; /* Figma: 半径 15px */
+        min-width: 101.99px;
+        height: 30px;
+        padding: 0 16px;
+        background-color: rgba(217, 217, 217, 1);
+        border-radius: 15px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-family: "Inter", sans-serif;
-        font-size: 20px; /* タグ内の文字サイズ調整 */
+        font-size: 20px;
         font-weight: 400;
         color: rgba(0, 0, 0, 1);
         white-space: nowrap;
@@ -932,61 +930,61 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         font-weight: 400;
     }
 
-    /* 商品の状態：行全体の枠 (image_9f33fc) */
+    /* 商品の状態：行全体の枠 */
     .item-detail__condition-group {
         display: flex;
         align-items: flex-start;
-        margin-top: 24px; /* カテゴリー行との間隔 */
+        margin-top: 24px;
         width: 100%;
     }
 
-    /* 商品の状態：ラベル (image_9f33a2) */
+    /* 商品の状態：ラベル  */
     .item-detail__condition-label {
-        width: 137.28px; /* Figma: 137.28px */
+        width: 137.28px;
         font-family: "Inter", sans-serif;
-        font-size: 24px; /* Figma: 24px */
-        font-weight: 700; /* Figma: Bold */
+        font-size: 24px;
+        font-weight: 700;
         color: #000;
         line-height: 1;
         flex-shrink: 0;
     }
 
-    /* 商品の状態：値 (image_9f30d8) */
+    /* 商品の状態：値  */
     .item-detail__condition {
-        margin-left: 76.72px; /* 214px(値の左) - 137.28px(ラベル) ≒ 76.72px */
+        margin-left: 76.72px;
         font-family: "Inter", sans-serif;
-        font-size: 20px; /* Figma: 20px */
-        font-weight: 400; /* Figma: Regular */
+        font-size: 20px;
+        font-weight: 400;
         color: #000;
         line-height: 1;
-        padding-top: 4px; /* ラベルとの視覚的な中心合わせ */
+        padding-top: 4px;
     }
 
-    /* コメントエリア全体 (image_9ecae2) */
+    /* コメントエリア全体  */
     .item-detail__right-col .item-comment {
-        width: 570px; /* Figma: 幅 570px */
-        min-height: 743px; /* Figma: 高さ 743px（中身に応じて伸びるようmin-heightに） */
-        margin-left: 65px; /* Figma: 左 65px */
-        margin-top: 48px; /* 商品情報セクションからの余白（デザインに合わせて調整） */
-        margin-bottom: 100px; /* 画面最下部との余白 */
+        width: 570px;
+        min-height: 743px;
+        margin-left: 65px;
+        margin-top: 48px;
+        margin-bottom: 100px;
     }
 
-    /* ユーザー情報（画像と名前を横に並べる） */
+    /* ユーザー情報 */
     .item-comment__user-info {
         display: flex;
-        align-items: center; /* 上下中央で揃える */
-        margin-bottom: 15px; /* 下の吹き出しとの隙間 */
+        align-items: center;
+        margin-bottom: 15px;
     }
 
-    /* ユーザー画像のサイズ固定 (Figma: 70px) */
+    /* ユーザー画像のサイズ固定  */
     .item-comment__user-image,
     .item-comment__default-avatar {
         width: 70px;
         height: 70px;
-        background-color: #d9d9d9; /* image_9eb7fcのグレー */
-        border-radius: 50%; /* 円形にする */
+        background-color: #d9d9d9;
+        border-radius: 50%;
         overflow: hidden;
-        flex-shrink: 0; /* 画像が潰れないように固定 */
+        flex-shrink: 0;
     }
 
     .item-comment__user-image img {
@@ -995,92 +993,90 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         object-fit: cover;
     }
 
-    /* ユーザー名 (Figma: 30px Bold) */
+    /* ユーザー名  */
     .item-comment__user {
         margin-left: 18px;
         font-size: 30px;
         font-weight: 700;
     }
 
-    /* 吹き出しの外枠 (image_9e4781) */
+    /* 吹き出しの外枠 */
     .item-comment__bubble {
-        width: 570px;         /* Figma: 幅 570px */
-        min-height: 70px;     /* Figma: 高さ 70px (中身が増えてもいいようにmin-height) */
-        background-color: #F5F5F5; /* 一般的な吹き出しの薄いグレー（Figmaに色指定があれば変更してください） */
-        border-radius: 5px;   /* Figma: 半径 5px */
+        width: 570px;
+        min-height: 70px;
+        background-color: #f5f5f5;
+        border-radius: 5px;
         display: flex;
-        align-items: center;  /* 中の文字を垂直中央に */
-        padding: 15px 20px;   /* 読みやすさのための内側の余白 */
-        margin-top: 10px;     /* ユーザー名との距離 */
-        margin-bottom: 30px;  /* 次のコメントとの距離 */
+        align-items: center;
+        padding: 15px 20px;
+        margin-top: 10px;
+        margin-bottom: 30px;
     }
 
     /* コメント本文 */
     .item-comment__text {
-        font-family: 'Inter', sans-serif;
-        font-size: 20px;      /* ユーザー名より少し小さくしてメリハリを */
-        font-weight: 400;     /* Regular */
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        font-weight: 400;
         color: #000;
-        line-height: 1.5;     /* 文章なので行間を少し広めに */
-        white-space: pre-wrap; /* コメント内の改行を反映させる */
+        line-height: 1.5;
+        white-space: pre-wrap;
     }
 
-    /* 1. フォーム全体の親要素 (image_9de2d9) */
+    /* 1. フォーム全体の親要素 */
     .item-comment__form {
-        width: 570px;         /* Figma: 570px */
-        min-height: 422px;    /* Figma: 422px */
-        margin-top: 40px;     /* コメントリストとの間隔 */
+        width: 570px;
+        min-height: 422px;
+        margin-top: 40px;
         display: flex;
         flex-direction: column;
     }
 
-    /* 2. ラベル：商品へのコメント (image_9de227) */
+    /* 2. ラベル：商品へのコメント */
     .item-comment__label {
         width: 570px;
         height: 50px;
-        font-family: 'Inter', sans-serif;
-        font-size: 28px;      /* Figma: 28px */
-        font-weight: 700;     /* Figma: Bold */
+        font-family: "Inter", sans-serif;
+        font-size: 28px;
+        font-weight: 700;
         color: #000;
         display: flex;
         align-items: center;
-        margin-bottom: 0;     /* textareaの位置はtextareaの高さで調整 */
+        margin-bottom: 0;
     }
 
-    /* 3. テキスト入力エリア (image_9ddee0) */
+    /* 3. テキスト入力エリア  */
     .item-comment__textarea {
-        width: 570px;         /* Figma: 570px */
-        height: 294px;        /* Figma: 294px */
+        width: 570px;
+        height: 294px;
         background-color: #fff;
-        border: 1px solid #ccc; /* 枠線（デザインに合わせて調整） */
+        border: 1px solid #ccc;
         border-radius: 4px;
         padding: 15px;
         font-size: 18px;
         font-family: inherit;
-        resize: vertical;     /* 縦方向にのみサイズ変更可能 */
+        resize: vertical;
         margin-top: 0;
     }
 
-    /* 4 & 5. 送信ボタン本体 (image_9dde0a / image_9ddadd) */
+    /* 4 & 5. 送信ボタン本体 */
     .item-comment__submit-btn {
-        width: 570px;         /* Figma: 570px */
-        height: 56px;         /* Figma: 56px */
-        background-color: #ff4b4b; /* デザインに合わせたボタン色 */
-        color: #fff;          /* image_9dda60: 白文字 */
+        width: 570px;
+        height: 56px;
+        background-color: #ff4b4b;
+        color: #fff;
         border: none;
-        border-radius: 4px;   /* Figma: 4px */
+        border-radius: 4px;
         cursor: pointer;
-        
-        /* 6. ボタン内テキストスタイル (image_9dda60) */
-        font-family: 'Inter', sans-serif;
-        font-size: 25px;      /* Figma: 25px */
-        font-weight: 700;     /* Figma: Bold */
-        
+
+        /* 6. ボタン内テキストスタイル */
+        font-family: "Inter", sans-serif;
+        font-size: 25px;
+        font-weight: 700;
         display: flex;
         align-items: center;
         justify-content: center;
-        
-        margin-top: 22px;     /* image_9ddadd: 上 22px */
+        margin-top: 22px;
         transition: background-color 0.3s;
     }
 
@@ -1095,3 +1091,331 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         margin-top: 5px;
     }
 }
+
+/* ==========================================================================
+商品購入画面 (purchase/create.blade.php)
+========================================================================== */
+@media screen and (min-width: 1400px) {
+    /* 1. 全体のコンテナ  */
+    .purchase-container {
+        width: 1380px;
+        margin: 0 auto;
+        padding-top: 173px;
+    }
+
+    .purchase-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    /* 左側メインカラム */
+    .purchase-main {
+        width: 842px;
+    }
+
+    /* 2. 商品概要エリア */
+    .item-summary {
+        display: flex;
+        align-items: flex-start;
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+        border-bottom: 2px solid rgba(0, 0, 0, 1);
+    }
+
+    /* 商品画像  */
+    .item-image-wrapper {
+        width: 150px;
+        height: 150px;
+        flex-shrink: 0;
+    }
+
+    .item-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* 商品情報のテキストエリア */
+    .item-info {
+        margin-left: 40px;
+    }
+
+    /* 商品名 */
+    .item-name {
+        font-family: "Inter", sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 20px;
+    }
+
+    /* 価格  */
+    .item-price {
+        font-family: "Inter", sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        color: #000;
+    }
+
+    /* 1. セクションタイトルのスタイル (image_657c83) */
+    .purchase-container .section-title {
+        width: 326px;
+        height: 85px;
+        font-family: "Inter", sans-serif;
+        margin-top: 80px;
+        margin-left: 35px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 24px;
+    }
+
+    /* 2. セレクトボックスのスタイル  */
+    .purchase-container .form-select {
+        width: 265px;
+        height: 31px;
+        margin-left: 96px;
+        margin-top: 11px;
+        border: 1px solid rgba(95, 95, 95, 1);
+        border-radius: 4px;
+        padding: 0 10px;
+        font-family: "Inter", sans-serif;
+        font-size: 14px;
+        color: #000;
+        background-color: #fff;
+        cursor: pointer;
+    }
+
+    /* 3. 各セクションを区切るボーダーライン */
+    .purchase-container .setting-section {
+        width: 805px;
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+        border-bottom: 1px solid rgba(0, 0, 0, 1);
+    }
+
+    /* 配送先セクション全体 */
+    .purchase-container .setting-section {
+        width: 842px;
+        padding-bottom: 40px;
+        margin-bottom: 40px;
+        border-bottom: 1px solid #000;
+    }
+
+    /* タイトルと「変更する」を包むヘッダー */
+    .section-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 805px;
+        margin-left: 35px;
+    }
+
+    /* 「変更する」リンク */
+    .link-edit {
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: rgba(0, 115, 204, 1);
+        text-decoration: none;
+    }
+
+    /* 住所表示エリア */
+    .address-display {
+        margin-left: 96px;
+        margin-top: 13px;
+    }
+
+    .address-display p {
+        font-family: "Inter", sans-serif;
+        font-size: 20px;
+        font-weight: 600;
+        color: #000;
+        line-height: 1;
+        margin-bottom: 10px;
+    }
+
+    /* 右側サイドバー全体の配置 */
+    .purchase-sidebar {
+        width: 440px;
+        margin-top: 0px;
+    }
+
+    /* テーブルを包むボックス  */
+    .purchase-summary-box {
+        width: 440px;
+        height: 230px;
+        border: 1px solid #000;
+        box-sizing: border-box;
+    }
+
+    /* テーブル全体のレイアウト */
+    .summary-table {
+        width: 100%;
+        height: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+    }
+
+    /* 各行 */
+    .summary-item-row,
+    .summary-method-row {
+        height: 115px;
+        width: 220px;
+    }
+
+    /* 1行目と2行目の境界線 */
+    .summary-item-row {
+        border-bottom: 1px solid #000;
+    }
+
+/* ラベル(th)と値(td)の共通設定 */
+    .summary-table th,
+    .summary-table td {
+        vertical-align: middle;
+        padding: 0;
+    }
+
+    /* <th> 項目名のスタイル */
+    .summary-table th {
+        width: 220px;
+        font-family: 'Inter', sans-serif;
+        font-size: 20px;
+        font-weight: 400; /* Regular */
+        color: #000;
+        text-align: left;
+        padding-left: 64px;
+    }
+
+    /* <td> 値（金額・方法）のスタイル  */
+    .summary-table td {
+        width: 220px;
+        font-family: 'Inter', sans-serif;
+        font-size: 24px;
+        font-weight: 400; /* Regular */
+        color: #000;
+        text-align: left;
+        padding-left: 20px;
+    }
+
+    /* ボタンを包むフォーム */
+    #purchase-form {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+    }
+
+    /*  ボタンそのもののスタイル  */
+    .purchase-sidebar .btn-submit {
+        width: 403px;
+        height: 48px;
+        background-color: #FF4B4B;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: opacity 0.2s;
+        /* 文字スタイル */
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        font-size: 18px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* ホバー時 */
+    .purchase-sidebar .btn-submit:hover {
+        opacity: 0.8;
+    }
+}
+
+/* ==========================================================================
+アドレス入力画面 (purchase/address.blade.php)
+========================================================================== */
+@media screen and (min-width: 1400px) {
+    /* 1. 全体のコンテナ  */
+    .address-edit-container {
+        width: 1512px;
+        margin: 0 auto;
+        padding-top: 128px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* 2. ページタイトル  */
+    .address-edit-container .page-title {
+        font-family: 'Inter', sans-serif;
+        font-size: 36px;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 70px;
+        text-align: center;
+    }
+
+    /* フォーム全体幅 */
+    .address-form {
+        width: 680px;
+    }
+
+    /* 3-5. フォームラベル  */
+    .address-form .form-label {
+        display: block;
+        font-family: 'Inter', sans-serif;
+        font-size: 24px;
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 15px;
+    }
+
+    .address-form .form-group {
+        margin-bottom: 30px;
+    }
+
+    /* インプット（入力欄）のスタイル */
+    .address-form .form-control {
+        width: 680px;
+        height: 45px;
+        border: 1px solid rgba(95, 95, 95, 1);
+        border-radius: 4px;
+        padding: 0 15px;
+        font-family: 'Inter', sans-serif;
+        font-size: 18px;
+        box-sizing: border-box;
+        background-color: #fff;
+        outline: none;
+    }
+
+    /* フォーカス（入力時のスタイル） */
+    .address-form .form-control:focus {
+        border-color: #ff5555;
+    }
+
+    /* 6-7. 更新するボタン */
+    .address-form .btn-submit {
+        width: 680px;
+        height: 60px;
+        background-color: #ff5555;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        /* 文字スタイル  */
+        font-family: 'Inter', sans-serif;
+        font-size: 26px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 80px;
+        transition: opacity 0.3s;
+    }
+
+    .address-form .btn-submit:hover {
+        opacity: 0.8;
+    }
+}
+
+
