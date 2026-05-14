@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="item-create-container">
-    <h1 class="page-title">商品の出品</h1>
+    <h1 class="sell-page-title">商品の出品</h1>
 
     <form action="{{ route('items.store') }}" method="POST" enctype="multipart/form-data" class="item-form">
         @csrf
 
         {{-- 商品画像 --}}
-        <div class="form-group">
-            <label class="form-label">商品画像</label>
+        <div class="img-form-group">
+            <label class="item-img-label">商品画像</label>
             <div class="image-upload-box">
                 <input type="file" name="image" class="file-input" onchange="previewImage(this);">
                 <img id="preview" class="upload-preview">
@@ -20,11 +20,11 @@
             @enderror
         </div>
 
-        <div class="form-section">
+        <div class="category-form-section">
             <h2 class="section-subtitle">商品の詳細</h2>
             {{-- カテゴリー --}}
             <div class="form-group mt-medium">
-                <label class="form-label">カテゴリー</label>
+                <label class="category-label-title">カテゴリー</label>
                 <div class="category-group">
                     @foreach($categories as $category)
                     <label class="category-label">
@@ -38,9 +38,9 @@
                 @enderror
             </div>
             {{-- 商品の状態 --}}
-            <div class="form-group">
-                <label class="form-label">商品の状態</label>
-                <select name="condition_id" class="form-select">
+            <div class="condition-form-group">
+                <label class="condition-label">商品の状態</label>
+                <select name="condition_id" class="item-select-box">
                     <option value="">選択してください</option>
                     @foreach($conditions as $condition)
                     <option value="{{ $condition->id }}" {{ old('condition_id') == $condition->id ? 'selected' : '' }}>{{ $condition->name }}</option>
@@ -52,14 +52,14 @@
             </div>
         </div>
 
-        <div class="form-section">
-            <h2 class="section-subtitle">商品名と説明</h2>
+        <div class="detail-item-section">
+            <h2 class="item-subtitle">商品名と説明</h2>
         </div>
 
         {{-- 商品名 --}}
         <div class="form-group mt-medium">
-            <label class="form-label">商品名</label>
-            <input type="text" name="name" value="{{ old('name') }}" class=" form-control">
+            <label class="item-name-label">商品名</label>
+            <input type="text" name="name" value="{{ old('name') }}" class=" item-input-field">
             @error('name')
             <p class="error-message">{{ $message }}</p>
             @enderror
@@ -67,8 +67,8 @@
 
         {{-- ブランド名 --}}
         <div class="form-group mt-medium">
-            <label class="form-label">ブランド</label>
-            <input type="text" name="brand" value="{{ old('brand') }}" class="form-control">
+            <label class="brand-label">ブランド</label>
+            <input type="text" name="brand" value="{{ old('brand') }}" class="item-input-field">
             @error('brand')
             <p class="error-message">{{ $message }}</p>
             @enderror
@@ -76,7 +76,7 @@
 
         {{-- 商品の説明 --}}
         <div class="form-group">
-            <label class="form-label">商品の説明</label>
+            <label class="detail-label">商品の説明</label>
             <textarea name="description" class="form-textarea">{{ old('description') }}</textarea>
             @error('description')
             <p class="error-message">{{ $message }}</p>
@@ -85,7 +85,7 @@
 
         {{-- 販売価格 --}}
         <div class="form-group mb-large">
-            <label class="form-label">販売価格</label>
+            <label class="price-label">販売価格</label>
             <div class="price-input-wrapper">
                 <span class="currency-unit">¥</span>
                 <input type="number" name="price" value="{{ old('price') }}" class="form-control price-input">
@@ -95,7 +95,7 @@
             </div>
         </div>
 
-        <button type="submit" class="btn-submit">
+        <button type="submit" class="sell-btn-submit">
             出品する
         </button>
     </form>
