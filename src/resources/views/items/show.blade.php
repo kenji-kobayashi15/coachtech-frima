@@ -101,8 +101,8 @@
                         <div class="item-comment__item">
                             <div class="item-comment__user-info">
                                 <div class="item-comment__user-image">
-                                    @if($comment->user->img_url)
-                                    <img src="{{ asset('storage/' . $comment->user->img_url) }}" alt="ユーザー画像">
+                                    @if($comment->user->profile && $comment->user->profile->image_path)
+                                    <img src="{{ asset('storage/' . $comment->user->profile->image_path) }}" alt="ユーザー画像">
                                     @else
                                     <div class="item-comment__default-avatar"></div>
                                     @endif

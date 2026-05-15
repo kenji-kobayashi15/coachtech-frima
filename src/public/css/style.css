@@ -178,7 +178,7 @@
         text-align: center;
     }
 
-    /* メッセージテキスト (image_fefff5) */
+    /* メッセージテキスト */
     .verify-text {
         font-family: "Inter", sans-serif;
         font-size: 24px;
@@ -315,7 +315,7 @@
         object-fit: cover;
     }
 
-    /* 商品名 (image_ba1b1e) */
+    /* 商品名  */
     .item-body {
         margin-top: 10px;
     }
@@ -1158,7 +1158,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         color: #000;
     }
 
-    /* 1. セクションタイトルのスタイル (image_657c83) */
+    /* 1. セクションタイトルのスタイル  */
     .purchase-container .section-title {
         width: 326px;
         height: 85px;
@@ -1764,7 +1764,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         font-family: inherit;
     }
 
-    /* 2. 「販売価格」ラベル (image_242e1b) */
+    /* 2. 「販売価格」ラベル */
     .item-create-container .price-label {
         width: 96px;
     }
@@ -1775,7 +1775,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         width: 680px;
     }
 
-    /* 4. ¥マーク (image_242d9d) */
+    /* 4. ¥マーク  */
     .item-create-container .currency-unit {
         position: absolute;
         top: 8px;
@@ -1804,7 +1804,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         -moz-appearance: textfield;
     }
 
-    /* 出品ボタン本体 (HTMLのクラス名に合わせて修正) */
+    /* 出品ボタン本体  */
     .item-create-container .sell-btn-submit {
         width: 680px;
         height: 60px;
