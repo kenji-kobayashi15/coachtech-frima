@@ -75,9 +75,9 @@
         </div>
 
         {{-- 商品の説明 --}}
-        <div class="form-group">
+        <div class="detail-group">
             <label class="detail-label">商品の説明</label>
-            <textarea name="description" class="form-textarea">{{ old('description') }}</textarea>
+            <textarea name="description" class="detail-textarea">{{ old('description') }}</textarea>
             @error('description')
             <p class="error-message">{{ $message }}</p>
             @enderror
