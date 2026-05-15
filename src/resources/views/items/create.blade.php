@@ -11,9 +11,11 @@
         <div class="img-form-group">
             <label class="item-img-label">商品画像</label>
             <div class="image-upload-box">
-                <input type="file" name="image" class="file-input" onchange="previewImage(this);">
-                <img id="preview" class="upload-preview">
-                <p id="preview-text" class="upload-placeholder">画像を選択する</p>
+                <label>
+                    <img id="preview" class="upload-preview">
+                    <p id="preview-text" class="upload-placeholder">画像を選択する</p>
+                    <input type="file" name="image" class="file-input" onchange="previewImage(this);">
+                </label>
             </div>
             @error('image')
             <p class="error-message">{{ $message }}</p>
