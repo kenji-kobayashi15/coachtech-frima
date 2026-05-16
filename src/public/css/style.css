@@ -1,24 +1,18 @@
 @media screen and (min-width: 1400px) {
     /* ==========================================================================
-    1. Auth Pages 共通スタイル (Register & Login & verify)
-       ========================================================================== */
+    1. Auth Pages 共通装飾スタイル (他の画面を汚さないように限定)
+    ========================================================================== */
 
-    /* コンテナの基本設定 */
-    .register-page.auth-container,
-    .login-page.auth-container {
-        padding-bottom: 80px;
-    }
-
-    /* コンテンツの幅680px */
+    /* フォームコンテンツの共通幅 */
     .register-page .auth-content,
     .login-page .login-content {
         width: 680px;
         text-align: center;
     }
 
-    /* ページタイトル共通 */
+    /* ページタイトル共通デザイン */
     .register-page .page-title,
-    .login-page .login-title {
+    .login-page .page-title {
         width: 144px;
         margin: 0 auto;
         font-family: "Inter", sans-serif;
@@ -30,37 +24,44 @@
         justify-content: center;
     }
 
-    /* フォームグループ共通 */
+    /* フォームグループ共通（左寄せ） */
     .register-page .form-group,
     .login-page .form-group {
         text-align: left;
-        margin-bottom: 24px;
     }
 
-    /* ラベル共通 */
+    /* ラベル共通デザイン */
     .register-page .form-label,
-    .login-page [class*="label--"] {
+    .login-page .form-label {
         display: block;
         width: 680px;
+        height: 36px; /* Figma実測ルールに統一 */
         font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 700;
         color: #000;
-        margin-bottom: 10px;
+        margin-bottom: 0; /* ラベルと入力欄はピタッとくっつける */
+        display: flex;
+        align-items: center;
     }
 
-    /* 入力欄共通 */
+    /* 入力欄共通デザイン */
     .register-page .form-control,
-    .login-page [class*="input--"] {
+    .login-page .form-control {
         width: 680px;
+        height: 58px; /* デザイナーが狙った基準値に一統 */
         border: 1px solid rgba(95, 95, 95, 1);
         border-radius: 4px;
         box-sizing: border-box;
         padding: 0 16px;
         outline: none;
+        font-family: "Inter", sans-serif;
+        font-size: 18px; /* 入力文字の標準サイズ */
+        color: #000;
+        background-color: #fff;
     }
 
-    /* 送信ボタン共通 */
+    /* 送信ボタン共通デザイン (Figma実測: 高さ65.25px, 半径5px) */
     .register-btn-submit,
     .login-btn-submit {
         width: 680px;
@@ -69,7 +70,6 @@
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        margin-top: 40px;
         color: #fff;
         font-family: "Inter", sans-serif;
         font-size: 26px;
@@ -85,7 +85,7 @@
         opacity: 0.9;
     }
 
-    /* 下部リンク共通 */
+    /* 下部リンク共通デザイン (Figma実測: 幅257px, 高さ53.29px) */
     .register-link,
     .login-link {
         display: flex;
@@ -93,7 +93,7 @@
         justify-content: center;
         width: 257px;
         height: 53.29px;
-        margin: 18px auto 0;
+        margin: 0 auto;
         color: rgba(0, 115, 204, 1);
         font-family: "Inter", sans-serif;
         font-size: 20px;
@@ -107,66 +107,73 @@
         text-decoration: underline;
     }
 
+
     /* ==========================================================================
-    2. 各画面 固有数値
-       ========================================================================== */
+    2. 各画面 固有のバトンパス（位置調整）
+    ========================================================================== */
 
-    /* --- 会員登録固有 --- */
-    .register-page.auth-container {
-        padding-top: 178px;
-    }
-    .register-page .page-title {
-        height: 47.58px;
-        line-height: 47.58px;
-        margin-bottom: 30px;
-    }
-
-    .register-label--name,
-    .register-label--password {
-        height: 35px;
-        line-height: 35px;
-    }
-    .register-input--name,
-    .register-input--password {
-        height: 59px;
-    }
-    .register-label--email,
-    .register-label--password-confirmation {
-        height: 36px;
-        line-height: 36px;
-    }
-    .register-input--email,
-    .register-input--password-confirmation {
-        height: 58px;
-    }
-
-    /* --- ログイン固有 --- */
+    /* ----------------------------------------------------------------------
+       A. ログイン画面 固有数値
+    ------------------------------------------------------------------------- */
+    /* ログイン全体コンテナ：Figma Top 200px を再現 */
     .login-page.auth-container {
         padding-top: 200px;
+        padding-bottom: 80px;
     }
-    .login-page .login-title {
-        height: 46.04px;
-        line-height: 46.04px;
-        margin-bottom: 24px;
-    }
-    .login-page .login-link {
-        margin-top: 24px;
-    } /* ログイン側は24px */
 
-    .login-label--email {
-        height: 33.86px;
-        line-height: 33.86px;
+    /* ログインタイトル */
+    .login-page .page-title {
+        height: 46.04px;
+        margin-bottom: 24px; /* タイトル下の隙間 */
     }
-    .login-input--email {
-        height: 57.09px;
+
+    /* ログインのグループ間隔（等間隔リズム） */
+    .login-page .form-group + .form-group {
+        margin-top: 38px;
     }
-    .login-page .login-label--password {
-        height: 34.83px;
-        line-height: 34.83px;
+
+    /* ログインボタンの配置 (Figma Top: 597px より逆算) */
+    .login-btn-submit {
+        margin-top: 55px; 
     }
-    .login-page .login-input--password {
-        height: 56.12px;
+
+    /* 会員登録はこちらリンクへの配置 */
+    .login-page .login-link {
+        /* 680.74(リンクTop) - 662.25(ボタンお尻) = 18.49px */
+        margin-top: 18.49px;
     }
+
+    /* ----------------------------------------------------------------------
+       B. 会員登録画面 固有数値
+    ------------------------------------------------------------------------- */
+    /* 会員登録全体コンテナ：Figma Top 178px を再現 */
+    .register-page.auth-container {
+        padding-top: 178px;
+        padding-bottom: 80px;
+    }
+
+    /* 会員登録タイトル */
+    .register-page .page-title {
+        height: 47.58px;
+        margin-bottom: 30px; /* タイトル下の隙間 */
+    }
+
+    /* 会員登録のグループ間隔（Figma実測の38px等間隔ルールを適用） */
+    .register-page .form-group + .form-group {
+        margin-top: 38px;
+    }
+
+    /* 登録するボタンの配置 (Figma Top: 888px より逆算) */
+    .register-btn-submit {
+        margin-top: 55px;
+    }
+
+    /* ログインはこちらリンクへの配置 */
+    .register-page .register-link {
+        /* 971.74(リンクTop) - 953.25(ボタンお尻) = 18.49px */
+        margin-top: 18.49px;
+    }
+
     /* ==========================================================================
     3. verify-email
        ========================================================================== */
@@ -224,18 +231,18 @@
     .verify-link-resend:hover {
         text-decoration: underline;
     }
-
+}
     /* ==========================================================================
-    items/index「マイリスト」「おすすめ」
+    items/index ホーム画面 ok!!
        ========================================================================== */
     .main-tabs {
         width: 100%;
         height: 47px;
-        margin-top: 120px;
+        margin-top: 127px;
         border-bottom: 1px solid #ddd;
     }
 
-    .tabs-inner {
+    .main-tabs .tabs-inner {
         width: 100%;
         max-width: 1512px;
         margin: 0 auto;
@@ -245,7 +252,7 @@
     }
 
     /* 共通：選択されていない方はグレー */
-    .tab-link {
+    .main-tabs .tab-link {
         width: 155px;
         height: 40px;
         display: flex;
@@ -255,20 +262,20 @@
         font-size: 24px;
         font-weight: 700;
         color: rgba(95, 95, 95, 1);
+        position: relative; /* 下線用 */
     }
 
     /* 選択されている方だけ赤く*/
-    .tab-link.is-active {
+    .main-tabs .tab-link.is-active {
         color: rgba(255, 0, 0, 1);
     }
 
     /* タブの間隔 */
-    .tab-link + .tab-link {
+    .main-tabs .tab-link + .tab-link {
         margin-left: 52px;
     }
-    /* ==========================================================================
-    items/index item-card
-       ========================================================================== */
+
+
     /* 親要素 home-container */
     .home-container {
         width: 100%;
@@ -278,11 +285,11 @@
     }
 
     /* 商品グリッド全体*/
-    .item-grid {
+    .home-container .item-grid {
         display: grid;
         width: 1013.01px;
         margin-left: 69px;
-        margin-top: 76px;
+        margin-top: 76.39px;
         margin-bottom: 80px;
         grid-template-columns: repeat(3, 290px);
         justify-content: space-between;
@@ -290,18 +297,18 @@
     }
 
     /* 商品カード本体 */
-    .item-card {
+    .home-container .item-card {
         width: 290px;
     }
 
-    .item-link {
+    .home-container .item-link {
         text-decoration: none;
         color: inherit;
         display: block;
     }
 
     /* 商品画像部分 */
-    .item-thumbnail-wrapper {
+    .home-container .item-thumbnail-wrapper {
         width: 290px;
         height: 290px;
         position: relative;
@@ -309,18 +316,18 @@
         overflow: hidden;
     }
 
-    .item-thumbnail {
+    .home-container .item-thumbnail {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
     /* 商品名  */
-    .item-body {
+    .home-container .item-body {
         margin-top: 10px;
     }
 
-    .item-name {
+    .home-container .item-name {
         width: 290px;
         height: 30px;
         line-height: 30px;
@@ -334,7 +341,7 @@
     }
 
     /* SOLDバッジ */
-    .sold-badge {
+    .home-container .sold-badge {
         position: absolute;
         top: 0;
         left: 0;
@@ -345,7 +352,7 @@
     }
 }
 /* ==========================================================================
-profile/index プロフィール画面
+profile/index mypage画面 ok!!
 ========================================================================== */
 @media screen and (min-width: 1400px) {
     /*  マイページ全体のコンテナ */
@@ -354,34 +361,37 @@ profile/index プロフィール画面
         max-width: 1512px;
         margin: 0 auto;
         padding-top: 158px;
+        background-color: rgba(255, 255, 255, 1);
     }
 
     /*  プロフィールヘッダーエリア */
-    .profile-header {
+    .mypage-container .profile-header {
         display: flex;
         align-items: center;
         width: 1017px;
         height: 150px;
         margin-left: 299px;
+        margin-bottom: 0;
     }
 
     /* ユーザーアイコンの器 */
-    .user-icon-wrapper {
+    .mypage-container .user-icon-wrapper {
         width: 150px;
         height: 150px;
         border-radius: 50%;
         overflow: hidden;
         margin-right: 48px;
+        flex-shrink: 0;
     }
 
-    .user-icon-img {
+    .mypage-container .user-icon-img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
     /* ユーザー名 */
-    .user-name {
+    .mypage-container .user-name {
         font-family: "Inter", sans-serif;
         font-size: 32px;
         font-weight: 700;
@@ -389,7 +399,7 @@ profile/index プロフィール画面
     }
 
     /* プロフィール編集ボタン  */
-    .edit-profile-btn {
+    .mypage-container .edit-profile-btn {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -406,21 +416,21 @@ profile/index プロフィール画面
         transition: all 0.3s;
     }
 
-    .edit-profile-btn:hover {
+    .mypage-container .edit-profile-btn:hover {
         background-color: rgba(255, 85, 85, 1);
         color: #fff;
     }
 
     /* タブ全体の親 */
-    .profile-tabs {
+    .mypage-container .profile-tabs {
         width: 100%;
         height: 47px;
         border-bottom: 2px solid rgba(95, 95, 95, 1);
-        margin-top: 80px;
+        margin-top: 77px;
     }
 
     /* 内枠：1512pxの中で文字の位置を固定 */
-    .profile-tabs .tabs-inner {
+    .mypage-container .profile-tabs .tabs-inner {
         width: 100%;
         max-width: 1512px;
         height: 100%;
@@ -431,7 +441,7 @@ profile/index プロフィール画面
     }
 
     /* 各タブの共通スタイル */
-    .tab-item {
+    .mypage-container .tab-item {
         height: 100%;
         display: flex;
         align-items: center;
@@ -443,20 +453,21 @@ profile/index プロフィール画面
         color: rgba(95, 95, 95, 1);
         transition: color 0.3s;
         margin-right: 52px;
+        position: relative;
     }
 
     /* 文字選択時少し赤みを帯びるスタイル */
-    .tab-item:hover {
+    .mypage-container .tab-item:hover {
         color: rgba(255, 0, 0, 0.7);
     }
 
     /* 選択中のスタイル */
-    .tab-item.is-active {
+    .mypage-container .tab-item.is-active {
         color: rgba(255, 0, 0, 1);
     }
 
     /* マイページ専用のグリッド設定 */
-    .mypage-container .item-grid {
+    .mypage-container .mypage-container .item-grid {
         width: 1374.52px;
         margin-left: 69px;
         margin-top: 59px;
@@ -469,7 +480,7 @@ profile/index プロフィール画面
     }
 }
 /* ==========================================================================
-profile/edit プロフィール画面
+profile/edit プロフィール画面 ok!!
 ========================================================================== */
 @media screen and (min-width: 1400px) {
     /* 1. 全体コンテナ */
@@ -517,10 +528,10 @@ profile/edit プロフィール画面
     }
 
     .profile-edit-container .image-preview {
-        width: 100%; /* 親（wrapper）の幅150pxに合わせる */
-        height: 100%; /* 親（wrapper）の高さ150pxに合わせる */
-        object-fit: cover; /* これが重要！アスペクト比を保ったまま枠を埋める */
-        display: block; /* 余計な隙間を消す */
+        width: 100%;
+        height: 100%; 
+        object-fit: cover; 
+        display: block; 
     }
 
     .profile-edit-container .btn-outline-primary {
@@ -543,12 +554,10 @@ profile/edit プロフィール画面
         display: none;
     }
 
-    /* 4. 【新設】入力ブロック親要素 (計算値：高さ516px) */
+    /* 4. 入力ブロック親要素 */
     .profile-edit-container .profile-details-inner {
         width: 680px;
-        /* 計算：975(建物名お尻) - 459(ユーザー名Top) = 516px */
         height: 516px;
-        /* 計算：459(ブロックTop) - 333(画像お尻) = 126px */
         margin-top: 126px;
         display: flex;
         flex-direction: column;
@@ -557,10 +566,10 @@ profile/edit プロフィール画面
     /* ブロック内の各グループ設定 */
     .profile-details-inner .form-group {
         width: 100%;
-        height: 92px; /* ラベル36 + 隙間1 + 入力欄55 */
+        height: 92px;
     }
 
-    /* 2番目以降のグループに37pxの隙間を作る */
+    /* 2番目以降のグループに37pxの隙間 */
     .profile-details-inner .form-group + .form-group {
         margin-top: 37px;
     }
@@ -571,7 +580,7 @@ profile/edit プロフィール画面
         font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 700;
-        margin-bottom: 1px; /* ラベルと入力欄の隙間 */
+        margin-bottom: 1px;
         display: flex;
         align-items: center;
     }
@@ -591,7 +600,6 @@ profile/edit プロフィール画面
     .profile-edit-container .btn-submit {
         width: 680px;
         height: 60px;
-        /* 計算：1042(ボタンTop) - 975(ブロックお尻) = 67px */
         margin-top: 67px;
         margin-bottom: 127px;
         background-color: rgba(255, 85, 85, 1);
@@ -1389,7 +1397,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
 }
 
 /* ==========================================================================
-商品出品画面 (item/create.blade.php)
+商品出品画面 (item/create.blade.php)ok!!
 ========================================================================== */
 @media screen and (min-width: 1400px) {
     /* --- 共通ラベルスタイル --- */

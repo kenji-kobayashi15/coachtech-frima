@@ -14,6 +14,7 @@ class ItemController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->input('keyword');
+        $tab = $request->input('tab');
 
         // クエリビルダの開始
         $query = Item::with('order');
@@ -21,14 +22,27 @@ class ItemController extends Controller
         // 検索キーワードがある場合、部分一致検索を実行
         $query->keywordSearch($keyword);
 
-        // ログインしている場合、自分が出品した商品を除外
-        if (Auth::check()) {
-            $query->where('user_id', '!=', Auth::id());
+        if ($tab === 'mylist') {
+            // 【修正ポイント】マイリストタブの場合
+            if (Auth::check()) {
+                // ログインユーザーがいいねした商品のみを取得
+                $query->whereHas('likes', function ($q) {
+                    $q->where('user_id', Auth::id());
+                });
+            } else {
+                // 未ログイン時は空にする、または全表示にするなど仕様に合わせて調整
+                $query->whereRaw('1 = 0');
+            }
+        } else {
+            // おすすめタブ（デフォルト）：自分が出品した商品を除外
+            if (Auth::check()) {
+                $query->where('user_id', '!=', Auth::id());
+            }
         }
 
         $items = $query->get();
 
-        return view('items.index', compact('items', 'keyword'));
+        return view('items.index', compact('items', 'keyword', 'tab'));
     }
 
     public function show($item_id)
