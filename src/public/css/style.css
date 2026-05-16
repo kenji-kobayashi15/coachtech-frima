@@ -1,8 +1,19 @@
-@media screen and (min-width: 1400px) {
-    /* ==========================================================================
-    1. Auth Pages 共通装飾スタイル　ok!!
-    ========================================================================== */
+/* ==========================================================================
+Auth Pages 共通・固有装飾スタイル
+========================================================================== */
 
+@media screen and (min-width: 1400px) {
+
+    .register-page,
+    .login-page,
+    .verify-email-container {
+        font-family: "Inter", sans-serif;
+        color: #000000;
+    }
+
+    /* ----------------------------------------------------------------------
+    1. Register / Login 共通スタイル
+    ------------------------------------------------------------------------- */
     /* フォームコンテンツの共通幅 */
     .register-page .auth-content,
     .login-page .login-content {
@@ -10,15 +21,13 @@
         text-align: center;
     }
 
-    /* ページタイトル共通デザイン */
+    /* ページタイトル共通デザイン　*/
     .register-page .page-title,
     .login-page .page-title {
         width: 144px;
         margin: 0 auto;
-        font-family: "Inter", sans-serif;
         font-size: 36px;
         font-weight: 700;
-        color: #000;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -30,16 +39,20 @@
         text-align: left;
     }
 
+    /* 2番目以降のグループ共通の間隔 */
+    .register-page .form-group + .form-group,
+    .login-page .form-group + .form-group {
+        margin-top: 38px;
+    }
+
     /* ラベル共通デザイン */
     .register-page .form-label,
     .login-page .form-label {
         display: block;
         width: 680px;
         height: 36px;
-        font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 700;
-        color: #000;
         margin-bottom: 0;
         display: flex;
         align-items: center;
@@ -55,10 +68,8 @@
         box-sizing: border-box;
         padding: 0 16px;
         outline: none;
-        font-family: "Inter", sans-serif;
         font-size: 18px;
-        color: #000;
-        background-color: #fff;
+        background-color: #ffffff;
     }
 
     /* 送信ボタン共通デザイン */
@@ -66,12 +77,12 @@
     .login-btn-submit {
         width: 680px;
         height: 65.25px;
+        margin-top: 55px;
         background-color: rgba(255, 85, 85, 1);
         border: none;
         border-radius: 5px;
         cursor: pointer;
-        color: #fff;
-        font-family: "Inter", sans-serif;
+        color: #ffffff;
         font-size: 26px;
         font-weight: 700;
         display: flex;
@@ -85,7 +96,7 @@
         opacity: 0.9;
     }
 
-    /* 下部リンク共通デザイン  */
+    /* 下部リンク共通デザイン */
     .register-link,
     .login-link {
         display: flex;
@@ -93,9 +104,8 @@
         justify-content: center;
         width: 257px;
         height: 53.29px;
-        margin: 0 auto;
+        margin: 18.49px auto 0;
         color: rgba(0, 115, 204, 1);
-        font-family: "Inter", sans-serif;
         font-size: 20px;
         font-weight: 400;
         text-decoration: none;
@@ -107,74 +117,34 @@
         text-decoration: underline;
     }
 
-
-    /* ==========================================================================
-    2. 各画面 固有（位置調整）
-    ========================================================================== */
-
     /* ----------------------------------------------------------------------
-       A. ログイン画面 固有数値
+    2. 各画面 固有スタイル
     ------------------------------------------------------------------------- */
-    /* ログイン全体コンテナ */
+    /* A. ログイン画面 固有数値 */
     .login-page.auth-container {
         padding-top: 200px;
         padding-bottom: 80px;
     }
 
-    /* ログインタイトル */
     .login-page .page-title {
         height: 46.04px;
         margin-bottom: 24px;
     }
 
-    /* ログインのグループ間隔 */
-    .login-page .form-group + .form-group {
-        margin-top: 38px;
-    }
-
-    /* ログインボタンの配置  */
-    .login-btn-submit {
-        margin-top: 55px;
-    }
-
-    /* 会員登録はこちらリンクへの配置 */
-    .login-page .login-link {
-        margin-top: 18.49px;
-    }
-
-    /* ----------------------------------------------------------------------
-       B. 会員登録画面 固有数値
-    ------------------------------------------------------------------------- */
-    /* 会員登録全体コンテナ */
+    /* B. 会員登録画面 固有数値 */
     .register-page.auth-container {
         padding-top: 178px;
         padding-bottom: 80px;
     }
 
-    /* 会員登録タイトル */
     .register-page .page-title {
         height: 47.58px;
         margin-bottom: 30px;
     }
 
-    /* 会員登録のグループ間隔 */
-    .register-page .form-group + .form-group {
-        margin-top: 38px;
-    }
-
-    /* 登録するボタンの配置  */
-    .register-btn-submit {
-        margin-top: 55px;
-    }
-
-    /* ログインはこちらリンクへの配置 */
-    .register-page .register-link {
-        margin-top: 18.49px;
-    }
-
-    /* ==========================================================================
-    3. verify-email
-       ========================================================================== */
+    /* ----------------------------------------------------------------------
+    3. verify-email 画面スタイル
+    ------------------------------------------------------------------------- */
     .verify-email-container {
         width: 100%;
         max-width: 1512px;
@@ -185,10 +155,8 @@
 
     /* メッセージテキスト */
     .verify-text {
-        font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 700;
-        color: rgba(0, 0, 0, 1);
         line-height: 1.5;
         margin-bottom: 5px;
     }
@@ -201,10 +169,8 @@
         background-color: rgba(217, 217, 217, 1);
         border: 1px solid rgba(0, 0, 0, 1);
         border-radius: 10px;
-        font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 700;
-        color: rgba(0, 0, 0, 1);
         cursor: pointer;
         display: flex;
         align-items: center;
@@ -218,7 +184,6 @@
         width: 257px;
         height: 53.29px;
         margin-top: 52px;
-        font-family: "Inter", sans-serif;
         font-size: 20px;
         font-weight: 400;
         color: rgba(0, 115, 204, 1);
@@ -230,14 +195,18 @@
         text-decoration: underline;
     }
 }
-    /* ==========================================================================
-    items/index ホーム画面 ok!!
-       ========================================================================== */
+
+/* ==========================================================================
+items/index ホーム画面
+ ========================================================================== */
+@media screen and (min-width: 1400px) {
+
     .main-tabs {
         width: 100%;
         height: 47px;
         margin-top: 127px;
-        border-bottom: 1px solid #ddd;
+        border-bottom: 1px solid #dddddd;
+        font-family: "Inter", sans-serif;
     }
 
     .main-tabs .tabs-inner {
@@ -263,7 +232,7 @@
         position: relative; /* 下線用 */
     }
 
-    /* 選択されている方だけ赤く*/
+    /* 選択されている方だけ赤く */
     .main-tabs .tab-link.is-active {
         color: rgba(255, 0, 0, 1);
     }
@@ -273,42 +242,54 @@
         margin-left: 52px;
     }
 
-
     /* 親要素 home-container */
     .home-container {
         width: 100%;
         max-width: 1512px;
         margin: 0 auto;
         position: relative;
+        font-family: "Inter", sans-serif;
+        color: #000000;
     }
 
-    /* 商品グリッド全体*/
+    /* 商品グリッド全体 */
     .home-container .item-grid {
         display: grid;
-        width: 1013.01px;
+        width: 1074.52px;
         margin-left: 69px;
         margin-top: 76.39px;
         margin-bottom: 80px;
-        grid-template-columns: repeat(3, 290px);
-        justify-content: space-between;
-        row-gap: 40px;
+        grid-template-columns: repeat(4, 290px);
+        column-gap: 71.5px;
+        row-gap: 76.61px;
     }
 
     /* 商品カード本体 */
     .home-container .item-card {
         width: 290px;
+        height: 320px;
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        box-sizing: border-box;
+        border-radius: 4px;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        overflow: hidden;
     }
 
     .home-container .item-link {
         text-decoration: none;
         color: inherit;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
     }
 
     /* 商品画像部分 */
     .home-container .item-thumbnail-wrapper {
         width: 290px;
-        height: 290px;
+        height: 260px;
         position: relative;
         background-color: #f0f0f0;
         overflow: hidden;
@@ -318,51 +299,66 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
+        display: block;
     }
 
-    /* 商品名  */
+    /* 商品名エリア */
     .home-container .item-body {
-        margin-top: 10px;
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        background-color: #ffffff;
     }
 
     .home-container .item-name {
-        width: 290px;
-        height: 30px;
-        line-height: 30px;
-        font-family: "Inter", sans-serif;
-        font-size: 25px;
+        font-size: 18px;
         font-weight: 400;
-        color: #000;
+        margin: 0;
+        line-height: 1.4;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
+        width: 100%;
     }
 
-    /* SOLDバッジ */
+    /* SOLD OUT バッジ */
     .home-container .sold-badge {
         position: absolute;
         top: 0;
         left: 0;
-        background-color: rgba(255, 0, 0, 0.8);
-        color: #fff;
-        padding: 5px 10px;
-        font-weight: bold;
+        width: 0;
+        height: 0;
+        border-top: 60px solid rgba(255, 0, 0, 0.8);
+        border-right: 60px solid transparent;
+    }
+    
+    .home-container .sold-badge span {
+        position: absolute;
+        top: -50px;
+        left: 5px;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 700;
+        transform: rotate(-45deg);
+        display: block;
     }
 }
 /* ==========================================================================
-profile/index mypage画面 ok!!
+profile/index mypage画面
 ========================================================================== */
 @media screen and (min-width: 1400px) {
-    /*  マイページ全体のコンテナ */
+
     .mypage-container {
         width: 100%;
         max-width: 1512px;
         margin: 0 auto;
         padding-top: 158px;
         background-color: rgba(255, 255, 255, 1);
+        font-family: "Inter", sans-serif;
     }
 
-    /*  プロフィールヘッダーエリア */
+    /* プロフィールヘッダーエリア */
     .mypage-container .profile-header {
         display: flex;
         align-items: center;
@@ -390,13 +386,12 @@ profile/index mypage画面 ok!!
 
     /* ユーザー名 */
     .mypage-container .user-name {
-        font-family: "Inter", sans-serif;
         font-size: 32px;
         font-weight: 700;
         margin-right: auto;
     }
 
-    /* プロフィール編集ボタン  */
+    /* プロフィール編集ボタン */
     .mypage-container .edit-profile-btn {
         display: flex;
         align-items: center;
@@ -407,7 +402,6 @@ profile/index mypage画面 ok!!
         border-radius: 4px;
         background-color: transparent;
         color: rgba(255, 85, 85, 1);
-        font-family: "Inter", sans-serif;
         font-size: 20px;
         font-weight: 700;
         text-decoration: none;
@@ -430,7 +424,6 @@ profile/index mypage画面 ok!!
     /* 内枠：1512pxの中で文字の位置を固定 */
     .mypage-container .profile-tabs .tabs-inner {
         width: 100%;
-        max-width: 1512px;
         height: 100%;
         margin: 0 auto;
         display: flex;
@@ -445,7 +438,6 @@ profile/index mypage画面 ok!!
         align-items: center;
         justify-content: center;
         text-decoration: none;
-        font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 700;
         color: rgba(95, 95, 95, 1);
@@ -465,40 +457,123 @@ profile/index mypage画面 ok!!
     }
 
     /* マイページ専用のグリッド設定 */
-    .mypage-container .mypage-container .item-grid {
+    .mypage-container .item-grid {
         width: 1374.52px;
         margin-left: 69px;
         margin-top: 59px;
         display: grid;
-        /* カードを4列 */
+        /* カードを4列、各290px */
         grid-template-columns: repeat(4, 290px);
         justify-content: space-between;
-        row-gap: 40px;
+        row-gap: 76.61px; 
         margin-bottom: 80px;
+    }
+
+    /* 商品カード本体 */
+    .mypage-container .item-card {
+        width: 290px;
+        height: 320px;
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+        box-sizing: border-box;
+        border-radius: 4px;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+        overflow: hidden;
+    }
+
+    /* リンクエリア　*/
+    .mypage-container .item-link {
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+    }
+
+    /* 商品サムネイルの親要素　*/
+    .mypage-container .item-thumbnail-wrapper {
+        width: 290px;
+        height: 260px;
+        position: relative;
+        overflow: hidden;
+        background-color: #f5f5f5;
+    }
+
+    /* 画像自体の表示設定 */
+    .mypage-container .item-thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+
+    /* SOLD OUT バッジの配置（画像の上に重ねる） */
+    .mypage-container .sold-badge {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        border-top: 60px solid #ff4b4b;
+        border-right: 60px solid transparent;
+    }
+    .mypage-container .sold-badge span {
+        position: absolute;
+        top: -50px;
+        left: 5px;
+        color: #ffffff;
+        font-size: 12px;
+        font-weight: 700;
+        transform: rotate(-45deg);
+        display: block;
+    }
+
+    /* カードの下部（テキストエリア） */
+    .mypage-container .item-body {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        background-color: #ffffff;
+    }
+
+    /* 商品名 */
+    .mypage-container .item-name {
+        font-size: 18px;
+        font-weight: 400;
+        color: #333333;
+        margin: 0;
+        line-height: 1.4;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
     }
 }
 /* ==========================================================================
-profile/edit プロフィール画面 ok!!
+profile/edit プロフィール画面
 ========================================================================== */
 @media screen and (min-width: 1400px) {
-    /* 1. 全体コンテナ */
+    /* 1. 全体コンテナ（フォントと基本文字色をここに集約） */
     .profile-edit-container {
         width: 100%;
         max-width: 680px;
         margin: 0 auto;
         padding-top: 139px;
         min-height: 1229px;
-        background-color: #fff;
+        background-color: #ffffff;
+        font-family: "Inter", sans-serif;
+        color: #000000;
     }
 
     /* 2. タイトル */
     .profile-edit-container .page-title {
         width: 100%;
         height: 47px;
-        font-family: "Inter", sans-serif;
         font-size: 36px;
         font-weight: 700;
-        color: #000;
         text-align: center;
         margin: 0;
     }
@@ -527,9 +602,9 @@ profile/edit プロフィール画面 ok!!
 
     .profile-edit-container .image-preview {
         width: 100%;
-        height: 100%; 
-        object-fit: cover; 
-        display: block; 
+        height: 100%;
+        object-fit: cover;
+        display: block;
     }
 
     .profile-edit-container .btn-outline-primary {
@@ -552,19 +627,17 @@ profile/edit プロフィール画面 ok!!
         display: none;
     }
 
-    /* 4. 入力ブロック親要素 */
+    /* 4. 入力ブロック親要素（エラー表示による文字溢れを防ぐため、heightを指定しない構成に改善） */
     .profile-edit-container .profile-details-inner {
         width: 680px;
-        height: 516px;
         margin-top: 126px;
         display: flex;
         flex-direction: column;
     }
 
-    /* ブロック内の各グループ設定 */
+    /* ブロック内の各グループ設定（ここもheight指定を外して、柔軟に伸びるようにしています） */
     .profile-details-inner .form-group {
         width: 100%;
-        height: 92px;
     }
 
     /* 2番目以降のグループに37pxの隙間 */
@@ -575,7 +648,6 @@ profile/edit プロフィール画面 ok!!
     /* ラベル共通 */
     .profile-edit-container .form-label {
         height: 36px;
-        font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 700;
         margin-bottom: 1px;
@@ -594,7 +666,7 @@ profile/edit プロフィール画面 ok!!
         box-sizing: border-box;
     }
 
-    /* 5. 更新ボタン */
+    /* 5. 更新ボタン（幅680pxをしっかり維持） */
     .profile-edit-container .btn-submit {
         width: 680px;
         height: 60px;
@@ -602,7 +674,7 @@ profile/edit プロフィール画面 ok!!
         margin-bottom: 127px;
         background-color: rgba(255, 85, 85, 1);
         border-radius: 4px;
-        color: #fff;
+        color: #ffffff;
         font-size: 26px;
         font-weight: 700;
         border: none;
@@ -612,12 +684,10 @@ profile/edit プロフィール画面 ok!!
         cursor: pointer;
     }
 }
-
 /* ==========================================================================
 ITEM DETAIL - 商品詳細画面 (show.blade.php)
 ========================================================================== */
 @media screen and (min-width: 1400px) {
-
     .item-detail-container {
         width: 1380px;
         margin: 0 auto;
@@ -897,7 +967,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         flex-shrink: 0;
     }
 
-    /* 商品の状態：値（Bパターンを残し、不要なAパターンを削除しました） */
+    /* 商品の状態 */
     .item-detail-container .item-detail__condition {
         margin-left: 76.72px;
         font-size: 20px;
@@ -1034,11 +1104,12 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
 商品購入画面 (purchase/create.blade.php)
 ========================================================================== */
 @media screen and (min-width: 1400px) {
-    /* 1. 全体のコンテナ  */
     .purchase-container {
         width: 1380px;
         margin: 0 auto;
         padding-top: 173px;
+        font-family: "Inter", sans-serif;
+        color: #000000;
     }
 
     .purchase-wrapper {
@@ -1061,7 +1132,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         border-bottom: 2px solid rgba(0, 0, 0, 1);
     }
 
-    /* 商品画像  */
+    /* 商品画像 */
     .item-image-wrapper {
         width: 150px;
         height: 150px;
@@ -1081,35 +1152,29 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
 
     /* 商品名 */
     .item-name {
-        font-family: "Inter", sans-serif;
         font-size: 32px;
         font-weight: 700;
-        color: #000;
         margin-bottom: 20px;
     }
 
-    /* 価格  */
+    /* 価格 */
     .item-price {
-        font-family: "Inter", sans-serif;
         font-size: 32px;
         font-weight: 700;
-        color: #000;
     }
 
-    /* 1. セクションタイトルのスタイル  */
+    /* 1. セクションタイトルのスタイル */
     .purchase-container .section-title {
         width: 326px;
         height: 85px;
-        font-family: "Inter", sans-serif;
         margin-top: 80px;
         margin-left: 35px;
         font-size: 20px;
         font-weight: 700;
-        color: #000;
         margin-bottom: 24px;
     }
 
-    /* 2. セレクトボックスのスタイル  */
+    /* 2. セレクトボックスのスタイル */
     .purchase-container .form-select {
         width: 265px;
         height: 31px;
@@ -1118,9 +1183,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         border: 1px solid rgba(95, 95, 95, 1);
         border-radius: 4px;
         padding: 0 10px;
-        font-family: "Inter", sans-serif;
         font-size: 14px;
-        color: #000;
         background-color: #fff;
         cursor: pointer;
     }
@@ -1130,15 +1193,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         width: 805px;
         padding-bottom: 40px;
         margin-bottom: 40px;
-        border-bottom: 1px solid rgba(0, 0, 0, 1);
-    }
-
-    /* 配送先セクション全体 */
-    .purchase-container .setting-section {
-        width: 842px;
-        padding-bottom: 40px;
-        margin-bottom: 40px;
-        border-bottom: 1px solid #000;
+        border-bottom: 1px solid #000000;
     }
 
     /* タイトルと「変更する」を包むヘッダー */
@@ -1152,7 +1207,6 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
 
     /* 「変更する」リンク */
     .link-edit {
-        font-family: "Inter", sans-serif;
         font-size: 20px;
         font-weight: 400;
         color: rgba(0, 115, 204, 1);
@@ -1166,10 +1220,8 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     }
 
     .address-display p {
-        font-family: "Inter", sans-serif;
         font-size: 20px;
         font-weight: 600;
-        color: #000;
         line-height: 1;
         margin-bottom: 10px;
     }
@@ -1180,7 +1232,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         margin-top: 0px;
     }
 
-    /* テーブルを包むボックス  */
+    /* テーブルを包むボックス */
     .purchase-summary-box {
         width: 440px;
         height: 230px;
@@ -1200,7 +1252,6 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     .summary-item-row,
     .summary-method-row {
         height: 115px;
-        width: 220px;
     }
 
     /* 1行目と2行目の境界線 */
@@ -1218,21 +1269,17 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     /* <th> 項目名のスタイル */
     .summary-table th {
         width: 220px;
-        font-family: "Inter", sans-serif;
         font-size: 20px;
-        font-weight: 400; /* Regular */
-        color: #000;
+        font-weight: 400;
         text-align: left;
         padding-left: 64px;
     }
 
-    /* <td> 値（金額・方法）のスタイル  */
+    /* <td> 値（金額・方法）のスタイル */
     .summary-table td {
         width: 220px;
-        font-family: "Inter", sans-serif;
         font-size: 24px;
-        font-weight: 400; /* Regular */
-        color: #000;
+        font-weight: 400;
         text-align: left;
         padding-left: 20px;
     }
@@ -1244,7 +1291,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         justify-content: center;
     }
 
-    /*  ボタンそのもののスタイル  */
+    /* ボタンそのもののスタイル */
     .purchase-sidebar .btn-submit {
         width: 403px;
         height: 48px;
@@ -1255,7 +1302,6 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         transition: opacity 0.2s;
         /* 文字スタイル */
         color: #fff;
-        font-family: "Inter", sans-serif;
         font-size: 18px;
         font-weight: 700;
         display: flex;
@@ -1273,7 +1319,6 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
 address入力画面 (purchase/address.blade.php)
 ========================================================================== */
 @media screen and (min-width: 1400px) {
-    /* 1. 全体のコンテナ  */
     .address-edit-container {
         width: 1512px;
         margin: 0 auto;
@@ -1281,14 +1326,14 @@ address入力画面 (purchase/address.blade.php)
         display: flex;
         flex-direction: column;
         align-items: center;
+        font-family: "Inter", sans-serif;
+        color: #000000;
     }
 
-    /* 2. ページタイトル  */
+    /* 2. ページタイトル */
     .address-edit-container .page-title {
-        font-family: "Inter", sans-serif;
         font-size: 36px;
         font-weight: 700;
-        color: #000;
         margin-bottom: 70px;
         text-align: center;
     }
@@ -1298,13 +1343,11 @@ address入力画面 (purchase/address.blade.php)
         width: 680px;
     }
 
-    /* 3-5. フォームラベル  */
+    /* 3-5. フォームラベル */
     .address-form .form-label {
         display: block;
-        font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 700;
-        color: #000;
         margin-bottom: 15px;
     }
 
@@ -1319,7 +1362,6 @@ address入力画面 (purchase/address.blade.php)
         border: 1px solid rgba(95, 95, 95, 1);
         border-radius: 4px;
         padding: 0 15px;
-        font-family: "Inter", sans-serif;
         font-size: 18px;
         box-sizing: border-box;
         background-color: #fff;
@@ -1340,8 +1382,6 @@ address入力画面 (purchase/address.blade.php)
         border-radius: 5px;
         color: #fff;
         cursor: pointer;
-        /* 文字スタイル  */
-        font-family: "Inter", sans-serif;
         font-size: 26px;
         font-weight: 700;
         display: flex;
@@ -1357,9 +1397,22 @@ address入力画面 (purchase/address.blade.php)
 }
 
 /* ==========================================================================
-商品出品画面 (item/create.blade.php)ok!!
+商品出品画面 (item/create.blade.php)
 ========================================================================== */
 @media screen and (min-width: 1400px) {
+    /* 1. 全体のコンテナ（フォントと基本文字色をここに集約） */
+    .item-create-container {
+        width: 1512px;
+        margin: 0 auto;
+        padding-top: 131px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #ffffff;
+        font-family: "Inter", sans-serif;
+        color: #000000;
+    }
+
     /* --- 共通ラベルスタイル --- */
     .item-img-label,
     .category-label-title,
@@ -1371,10 +1424,8 @@ address入力画面 (purchase/address.blade.php)
         height: 29px;
         display: flex;
         align-items: center;
-        font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 700;
-        color: rgba(0, 0, 0, 1);
         margin-bottom: 7px;
     }
 
@@ -1383,16 +1434,29 @@ address入力画面 (purchase/address.blade.php)
         height: 36px;
         margin-top: 43px;
         margin-bottom: 0;
+        width: 205px;
     }
     .category-label-title {
         height: 36px;
         margin-bottom: 31px;
+        width: 162.09px;
     }
     .condition-label {
         margin-bottom: 19px;
+        width: 120px;
+    }
+    .item-name-label {
+        width: 72px;
+    }
+    .brand-label {
+        width: 120px;
+    }
+    .detail-label {
+        width: 120px;
     }
     .price-label {
         margin-top: 36px;
+        width: 96px;
     }
 
     /* --- 共通入力フィールドスタイル --- */
@@ -1405,7 +1469,7 @@ address入力画面 (purchase/address.blade.php)
         border-radius: 4px;
         background-color: #ffffff;
         font-size: 16px;
-        color: #333;
+        color: #333333;
         box-sizing: border-box;
     }
 
@@ -1420,6 +1484,7 @@ address入力画面 (purchase/address.blade.php)
         height: 125px;
         padding: 12px 16px;
         resize: vertical;
+        font-family: inherit;
     }
     .price-input {
         padding: 0 16px 0 50px;
@@ -1439,6 +1504,7 @@ address入力画面 (purchase/address.blade.php)
     }
     .condition-form-group {
         margin-top: 65px;
+        height: 93px;
     }
     .detail-item-section {
         margin-top: 69px;
@@ -1452,41 +1518,20 @@ address入力画面 (purchase/address.blade.php)
         margin-top: 39px;
     }
 
-    /* 1. 全体のコンテナ  */
-    .item-create-container {
-        width: 1512px;
-        margin: 0 auto;
-        padding-top: 131px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: #fff;
-    }
-
     /* 商品出品タイトル */
     .item-create-container .sell-page-title {
         width: 180px;
         height: 44px;
-        font-family: "Inter", sans-serif;
         font-size: 36px;
         font-weight: 700;
-        color: rgba(0, 0, 0, 1);
         display: flex;
         align-items: center;
         justify-content: center;
-        /* bottom175px */
-    }
-
-    /* 商品画像  */
-    .item-create-container .item-img-label {
-        width: 205px;
     }
 
     /* 2. アップロードボックス本体 */
     .item-create-container .image-upload-box {
-        width: 680px;
         height: 150px;
-        margin-top: 0px;
         border: 1px dashed rgba(95, 95, 95, 1);
         border-radius: 4px;
         display: flex;
@@ -1495,7 +1540,6 @@ address入力画面 (purchase/address.blade.php)
         position: relative;
         cursor: pointer;
         background-color: #f9f9f9;
-        /* bottom404px */
     }
 
     /* ファイル選択ボタン上に透明ボックスを作り全域でクリック選択 */
@@ -1503,17 +1547,14 @@ address入力画面 (purchase/address.blade.php)
         display: none;
     }
 
-    /* 画像を選択する  */
+    /* 画像を選択する */
     .item-create-container .upload-placeholder {
         width: 165px;
         height: 43.46px;
-        background-color: transparent; /* 背景を透明 */
-        /* 枠線の設定 */
+        background-color: transparent;
         border: 2px solid rgba(255, 86, 85, 1);
         border-radius: 10px;
-        /* 文字の設定 */
         color: rgba(255, 86, 85, 1);
-        font-family: "Inter", sans-serif;
         font-size: 16px;
         font-weight: 700;
         display: flex;
@@ -1548,40 +1589,17 @@ address入力画面 (purchase/address.blade.php)
         display: none;
     }
 
-    /* セクション全体のコンテナ */
-    .item-create-container .category-form-section {
-        height: auto;
-    }
-
     /* セクション内のサブタイトル */
     .item-create-container .section-subtitle {
-        width: 680px;
         height: 36px;
-        /* タイポグラフィ */
-        font-family: "Inter", sans-serif;
         font-size: 30px;
         font-weight: 700;
         color: rgba(95, 95, 95, 1);
         border-bottom: 1px solid rgba(95, 95, 95, 1);
         padding-bottom: 12px;
         margin-bottom: 36px;
-        margin-top: 0px;
         display: flex;
         align-items: center;
-    }
-
-    /* 1. カテゴリー全体を包むグループ  */
-    .item-create-container .form-group.mt-medium {
-        width: 680px;
-        height: auto;
-        margin-top: 36px;
-        display: flex;
-        flex-direction: column;
-    }
-
-    /* 2. 「カテゴリー」という見出しラベル  */
-    .item-create-container .category-label-title {
-        width: 162.09px;
     }
 
     /* 3. チップを並べるエリア */
@@ -1595,24 +1613,15 @@ address入力画面 (purchase/address.blade.php)
     .item-create-container .category-label {
         min-width: 100px;
         height: 32px;
-
-        /* 内側の余白：左右に16pxずつ */
         padding: 0 16px;
-
         border: 2px solid rgba(255, 86, 85, 1);
         border-radius: 200px;
-
-        /* タイポグラフィ */
-        font-family: "Inter", sans-serif;
         font-size: 15px;
         font-weight: 500;
         color: rgba(255, 86, 85, 1);
-
-        /* 中の文字を常に上下左右中央にする */
         display: inline-flex;
         align-items: center;
         justify-content: center;
-
         cursor: pointer;
         background-color: transparent;
         transition:
@@ -1631,40 +1640,20 @@ address入力画面 (purchase/address.blade.php)
         color: #ffffff;
     }
 
-    /* 1. セクション全体の箱 */
-    .item-create-container .condition-form-group {
-        height: 93px;
-    }
-
-    /* 2. 「商品の状態」ラベル  */
-    .item-create-container .condition-label {
-        width: 120px;
-    }
-
-    /* 3. セレクトボックス本体  */
+    /* 3. セレクトボックス本体 */
     .item-create-container .item-select-box {
         cursor: pointer;
-        /* デフォルト矢印を修正 */
         appearance: none;
-        -webkit-appearance: none; /* Safari用 */
-        /* 塗りつぶし三角形（▼） */
+        -webkit-appearance: none;
         background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 20'%3E%3Cpath d='M0 0 L18 0 L9 20 Z' fill='rgba(95, 95, 95, 1)'/%3E%3C/svg%3E");
         background-repeat: no-repeat;
         background-position: right 16px center;
         background-size: 18px 20px;
     }
 
-    /* 1. 「商品名と説明」コンテナ */
-    .item-create-container .detail-item-section {
-        height: auto;
-    }
-
-    /* 2. セクション見出し：商品名と説明  */
+    /* 2. セクション見出し：商品名と説明 */
     .item-create-container .item-subtitle {
-        width: 680px;
         height: 46px;
-        /* タイポグラフィ */
-        font-family: "Inter", sans-serif;
         font-size: 30px;
         font-weight: 700;
         color: rgba(95, 95, 95, 1);
@@ -1672,80 +1661,41 @@ address入力画面 (purchase/address.blade.php)
         display: flex;
         align-items: center;
         margin-bottom: 36px;
-        margin-top: 0;
-    }
-
-    /* 1. 商品名の入力グループ全体  */
-    .item-create-container .form-group.mt-medium {
-        height: auto;
-    }
-
-    /* 2. 「商品名」ラベル  */
-    .item-create-container .item-name-label {
-        width: 72px;
-    }
-
-    /* 4. 「ブランド」ラベル  */
-    .item-create-container .brand-label {
-        width: 120px;
-    }
-
-    /* 1. 「商品の説明」グループ全体  */
-    .item-create-container .detail-group {
-        height: auto;
-    }
-
-    /* 2. 「商品の説明」ラベル  */
-    .item-create-container .detail-label {
-        width: 120px;
-    }
-
-    /* 3. テキストエリア本体  */
-    .item-create-container .detail-textarea {
-        font-family: inherit;
-    }
-
-    /* 2. 「販売価格」ラベル */
-    .item-create-container .price-label {
-        width: 96px;
     }
 
     /* 3. ¥マークとinputを包むラッパー */
     .item-create-container .price-input-wrapper {
         position: relative;
-        width: 680px;
     }
 
-    /* 4. ¥マーク  */
+    /* 4. ¥マーク */
     .item-create-container .currency-unit {
         position: absolute;
         top: 8px;
         left: 12px;
         width: 36px;
         height: 28px;
-        font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 700;
-        color: rgba(0, 0, 0, 1);
         display: flex;
         align-items: center;
         justify-content: center;
         pointer-events: none;
     }
 
-    /* ▲▼スピンボタンの削除　Chrome, Safari, Edge, Opera 用 */
+    /* ▲▼スピンボタンの削除 Chrome, Safari, Edge, Opera 用 */
     .price-input::-webkit-outer-spin-button,
     .price-input::-webkit-inner-spin-button {
         -webkit-appearance: none;
         margin: 0;
     }
 
-    /* ▲▼スピンボタンの削除　Firefox 用 */
+    /* ▲▼スピンボタンの削除 Firefox 用 */
     .price-input[type="number"] {
         -moz-appearance: textfield;
     }
 
-    /* 出品ボタン本体  */
+    /* 出品ボタン本体 */
     .item-create-container .sell-btn-submit {
         width: 680px;
         height: 60px;
@@ -1756,19 +1706,14 @@ address入力画面 (purchase/address.blade.php)
         margin-bottom: 120px;
         margin-left: auto;
         margin-right: auto;
-        /* 2. 見た目  */
         background-color: rgba(255, 85, 85, 1);
         border: none;
         border-radius: 5px;
         cursor: pointer;
-
-        /* 3. タイポグラフィ  */
         color: rgba(255, 255, 255, 1);
-        font-family: "Inter", sans-serif;
         font-size: 26px;
         font-weight: 700;
         text-align: center;
-        /* インタラクション */
         transition:
             background-color 0.3s,
             opacity 0.2s;
