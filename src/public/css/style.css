@@ -1,6 +1,6 @@
 @media screen and (min-width: 1400px) {
     /* ==========================================================================
-    1. Auth Pages 共通装飾スタイル (他の画面を汚さないように限定)
+    1. Auth Pages 共通装飾スタイル　ok!!
     ========================================================================== */
 
     /* フォームコンテンツの共通幅 */
@@ -35,12 +35,12 @@
     .login-page .form-label {
         display: block;
         width: 680px;
-        height: 36px; /* Figma実測ルールに統一 */
+        height: 36px;
         font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 700;
         color: #000;
-        margin-bottom: 0; /* ラベルと入力欄はピタッとくっつける */
+        margin-bottom: 0;
         display: flex;
         align-items: center;
     }
@@ -49,19 +49,19 @@
     .register-page .form-control,
     .login-page .form-control {
         width: 680px;
-        height: 58px; /* デザイナーが狙った基準値に一統 */
+        height: 58px;
         border: 1px solid rgba(95, 95, 95, 1);
         border-radius: 4px;
         box-sizing: border-box;
         padding: 0 16px;
         outline: none;
         font-family: "Inter", sans-serif;
-        font-size: 18px; /* 入力文字の標準サイズ */
+        font-size: 18px;
         color: #000;
         background-color: #fff;
     }
 
-    /* 送信ボタン共通デザイン (Figma実測: 高さ65.25px, 半径5px) */
+    /* 送信ボタン共通デザイン */
     .register-btn-submit,
     .login-btn-submit {
         width: 680px;
@@ -85,7 +85,7 @@
         opacity: 0.9;
     }
 
-    /* 下部リンク共通デザイン (Figma実測: 幅257px, 高さ53.29px) */
+    /* 下部リンク共通デザイン  */
     .register-link,
     .login-link {
         display: flex;
@@ -109,13 +109,13 @@
 
 
     /* ==========================================================================
-    2. 各画面 固有のバトンパス（位置調整）
+    2. 各画面 固有（位置調整）
     ========================================================================== */
 
     /* ----------------------------------------------------------------------
        A. ログイン画面 固有数値
     ------------------------------------------------------------------------- */
-    /* ログイン全体コンテナ：Figma Top 200px を再現 */
+    /* ログイン全体コンテナ */
     .login-page.auth-container {
         padding-top: 200px;
         padding-bottom: 80px;
@@ -124,29 +124,28 @@
     /* ログインタイトル */
     .login-page .page-title {
         height: 46.04px;
-        margin-bottom: 24px; /* タイトル下の隙間 */
+        margin-bottom: 24px;
     }
 
-    /* ログインのグループ間隔（等間隔リズム） */
+    /* ログインのグループ間隔 */
     .login-page .form-group + .form-group {
         margin-top: 38px;
     }
 
-    /* ログインボタンの配置 (Figma Top: 597px より逆算) */
+    /* ログインボタンの配置  */
     .login-btn-submit {
-        margin-top: 55px; 
+        margin-top: 55px;
     }
 
     /* 会員登録はこちらリンクへの配置 */
     .login-page .login-link {
-        /* 680.74(リンクTop) - 662.25(ボタンお尻) = 18.49px */
         margin-top: 18.49px;
     }
 
     /* ----------------------------------------------------------------------
        B. 会員登録画面 固有数値
     ------------------------------------------------------------------------- */
-    /* 会員登録全体コンテナ：Figma Top 178px を再現 */
+    /* 会員登録全体コンテナ */
     .register-page.auth-container {
         padding-top: 178px;
         padding-bottom: 80px;
@@ -155,22 +154,21 @@
     /* 会員登録タイトル */
     .register-page .page-title {
         height: 47.58px;
-        margin-bottom: 30px; /* タイトル下の隙間 */
+        margin-bottom: 30px;
     }
 
-    /* 会員登録のグループ間隔（Figma実測の38px等間隔ルールを適用） */
+    /* 会員登録のグループ間隔 */
     .register-page .form-group + .form-group {
         margin-top: 38px;
     }
 
-    /* 登録するボタンの配置 (Figma Top: 888px より逆算) */
+    /* 登録するボタンの配置  */
     .register-btn-submit {
         margin-top: 55px;
     }
 
     /* ログインはこちらリンクへの配置 */
     .register-page .register-link {
-        /* 971.74(リンクTop) - 953.25(ボタンお尻) = 18.49px */
         margin-top: 18.49px;
     }
 
@@ -619,15 +617,18 @@ profile/edit プロフィール画面 ok!!
 ITEM DETAIL - 商品詳細画面 (show.blade.php)
 ========================================================================== */
 @media screen and (min-width: 1400px) {
+
     .item-detail-container {
         width: 1380px;
         margin: 0 auto;
         padding-top: 175px;
         min-height: 1702px;
+        font-family: "Inter", sans-serif;
+        color: #000000;
     }
 
     /* 画像と情報のレイアウト枠 */
-    .item-detail__main {
+    .item-detail-container .item-detail__main {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
@@ -635,89 +636,82 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     }
 
     /* 左カラム：幅を690px（画像専用空間） */
-    .item-detail__left-col {
+    .item-detail-container .item-detail__left-col {
         width: 690px;
         flex: 0 0 690px;
         min-height: 1704.4px;
     }
 
     /* 右カラム：幅を690px（情報＆コメント空間） */
-    .item-detail__right-col {
+    .item-detail-container .item-detail__right-col {
         width: 690px;
         flex: 0 0 690px;
         min-height: 1704.4px;
     }
 
     /* 2. 商品画像 */
-    .item-detail__left-col .item-detail-img {
+    .item-detail-container .item-detail__left-col .item-detail-img {
         width: 600px;
         height: 600px;
         object-fit: cover;
         margin-top: 36px;
         margin-left: 45px;
         display: block;
-        max-width: 600px;
     }
 
-    .item-detail__right-col .item-detail__title-box {
+    .item-detail-container .item-detail__right-col .item-detail__title-box {
         width: 570px;
         margin-left: 65px;
         margin-top: 36px;
     }
 
     /* 商品名 */
-    .item-detail__title {
+    .item-detail-container .item-detail__title {
         width: 570px;
         height: 77px;
-        font-family: "Inter", sans-serif;
         font-size: 45px;
         font-weight: 700;
-        color: rgba(0, 0, 0, 1);
         line-height: 1;
         margin-bottom: 0;
     }
 
-    /* ブランド名  */
-    .item-detail__brand {
+    /* ブランド名 */
+    .item-detail-container .item-detail__brand {
         width: 570px;
         height: 28px;
-        font-family: "Inter", sans-serif;
         font-size: 20px;
         font-weight: 400;
-        color: rgba(0, 0, 0, 1);
         line-height: 1;
         margin-top: 0;
         margin-bottom: 28px;
     }
 
     /* 価格表示全体 */
-    .item-detail__price-large {
+    .item-detail-container .item-detail__price-large {
         width: 570px;
         height: 45px;
-        font-family: "Inter", sans-serif;
         font-size: 30px;
         font-weight: 400;
-        color: rgba(0, 0, 0, 1);
         line-height: 1;
         display: flex;
         align-items: baseline;
     }
 
-    .item-detail__price-large .price-number {
+    .item-detail-container .item-detail__price-large .price-number {
         font-size: 45px;
         font-weight: 400;
         margin-right: 4px;
     }
 
     /* アクションエリア全体の枠 */
-    .item-detail__actions {
+    .item-detail-container .item-detail__actions {
         width: 144px;
         height: 67px;
         margin-top: 28px;
     }
 
     /* 横並び */
-    .item-detail__status-group {
+    .item-detail-container .item-detail__status-group {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
@@ -727,8 +721,8 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     }
 
     /* いいね・コメントそれぞれの縦並びの箱 */
-    .item-detail__like-item,
-    .item-detail__comment-item {
+    .item-detail-container .item-detail__like-item,
+    .item-detail-container .item-detail__comment-item {
         width: 40px;
         display: flex;
         flex-direction: column;
@@ -737,30 +731,28 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     }
 
     /* アイコン共通スタイル */
-    .item-detail__icon-btn img,
-    .item-detail__comment-item > img {
+    .item-detail-container .item-detail__icon-btn img,
+    .item-detail-container .item-detail__comment-item > img {
         width: 40px;
         height: 40px;
         object-fit: contain;
     }
 
-    /* カウント数字共通スタイル　*/
-    .item-like__count,
-    .item-comments__count {
+    /* カウント数字共通スタイル */
+    .item-detail-container .item-like__count,
+    .item-detail-container .item-comments__count {
         width: auto;
         height: 22px;
         margin-top: 5px;
-        font-family: "Inter", sans-serif;
         font-size: 18px;
         font-weight: 700;
-        color: rgba(0, 0, 0, 1);
         line-height: 1;
         text-align: center;
         display: block;
     }
 
     /* 1. 購入ボタンを包むラッパー */
-    .item-detail__right-col .item-detail__buy-wrapper {
+    .item-detail-container .item-detail__right-col .item-detail__buy-wrapper {
         width: 570px;
         height: 100px;
         margin-left: 65px;
@@ -768,16 +760,15 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         padding-top: 22px;
     }
 
-    /* 2. ボタン自体の基本スタイル  */
-    .item-detail__buy-btn {
+    /* 2. ボタン自体の基本スタイル */
+    .item-detail-container .item-detail__buy-btn {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 570px;
         height: 56px;
         background-color: #ff4b4b;
-        color: rgba(255, 255, 255, 1);
-        font-family: "Inter", sans-serif;
+        color: #ffffff;
         font-size: 30px;
         font-weight: 700;
         text-decoration: none;
@@ -787,19 +778,19 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         transition: background-color 0.3s;
     }
 
-    .item-detail__buy-btn:hover {
+    .item-detail-container .item-detail__buy-btn:hover {
         opacity: 0.9;
     }
 
     /* 3. SOLD OUT または 無効状態のスタイル */
-    .item-detail__buy-btn.is-sold,
-    .item-detail__buy-btn.is-disabled {
+    .item-detail-container .item-detail__buy-btn.is-sold,
+    .item-detail-container .item-detail__buy-btn.is-disabled {
         background-color: #888;
         cursor: not-allowed;
     }
 
     /* 商品の説明：セクション全体 */
-    .item-detail__right-col .item-detail__section {
+    .item-detail-container .item-detail__right-col .item-detail__section {
         width: 570px;
         min-height: 321px;
         margin-left: 67px;
@@ -808,14 +799,11 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     }
 
     /* セクション見出し */
-    .item-detail__section-title {
+    .item-detail-container .item-detail__section-title {
         width: 559px;
         height: 74px;
-        font-family: "Inter", sans-serif;
         font-size: 36px;
         font-weight: 700;
-        color: rgba(0, 0, 0, 1);
-        line-height: 1;
         border-bottom: 1px solid #000;
         display: flex;
         align-items: center;
@@ -823,20 +811,18 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     }
 
     /* 本文テキスト */
-    .item-detail__description-text {
+    .item-detail-container .item-detail__description-text {
         width: 559px;
         min-height: 247px;
         padding-top: 24px;
-        font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 400;
-        color: rgba(0, 0, 0, 1);
         line-height: 1.5;
         white-space: pre-wrap;
     }
 
-    /* セクション全体  */
-    .item-detail__info-section {
+    /* セクション全体 */
+    .item-detail-container .item-detail__info-section {
         width: 570px;
         min-height: 230px;
         margin-left: 65px;
@@ -844,13 +830,11 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     }
 
     /* セクション見出し */
-    .item-detail__info-title {
+    .item-detail-container .item-detail__info-title {
         width: 559px;
         height: 100px;
-        font-family: "Inter", sans-serif;
         font-size: 36px;
         font-weight: 700;
-        color: rgba(0, 0, 0, 1);
         border-bottom: 1px solid #000;
         display: flex;
         align-items: center;
@@ -858,24 +842,22 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     }
 
     /* 項目ごとの行設定 */
-    .item-detail__meta-group {
+    .item-detail-container .item-detail__meta-group {
         display: flex;
         align-items: flex-start;
         margin-bottom: 24px;
     }
 
     /* 「カテゴリー」ラベル */
-    .item-detail__meta-label {
+    .item-detail-container .item-detail__meta-label {
         width: 122.39px;
-        font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 700;
-        color: rgba(0, 0, 0, 1);
         flex-shrink: 0;
     }
 
     /* タグが並ぶコンテナ */
-    .item-detail__tag-container {
+    .item-detail-container .item-detail__tag-container {
         display: flex;
         flex-wrap: wrap;
         gap: 12px 24px;
@@ -883,8 +865,8 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         max-width: 410px;
     }
 
-    /* カテゴリータグ  */
-    .item-detail__category-tag {
+    /* カテゴリータグ */
+    .item-detail-container .item-detail__category-tag {
         min-width: 101.99px;
         height: 30px;
         padding: 0 16px;
@@ -893,70 +875,55 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: "Inter", sans-serif;
         font-size: 20px;
         font-weight: 400;
-        color: rgba(0, 0, 0, 1);
         white-space: nowrap;
     }
 
-    /* 商品の状態の値 */
-    .item-detail__condition-value {
-        margin-left: 60px;
-        font-family: "Inter", sans-serif;
-        font-size: 24px;
-        font-weight: 400;
-    }
-
     /* 商品の状態：行全体の枠 */
-    .item-detail__condition-group {
+    .item-detail-container .item-detail__condition-group {
         display: flex;
         align-items: flex-start;
         margin-top: 24px;
         width: 100%;
     }
 
-    /* 商品の状態：ラベル  */
-    .item-detail__condition-label {
+    /* 商品の状態：ラベル */
+    .item-detail-container .item-detail__condition-label {
         width: 137.28px;
-        font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 700;
-        color: #000;
         line-height: 1;
         flex-shrink: 0;
     }
 
-    /* 商品の状態：値  */
-    .item-detail__condition {
+    /* 商品の状態：値（Bパターンを残し、不要なAパターンを削除しました） */
+    .item-detail-container .item-detail__condition {
         margin-left: 76.72px;
-        font-family: "Inter", sans-serif;
         font-size: 20px;
         font-weight: 400;
-        color: #000;
         line-height: 1;
         padding-top: 4px;
     }
 
-    /* コメントエリア全体  */
-    .item-detail__right-col .item-comment {
+    /* コメントエリア全体 */
+    .item-detail-container .item-detail__right-col .item-comment {
         width: 570px;
         min-height: 743px;
-        margin-left: 65px;
         margin-top: 48px;
         margin-bottom: 100px;
     }
 
     /* ユーザー情報 */
-    .item-comment__user-info {
+    .item-detail-container .item-comment__user-info {
         display: flex;
         align-items: center;
         margin-bottom: 15px;
     }
 
-    /* ユーザー画像のサイズ固定  */
-    .item-comment__user-image,
-    .item-comment__default-avatar {
+    /* ユーザー画像のサイズ固定 */
+    .item-detail-container .item-comment__user-image,
+    .item-detail-container .item-comment__default-avatar {
         width: 70px;
         height: 70px;
         background-color: #d9d9d9;
@@ -965,21 +932,21 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         flex-shrink: 0;
     }
 
-    .item-comment__user-image img {
+    .item-detail-container .item-comment__user-image img {
         width: 100%;
         height: 100%;
         object-fit: cover;
     }
 
-    /* ユーザー名  */
-    .item-comment__user {
+    /* ユーザー名 */
+    .item-detail-container .item-comment__user {
         margin-left: 18px;
         font-size: 30px;
         font-weight: 700;
     }
 
     /* 吹き出しの外枠 */
-    .item-comment__bubble {
+    .item-detail-container .item-comment__bubble {
         width: 570px;
         min-height: 70px;
         background-color: #f5f5f5;
@@ -992,17 +959,15 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     }
 
     /* コメント本文 */
-    .item-comment__text {
-        font-family: "Inter", sans-serif;
+    .item-detail-container .item-comment__text {
         font-size: 20px;
         font-weight: 400;
-        color: #000;
         line-height: 1.5;
         white-space: pre-wrap;
     }
 
     /* 1. フォーム全体の親要素 */
-    .item-comment__form {
+    .item-detail-container .item-comment__form {
         width: 570px;
         min-height: 422px;
         margin-top: 40px;
@@ -1011,20 +976,18 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     }
 
     /* 2. ラベル：商品へのコメント */
-    .item-comment__label {
+    .item-detail-container .item-comment__label {
         width: 570px;
         height: 50px;
-        font-family: "Inter", sans-serif;
         font-size: 28px;
         font-weight: 700;
-        color: #000;
         display: flex;
         align-items: center;
         margin-bottom: 0;
     }
 
-    /* 3. テキスト入力エリア  */
-    .item-comment__textarea {
+    /* 3. テキスト入力エリア */
+    .item-detail-container .item-comment__textarea {
         width: 570px;
         height: 294px;
         background-color: #fff;
@@ -1038,7 +1001,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     }
 
     /* 4 & 5. 送信ボタン本体 */
-    .item-comment__submit-btn {
+    .item-detail-container .item-comment__submit-btn {
         width: 570px;
         height: 56px;
         background-color: #ff4b4b;
@@ -1046,9 +1009,6 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         border: none;
         border-radius: 4px;
         cursor: pointer;
-
-        /* 6. ボタン内テキストスタイル */
-        font-family: "Inter", sans-serif;
         font-size: 25px;
         font-weight: 700;
         display: flex;
@@ -1058,12 +1018,12 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         transition: background-color 0.3s;
     }
 
-    .item-comment__submit-btn:hover {
+    .item-detail-container .item-comment__submit-btn:hover {
         opacity: 0.9;
     }
 
     /* エラーメッセージ */
-    .item-comment__error {
+    .item-detail-container .item-comment__error {
         color: #ff4b4b;
         font-size: 14px;
         margin-top: 5px;
@@ -1310,7 +1270,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
 }
 
 /* ==========================================================================
-アドレス入力画面 (purchase/address.blade.php)
+address入力画面 (purchase/address.blade.php)
 ========================================================================== */
 @media screen and (min-width: 1400px) {
     /* 1. 全体のコンテナ  */
