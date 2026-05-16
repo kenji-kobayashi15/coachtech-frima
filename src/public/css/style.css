@@ -472,168 +472,138 @@ profile/index プロフィール画面
 profile/edit プロフィール画面
 ========================================================================== */
 @media screen and (min-width: 1400px) {
-    /* 1. 初回ログイン時のプロフィール設定画面全体コンテナ */
+    /* 1. 全体コンテナ */
     .profile-edit-container {
         width: 100%;
         max-width: 680px;
         margin: 0 auto;
         padding-top: 139px;
         min-height: 1229px;
+        background-color: #fff;
     }
 
-    /* 初回ログインページ（タイトル） */
-    .page-title {
+    /* 2. タイトル */
+    .profile-edit-container .page-title {
         width: 100%;
         height: 47px;
-        margin-left: 0px;
-        /* タイポグラフィ */
         font-family: "Inter", sans-serif;
         font-size: 36px;
         font-weight: 700;
-        color: rgba(0, 0, 0, 1);
-        line-height: 100%;
+        color: #000;
         text-align: center;
-        margin-bottom: 60px;
+        margin: 0;
     }
 
-    /* プロフィール画像 親コンテナ */
-    .profile-image-section {
+    /* 3. 画像セクション */
+    .profile-edit-container .profile-image-section {
         width: 100%;
-        margin: 47px auto 48px;
-        text-align: center;
+        margin-top: 47px;
+        margin-bottom: 0;
     }
 
-    /* 中のグループ */
-    .profile-image-flex {
+    .profile-edit-container .profile-image-flex {
         display: flex;
-        align-items: center;
-        justify-content: flex-start;
+        align-items: flex-start;
         gap: 50px;
-        margin-bottom: 10px;
     }
 
-    /* 画像プレビュー */
-    .image-preview-wrapper {
+    .profile-edit-container .image-preview-wrapper {
         width: 150px;
         height: 150px;
-        flex-shrink: 0;
         background-color: rgba(217, 217, 217, 1);
         border-radius: 50%;
         overflow: hidden;
+        flex-shrink: 0;
     }
 
-    .image-preview {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
+    .profile-edit-container .image-preview {
+        width: 100%; /* 親（wrapper）の幅150pxに合わせる */
+        height: 100%; /* 親（wrapper）の高さ150pxに合わせる */
+        object-fit: cover; /* これが重要！アスペクト比を保ったまま枠を埋める */
+        display: block; /* 余計な隙間を消す */
     }
 
-    /* 画像を選択するボタン */
-    .profile-image-section .btn-outline-primary {
+    .profile-edit-container .btn-outline-primary {
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
+        margin-top: 51px;
         width: 179px;
         height: 49px;
-        flex-shrink: 0;
         border: 2px solid rgba(255, 85, 85, 1);
         border-radius: 10px;
-        background-color: transparent;
         color: rgba(255, 85, 85, 1);
-        font-family: "Inter", sans-serif;
         font-size: 16px;
         font-weight: 700;
-        transition: all 0.3s;
+        transition: 0.3s;
     }
 
-    /* 実際の input[type="file"] は隠す */
-    .file-input {
+    .profile-edit-container .file-input {
         display: none;
     }
 
-    .profile-image-section .btn-outline-primary:hover {
-        background-color: rgba(255, 85, 85, 1);
-        color: #fff;
-    }
-
-    /* 1. 各入力グループの間隔設定 */
-    .form-group {
+    /* 4. 【新設】入力ブロック親要素 (計算値：高さ516px) */
+    .profile-edit-container .profile-details-inner {
         width: 680px;
-        margin-bottom: 62px;
+        /* 計算：975(建物名お尻) - 459(ユーザー名Top) = 516px */
+        height: 516px;
+        /* 計算：459(ブロックTop) - 333(画像お尻) = 126px */
+        margin-top: 126px;
+        display: flex;
+        flex-direction: column;
     }
 
-    /* 2. ラベルの微調整 */
-    .profile-edit-container .form-label {
-        display: block;
+    /* ブロック内の各グループ設定 */
+    .profile-details-inner .form-group {
         width: 100%;
+        height: 92px; /* ラベル36 + 隙間1 + 入力欄55 */
+    }
+
+    /* 2番目以降のグループに37pxの隙間を作る */
+    .profile-details-inner .form-group + .form-group {
+        margin-top: 37px;
+    }
+
+    /* ラベル共通 */
+    .profile-edit-container .form-label {
         height: 36px;
         font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 700;
-        color: #000;
-        margin-bottom: 1px;
+        margin-bottom: 1px; /* ラベルと入力欄の隙間 */
+        display: flex;
+        align-items: center;
     }
 
-    /* 3. 入力欄本体 */
+    /* 入力欄共通 */
     .profile-edit-container .form-control {
         width: 100%;
         height: 55px;
-        background-color: #fff;
         border: 1px solid rgba(95, 95, 95, 1);
         border-radius: 4px;
         padding: 0 16px;
-        font-family: "Inter", sans-serif;
         font-size: 18px;
-        color: #000;
-        outline: none;
+        box-sizing: border-box;
     }
 
-    /* フォーカス時に少し色を変える */
-    .profile-edit-container .form-control:focus {
-        border-color: rgba(255, 85, 85, 1);
-    }
-
-    /* 建物名の下余白 */
-    .mb-large {
-        margin-bottom: 100px;
-    }
-
-    /* 更新するボタン本体*/
-    .btn-submit {
+    /* 5. 更新ボタン */
+    .profile-edit-container .btn-submit {
         width: 680px;
         height: 60px;
-
+        /* 計算：1042(ボタンTop) - 975(ブロックお尻) = 67px */
         margin-top: 67px;
-        margin-bottom: 100px;
-
-        /* 背景とボーダー */
+        margin-bottom: 127px;
         background-color: rgba(255, 85, 85, 1);
-        border: none;
         border-radius: 4px;
-
-        /* タイポグラフィ  */
-        color: rgba(255, 255, 255, 1);
-        font-family: "Inter", sans-serif;
+        color: #fff;
         font-size: 26px;
         font-weight: 700;
-
-        /* 中央寄せ */
+        border: none;
         display: flex;
         align-items: center;
         justify-content: center;
         cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    /* ホバー演出 */
-    .btn-submit:hover {
-        background-color: rgba(220, 60, 60, 1);
-    }
-
-    /* ボタンクリック感 */
-    .btn-submit:active {
-        transform: translateY(2px);
     }
 }
 
