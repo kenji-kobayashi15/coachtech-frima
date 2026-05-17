@@ -489,35 +489,6 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         padding-top: 22px;
     }
 
-    /* 2. ボタン自体の基本スタイル */
-    .item-detail-container .item-detail__buy-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 570px;
-        height: 56px;
-        background-color: #ff4b4b;
-        color: #ffffff;
-        font-size: 30px;
-        font-weight: 700;
-        text-decoration: none;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    .item-detail-container .item-detail__buy-btn:hover {
-        opacity: 0.9;
-    }
-
-    /* 3. SOLD OUT または 無効状態のスタイル */
-    .item-detail-container .item-detail__buy-btn.is-sold,
-    .item-detail-container .item-detail__buy-btn.is-disabled {
-        background-color: #888;
-        cursor: not-allowed;
-    }
-
     /* 商品の説明：セクション全体 */
     .item-detail-container .item-detail__right-col .item-detail__section {
         width: 570px;
@@ -698,7 +669,7 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
     /* 1. フォーム全体の親要素 */
     .item-detail-container .item-comment__form {
         width: 570px;
-        min-height: 422px;
+        min-height: 294px;
         margin-top: 40px;
         display: flex;
         flex-direction: column;
@@ -715,41 +686,6 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         margin-bottom: 0;
     }
 
-    /* 3. テキスト入力エリア */
-    .item-detail-container .item-comment__textarea {
-        width: 570px;
-        height: 294px;
-        background-color: #fff;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        padding: 15px;
-        font-size: 18px;
-        font-family: inherit;
-        resize: vertical;
-        margin-top: 0;
-    }
-
-    /* 4 & 5. 送信ボタン本体 */
-    .item-detail-container .item-comment__submit-btn {
-        width: 570px;
-        height: 56px;
-        background-color: #ff4b4b;
-        color: #fff;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 25px;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 22px;
-        transition: background-color 0.3s;
-    }
-
-    .item-detail-container .item-comment__submit-btn:hover {
-        opacity: 0.9;
-    }
 
     /* エラーメッセージ */
     .item-detail-container .item-comment__error {

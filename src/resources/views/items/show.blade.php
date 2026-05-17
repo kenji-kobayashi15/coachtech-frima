@@ -57,18 +57,18 @@
                 @auth
                 @if(Auth::id() === $item->user_id)
                 {{-- 1. ログインユーザーが出品者本人の場合 --}}
-                <button class="item-detail__buy-btn is-disabled" disabled>自分が出品した商品です</button>
+                <button class="c-btn-submit c-btn-submit--detail" disabled>自分が出品した商品です</button>
                 @elseif($item->order)
                 {{-- 2. 自分以外で、すでに売り切れている場合 --}}
-                <button class="item-detail__buy-btn is-sold" disabled>SOLD OUT</button>
+                <button class="c-btn-submit c-btn-submit--detail" disabled>SOLD OUT</button>
                 @else
                 {{-- 3. 自分以外で、購入可能な場合 --}}
-                <a href="{{ route('purchase.create', $item->id) }}" class="item-detail__buy-btn">購入手続きへ</a> @endif
+                <a href="{{ route('purchase.create', $item->id) }}" class="c-btn-submit c-btn-submit--detail">購入手続きへ</a> @endif
                 @else
                 {{-- 4. 未ログインの場合 --}}
                 @if($item->order)
-                <button class="item-detail__buy-btn is-sold" disabled>SOLD OUT</button> @else
-                <a href="{{ route('login') }}" class="item-detail__buy-btn">ログインして購入</a> @endif
+                <button class="c-btn-submit c-btn-submit--detail" disabled>SOLD OUT</button> @else
+                <a href="{{ route('login') }}" class="c-btn-submit c-btn-submit--detail">ログインして購入</a> @endif
                 @endauth
             </div>
             {{-- 商品の説明 --}}
@@ -120,11 +120,11 @@
                     <form action="{{ route('items.comment', $item->id) }}" method="POST" class="item-comment__form">
                         @csrf
                         <label class="item-comment__label">商品へのコメント</label>
-                        <textarea name="comment" class="item-comment__textarea">{{ old('comment') }}</textarea>
+                        <textarea name="comment" class="c-form-control c-form-control--textarea">{{ old('comment') }}</textarea>
                         @error('comment')
                         <p class="item-comment__error">{{ $message }}</p>
                         @enderror
-                        <button type="submit" class="item-comment__submit-btn">コメントを送信する</button>
+                        <button type="submit" class="c-btn-submit c-btn-submit--detail c-btn-submit--comment">コメントを送信する</button>
                     </form>
                     @endauth
                 </section>

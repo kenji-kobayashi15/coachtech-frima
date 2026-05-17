@@ -25,6 +25,25 @@
         margin-top: 55px;
     }
 
+/* --------------------------------------------------------------------------
+    【拡張】商品詳細画面用のサイズ・形（購入ボタン・コメント送信ボタン共通）
+       -------------------------------------------------------------------------- */
+    .c-btn-submit--detail {
+        width: 570px;
+        height: 56px;
+        border-radius: 4px;
+        background-color: #ff4b4b;
+        font-size: 30px;
+    }
+
+    /* --------------------------------------------------------------------------
+    【拡張】コメント送信ボタン専用のフォントサイズ上書き
+       -------------------------------------------------------------------------- */
+    /* 💡c-btn-submit--detail の上にこれを重ねることで、文字だけ25pxに微調整します */
+    .c-btn-submit--comment {
+        font-size: 25px;
+    }
+
     .c-btn--outline {
         cursor: pointer;
         display: flex;
@@ -44,15 +63,40 @@
         color: #ffffff;
     }
 
-    /* --------------------------------------------------------------------------
-    edit.blade.php(プロフィール設定)サイズ・配置
-       -------------------------------------------------------------------------- */
+    /* edit.blade.php(プロフィール設定)サイズ・配置 */
     .c-btn--profile-image {
         width: 179px;
         height: 49px;
         font-size: 16px;
         margin-top: 51px;
     }
+
+    /* 詳細画面の赤いボタン（購入・送信）共通のホバー効果 */
+    .c-btn--danger:hover {
+        opacity: 0.9;
+        background-color: #ff4b4b;
+    }
+
+    /* 💡詳細画面のボタン固有のサイズ */
+    .c-btn--detail-action {
+        width: 570px;
+        height: 56px;
+        font-size: 30px;
+        border-radius: 4px;
+    }
+
+    /* 💡SOLD OUT または 無効状態のスタイル */
+    .c-btn--detail-action.is-disabled {
+        background-color: #888;
+        cursor: not-allowed;
+    }
+
+    /* 詳細画面の共通サイズ（30px）を、デザイン指示通りの「25px」に上書きします */
+    .c-btn--comment-submit {
+        font-size: 25px;
+    }
+
+
 
     /* 共通入力欄（インプットボックス） */
     .c-form-control {
@@ -254,5 +298,13 @@
         box-sizing: border-box;
         background-color: #ffffff;
         font-family: inherit;
+    }
+
+    /* 複数行の入力欄（textarea）用の拡張 */
+    .c-form-control--textarea {
+        height: 246px;
+        padding: 15px;
+        resize: vertical;
+        margin-bottom: 46px;
     }
 }
