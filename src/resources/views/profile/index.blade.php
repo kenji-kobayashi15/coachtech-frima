@@ -17,12 +17,12 @@
     </div>
 
     {{-- タブ切り替え --}}
-    <div class="profile-tabs">
-        <div class="tabs-inner">
-            <a href="{{ route('mypage', ['page' => 'sell']) }}" class="tab-item {{ $page === 'sell' ? 'is-active' : '' }}">
+    <div class="c-tabs c-tabs--mypage">
+        <div class="c-tabs__inner">
+            <a href="{{ route('mypage', ['page' => 'sell']) }}" class="c-tabs__link {{ $page === 'sell' ? 'is-active' : '' }}">
                 出品した商品
             </a>
-            <a href="{{ route('mypage', ['page' => 'buy']) }}" class="tab-item {{ $page === 'buy' ? 'is-active' : '' }}">
+            <a href="{{ route('mypage', ['page' => 'buy']) }}" class="c-tabs__link {{ $page === 'buy' ? 'is-active' : '' }}">
                 購入した商品
             </a>
         </div>
@@ -32,22 +32,22 @@
     <div class="item-grid">
         @forelse ($items as $item)
         @if ($item)
-        <article class="item-card">
-            <a href="{{ route('items.show', $item->id) }}" class="item-link">
-                <div class="item-thumbnail-wrapper">
+        <article class="c-item-card">
+            <a href="{{ route('items.show', $item->id) }}" class="c-item-card__link">
+                <div class="c-item-card__thumbnail-wrapper">
                     @php
                     $imageSrc = str_starts_with($item->image_url, 'http')
                     ? $item->image_url
                     : asset('storage/' . $item->image_url);
                     @endphp
-                    <img src="{{ $imageSrc }}" alt="{{ $item->name }}" class="item-thumbnail">
+                    <img src="{{ $imageSrc }}" alt="{{ $item->name }}" class="c-item-card__thumbnail">
 
                     @if ($item->order)
-                    <div class="sold-badge"><span>SOLD</span></div>
+                    <div class="c-item-card__sold-badge"><span>SOLD</span></div>
                     @endif
                 </div>
-                <div class="item-body">
-                    <p class="item-name">{{ $item->name }}</p>
+                <div class="c-item-card__body">
+                    <p class="c-item-card__name">{{ $item->name }}</p>
                 </div>
             </a>
         </article>

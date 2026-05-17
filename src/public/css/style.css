@@ -58,65 +58,6 @@ Auth Pages 共通・固有装飾スタイル
         align-items: center;
     }
 
-    /* 入力欄共通デザイン */
-    .register-page .form-control,
-    .login-page .form-control {
-        width: 680px;
-        height: 58px;
-        border: 1px solid rgba(95, 95, 95, 1);
-        border-radius: 4px;
-        box-sizing: border-box;
-        padding: 0 16px;
-        outline: none;
-        font-size: 18px;
-        background-color: #ffffff;
-    }
-
-    /* 送信ボタン共通デザイン */
-    .register-btn-submit,
-    .login-btn-submit {
-        width: 680px;
-        height: 65.25px;
-        margin-top: 55px;
-        background-color: rgba(255, 85, 85, 1);
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        color: #ffffff;
-        font-size: 26px;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: opacity 0.3s;
-    }
-
-    .register-btn-submit:hover,
-    .login-btn-submit:hover {
-        opacity: 0.9;
-    }
-
-    /* 下部リンク共通デザイン */
-    .register-link,
-    .login-link {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 257px;
-        height: 53.29px;
-        margin: 18.49px auto 0;
-        color: rgba(0, 115, 204, 1);
-        font-size: 20px;
-        font-weight: 400;
-        text-decoration: none;
-        text-align: center;
-    }
-
-    .register-link:hover,
-    .login-link:hover {
-        text-decoration: underline;
-    }
-
     /* ----------------------------------------------------------------------
     2. 各画面 固有スタイル
     ------------------------------------------------------------------------- */
@@ -201,47 +142,6 @@ items/index ホーム画面
  ========================================================================== */
 @media screen and (min-width: 1400px) {
 
-    .main-tabs {
-        width: 100%;
-        height: 47px;
-        margin-top: 127px;
-        border-bottom: 1px solid #dddddd;
-        font-family: "Inter", sans-serif;
-    }
-
-    .main-tabs .tabs-inner {
-        width: 100%;
-        max-width: 1512px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        padding-left: 129px;
-    }
-
-    /* 共通：選択されていない方はグレー */
-    .main-tabs .tab-link {
-        width: 155px;
-        height: 40px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        font-size: 24px;
-        font-weight: 700;
-        color: rgba(95, 95, 95, 1);
-        position: relative; /* 下線用 */
-    }
-
-    /* 選択されている方だけ赤く */
-    .main-tabs .tab-link.is-active {
-        color: rgba(255, 0, 0, 1);
-    }
-
-    /* タブの間隔 */
-    .main-tabs .tab-link + .tab-link {
-        margin-left: 52px;
-    }
-
     /* 親要素 home-container */
     .home-container {
         width: 100%;
@@ -264,85 +164,6 @@ items/index ホーム画面
         row-gap: 76.61px;
     }
 
-    /* 商品カード本体 */
-    .home-container .item-card {
-        width: 290px;
-        height: 320px;
-        display: flex;
-        flex-direction: column;
-        background-color: #ffffff;
-        box-sizing: border-box;
-        border-radius: 4px;
-        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-        overflow: hidden;
-    }
-
-    .home-container .item-link {
-        text-decoration: none;
-        color: inherit;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-    }
-
-    /* 商品画像部分 */
-    .home-container .item-thumbnail-wrapper {
-        width: 290px;
-        height: 260px;
-        position: relative;
-        background-color: #f0f0f0;
-        overflow: hidden;
-    }
-
-    .home-container .item-thumbnail {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-    }
-
-    /* 商品名エリア */
-    .home-container .item-body {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        padding: 0 16px;
-        background-color: #ffffff;
-    }
-
-    .home-container .item-name {
-        font-size: 18px;
-        font-weight: 400;
-        margin: 0;
-        line-height: 1.4;
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
-        width: 100%;
-    }
-
-    /* SOLD OUT バッジ */
-    .home-container .sold-badge {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 0;
-        border-top: 60px solid rgba(255, 0, 0, 0.8);
-        border-right: 60px solid transparent;
-    }
-    
-    .home-container .sold-badge span {
-        position: absolute;
-        top: -50px;
-        left: 5px;
-        color: #ffffff;
-        font-size: 12px;
-        font-weight: 700;
-        transform: rotate(-45deg);
-        display: block;
-    }
 }
 /* ==========================================================================
 profile/index mypage画面
@@ -413,49 +234,6 @@ profile/index mypage画面
         color: #fff;
     }
 
-    /* タブ全体の親 */
-    .mypage-container .profile-tabs {
-        width: 100%;
-        height: 47px;
-        border-bottom: 2px solid rgba(95, 95, 95, 1);
-        margin-top: 77px;
-    }
-
-    /* 内枠：1512pxの中で文字の位置を固定 */
-    .mypage-container .profile-tabs .tabs-inner {
-        width: 100%;
-        height: 100%;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        padding-left: 129px;
-    }
-
-    /* 各タブの共通スタイル */
-    .mypage-container .tab-item {
-        height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        font-size: 24px;
-        font-weight: 700;
-        color: rgba(95, 95, 95, 1);
-        transition: color 0.3s;
-        margin-right: 52px;
-        position: relative;
-    }
-
-    /* 文字選択時少し赤みを帯びるスタイル */
-    .mypage-container .tab-item:hover {
-        color: rgba(255, 0, 0, 0.7);
-    }
-
-    /* 選択中のスタイル */
-    .mypage-container .tab-item.is-active {
-        color: rgba(255, 0, 0, 1);
-    }
-
     /* マイページ専用のグリッド設定 */
     .mypage-container .item-grid {
         width: 1374.52px;
@@ -469,88 +247,6 @@ profile/index mypage画面
         margin-bottom: 80px;
     }
 
-    /* 商品カード本体 */
-    .mypage-container .item-card {
-        width: 290px;
-        height: 320px;
-        display: flex;
-        flex-direction: column;
-        background-color: #ffffff;
-        box-sizing: border-box;
-        border-radius: 4px;
-        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
-        overflow: hidden;
-    }
-
-    /* リンクエリア　*/
-    .mypage-container .item-link {
-        text-decoration: none;
-        color: inherit;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: 100%;
-    }
-
-    /* 商品サムネイルの親要素　*/
-    .mypage-container .item-thumbnail-wrapper {
-        width: 290px;
-        height: 260px;
-        position: relative;
-        overflow: hidden;
-        background-color: #f5f5f5;
-    }
-
-    /* 画像自体の表示設定 */
-    .mypage-container .item-thumbnail {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-    }
-
-    /* SOLD OUT バッジの配置（画像の上に重ねる） */
-    .mypage-container .sold-badge {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 0;
-        border-top: 60px solid #ff4b4b;
-        border-right: 60px solid transparent;
-    }
-    .mypage-container .sold-badge span {
-        position: absolute;
-        top: -50px;
-        left: 5px;
-        color: #ffffff;
-        font-size: 12px;
-        font-weight: 700;
-        transform: rotate(-45deg);
-        display: block;
-    }
-
-    /* カードの下部（テキストエリア） */
-    .mypage-container .item-body {
-        flex: 1;
-        display: flex;
-        align-items: center;
-        padding: 0 16px;
-        background-color: #ffffff;
-    }
-
-    /* 商品名 */
-    .mypage-container .item-name {
-        font-size: 18px;
-        font-weight: 400;
-        color: #333333;
-        margin: 0;
-        line-height: 1.4;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        width: 100%;
-    }
 }
 /* ==========================================================================
 profile/edit プロフィール画面
