@@ -303,22 +303,6 @@ profile/edit プロフィール画面
         display: block;
     }
 
-    .profile-edit-container .btn-outline-primary {
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-top: 51px;
-        width: 179px;
-        height: 49px;
-        border: 2px solid rgba(255, 85, 85, 1);
-        border-radius: 10px;
-        color: rgba(255, 85, 85, 1);
-        font-size: 16px;
-        font-weight: 700;
-        transition: 0.3s;
-    }
-
     .profile-edit-container .file-input {
         display: none;
     }
@@ -339,27 +323,6 @@ profile/edit プロフィール画面
     /* 2番目以降のグループに37pxの隙間 */
     .profile-details-inner .form-group + .form-group {
         margin-top: 37px;
-    }
-
-    /* ラベル共通 */
-    .profile-edit-container .form-label {
-        height: 36px;
-        font-size: 24px;
-        font-weight: 700;
-        margin-bottom: 1px;
-        display: flex;
-        align-items: center;
-    }
-
-    /* 入力欄共通 */
-    .profile-edit-container .form-control {
-        width: 100%;
-        height: 55px;
-        border: 1px solid rgba(95, 95, 95, 1);
-        border-radius: 4px;
-        padding: 0 16px;
-        font-size: 18px;
-        box-sizing: border-box;
     }
 
     /* 5. 更新ボタン（幅680pxをしっかり維持） */
