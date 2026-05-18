@@ -19,3 +19,35 @@
 .is-valid {
     border: 1px solid #28a745;
 }
+
+/* --- フォーム処理成功時のメッセージ --- */
+.alert-success {
+    color: var(--primary-green);
+    background-color: var(--success-bg);
+    border: 1px solid var(--success-border);
+    padding: 12px 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    text-align: center;
+}
+/* --- ゆっくり消えるアニメーションのクラス --- */
+.alert-success {
+    /* 変化を滑らかにする設定（opacityを1秒かけて変化させる） */
+    transition: opacity 1s ease, visibility 1s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+.alert-success.fade-out {
+    opacity: 0;
+    visibility: hidden;
+    /* 消えた後に下の要素がカクッと上に詰まるのを防ぐため、高さなども滑らかに縮める場合 */
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border: none;
+    overflow: hidden;
+}

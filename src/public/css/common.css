@@ -15,6 +15,9 @@ body {
 /* 共通カラー変数 */
 :root {
     --primary-red: #ff5555;
+    --primary-green: #155724;
+    --success-bg: #d4edda;
+    --success-border: #c3e6cb;
     --header-bg: #000000;
 }
 
@@ -94,9 +97,9 @@ body {
         border: none;
         outline: none;
 
-    /* タイポグラフィ設定 */
+        /* タイポグラフィ設定 */
         padding: 0 31px;
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 400;
         color: #000000;
@@ -110,7 +113,7 @@ body {
 
     /* ナビゲーションエリア */
     .header-nav {
-    width: 463px;
+        width: 463px;
         height: 80px;
         display: flex;
         align-items: center;
@@ -131,7 +134,7 @@ body {
     .header-nav a,
     .header-nav button {
         color: #ffffff;
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 400;
         text-decoration: none;
@@ -156,7 +159,7 @@ body {
         align-items: center;
         justify-content: center;
         border-radius: 4px;
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         font-size: 24px;
         font-weight: 400;
         margin-left: 21px;

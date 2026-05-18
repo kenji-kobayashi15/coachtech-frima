@@ -83,5 +83,14 @@
         });
         fileReader.readAsDataURL(obj.files[0]);
     }
+    // 成功メッセージを自動で消す（表示から3秒後にフェードアウト）
+    window.addEventListener('DOMContentLoaded', function() {
+        const successAlert = document.querySelector('.alert-success');
+        if (successAlert) {
+            setTimeout(() => {
+                successAlert.classList.add('fade-out');
+            }, 3000); // 3000ミリ秒（3秒）後にフェードアウトを開始
+        }
+    });
 </script>
 @endsection
