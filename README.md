@@ -11,22 +11,37 @@
 - **商品一覧・検索**: 全商品の一覧表示、商品名による部分一致検索
 - **商品詳細**: 商品情報（画像、価格、説明等）の確認、いいね、コメント投稿
 - **出品**: 商品画像のアップロード、カテゴリ（複数選択可）、状態設定、価格設定
-- **購入**: クレジットカード決済（Stripe対応）、コンビニ支払い、配送先変更
 - **プロフィール**: プロフィール画像、ユーザー名、住所設定、出品/購入履歴の確認
 
 ## 開発環境
 
-以下の環境で動作を確認しています。
+アプリの起動後、以下のURLからローカル環境にアクセスできます。
+
+- **開発環境（トップページ）**: [http://localhost/](http://localhost/)
+- **phpMyAdmin（DB管理）**: [http://localhost:8080/](http://localhost:8080/)
 
 - **Framework**: Laravel 8.75
 - **PHP**: 8.1
 - **Database**: MySQL 8.0.26
 - **Web Server**: Nginx 1.21.1
 - **Others**:
-  - Laravel Sanctum / Fortify (認証)
-  - Laravel Mix (フロントエンドビルド)
-  - Stripe (決済連携)
+  - Laravel  Fortify (認証)
   - phpMyAdmin (DB管理ツール: ポート 8080)
+
+## 主要URL・ルート一覧
+
+| アクセス権 | URL（パス） | ルート名 | 対応機能 |
+| :--- | :--- | :--- | :--- |
+| **ゲスト可** | `/` | `items.index` | 商品一覧画面（トップページ） |
+| | `/item/{id}` | `items.show` | 商品詳細画面 |
+| **要認証** | `/mypage` | `mypage` | マイページ（プロフィール・履歴） |
+| | `/mypage/profile` | `profile.edit` / `update` | プロフィール編集画面・更新処理 |
+| | `/sell` | `items.create` / `store` | 商品出品画面・出品処理 |
+| | `/purchase/{item_id}` | `purchase.create` / `store` | 商品購入画面・決済処理（Stripe） |
+| | `/purchase/address/{item_id}` | `purchase.address` / `update` | お届け先住所変更画面・更新処理 |
+| | `/item/{item_id}/like` | `items.like` | いいね登録・解除（トグル処理） |
+| | `/item/{item_id}/comment` | `items.comment` | コメント投稿処理 |
+
 
 ## データベース設計（ER図）
 
@@ -187,17 +202,11 @@ docker-compose exec php php artisan db:seed
 
 ```text
 .
-├── docker/              # Docker設定ファイル（PHP, Nginx, MySQL等）
-├── docs/                # プロジェクト要件・設計ドキュメント
+├── docker/              # Docker環境設定（PHP, Nginx, MySQL等）
 ├── src/                 # Laravelアプリケーション本体
-│   ├── app/             # Controller, Model, Middleware, Providers
-│   ├── bootstrap/       # フレームワークの起動設定
-│   ├── config/          # アプリケーション設定ファイル
-│   ├── database/        # Migrations, Factories, Seeders
-│   ├── public/          # 公開ディレクトリ、エントリーポイント
-│   ├── resources/       # Views (Blade), Assets (JS, CSS), Lang
-│   ├── routes/          # ルーティング（web.php, api.php等）
-│   ├── storage/         # ログ、アップロードファイル、キャッシュ
-│   └── tests/           # テストコード
+│   ├── app/             # コントローラーやモデル（主要プログラム）
+│   ├── database/        # マイグレーション・シーダー（DB設計）
+│   ├── resources/       # Views（Blade画面ファイル）
+│   └── routes/          # web.php（ルーティング設定）
 └── docker-compose.yml   # Docker Compose構成ファイル
 ```
