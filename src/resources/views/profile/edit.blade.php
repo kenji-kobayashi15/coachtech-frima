@@ -28,7 +28,7 @@
                 </div>
                 <label class="c-btn--outline c-btn--profile-image">
                     画像を選択する
-                    <input type="file" name="image" class="file-input" onchange="previewImage(this);">
+                    <input type="file" name="image" class="file-input @error('image') is-invalid @enderror" onchange="previewImage(this);">
                 </label>
             </div>
             {{-- 画像のエラー表示を追加 --}}
@@ -40,7 +40,7 @@
             {{-- ユーザー名 --}}
             <div class="form-group">
                 <label class="c-form-label">ユーザー名</label>
-                <input type="text" name="name" value="{{ old('name', Auth::user()->name) }}" class="c-form-control">
+                <input type="text" name="name" value="{{ old('name', Auth::user()->name) }}" class="c-form-control @error('name') is-invalid @enderror">
                 @error('name')
                 <p class="error-message">{{ $message }}</p>
                 @enderror
@@ -49,7 +49,7 @@
             {{-- 郵便番号 --}}
             <div class="form-group">
                 <label class="c-form-label">郵便番号</label>
-                <input type="text" name="post_code" value="{{ old('post_code', $profile->post_code ?? '') }}" class="c-form-control">
+                <input type="text" name="post_code" value="{{ old('post_code', $profile->post_code ?? '') }}" class="c-form-control @error('post_code') is-invalid @enderror">
                 @error('post_code')
                 <p class="error-message">{{ $message }}</p>
                 @enderror
@@ -58,7 +58,7 @@
             {{-- 住所 --}}
             <div class="form-group">
                 <label class="c-form-label">住所</label>
-                <input type="text" name="address" value="{{ old('address', $profile->address ?? '') }}" class="c-form-control">
+                <input type="text" name="address" value="{{ old('address', $profile->address ?? '') }}" class="c-form-control @error('address') is-invalid @enderror">
                 @error('address')
                 <p class="error-message">{{ $message }}</p>
                 @enderror

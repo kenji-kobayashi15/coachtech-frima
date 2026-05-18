@@ -3,7 +3,6 @@ Auth Pages 共通・固有装飾スタイル
 ========================================================================== */
 
 @media screen and (min-width: 1400px) {
-
     .register-page,
     .login-page,
     .verify-email-container {
@@ -141,7 +140,6 @@ Auth Pages 共通・固有装飾スタイル
 items/index ホーム画面
  ========================================================================== */
 @media screen and (min-width: 1400px) {
-
     /* 親要素 home-container */
     .home-container {
         width: 100%;
@@ -163,13 +161,11 @@ items/index ホーム画面
         column-gap: 71.5px;
         row-gap: 76.61px;
     }
-
 }
 /* ==========================================================================
 profile/index mypage画面
 ========================================================================== */
 @media screen and (min-width: 1400px) {
-
     .mypage-container {
         width: 100%;
         max-width: 1512px;
@@ -243,10 +239,9 @@ profile/index mypage画面
         /* カードを4列、各290px */
         grid-template-columns: repeat(4, 290px);
         justify-content: space-between;
-        row-gap: 76.61px; 
+        row-gap: 76.61px;
         margin-bottom: 80px;
     }
-
 }
 /* ==========================================================================
 profile/edit プロフィール画面
@@ -686,12 +681,21 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         margin-bottom: 0;
     }
 
-
+    .item-comment__textarea {
+        width: 570px;
+        height: 246px;
+        border: 2px solid rgba(95, 95, 95, 1);
+        border-radius: 5px;
+        box-sizing: border-box;
+        padding: 15px;
+        resize: vertical;
+        margin-bottom: 46px;
+    }
     /* エラーメッセージ */
     .item-detail-container .item-comment__error {
         color: #ff4b4b;
         font-size: 14px;
-        margin-top: 5px;
+        transform: translateY(-40px);
     }
 }
 
@@ -864,7 +868,6 @@ ITEM DETAIL - 商品詳細画面 (show.blade.php)
         display: flex;
         justify-content: center;
     }
-
 }
 
 /* ==========================================================================

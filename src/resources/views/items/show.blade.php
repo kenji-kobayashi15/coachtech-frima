@@ -120,7 +120,7 @@
                     <form action="{{ route('items.comment', $item->id) }}" method="POST" class="item-comment__form">
                         @csrf
                         <label class="item-comment__label">商品へのコメント</label>
-                        <textarea name="comment" class="c-form-control c-form-control--textarea">{{ old('comment') }}</textarea>
+                        <textarea name="comment" class="c-form-control item-comment__textarea @error('comment') is-invalid @enderror">{{ old('comment') }}</textarea>
                         @error('comment')
                         <p class="item-comment__error">{{ $message }}</p>
                         @enderror
