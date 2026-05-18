@@ -12,7 +12,7 @@
 
             <div class="form-group">
                 <label for="email" class="form-label login-label--email">メールアドレス</label>
-                <input id="email" type="email" name="email" value="{{ old('email') }}" autofocus class="c-form-control login-input--email">
+                <input id="email" type="email" name="email" value="{{ old('email') }}" autofocus class="c-form-control login-input--email @error('email') is-invalid @enderror">
                 @error('email')
                 <span class="error-message">{{ $message }}</span>
                 @enderror
@@ -20,7 +20,7 @@
 
             <div class="form-group">
                 <label for="password" class="form-label login-label--password">パスワード</label>
-                <input id="password" type="password" name="password" autocomplete="current-password" class="c-form-control login-input--password">
+                <input id="password" type="password" name="password" autocomplete="current-password" class="c-form-control login-input--password @error('email') is-invalid @enderror">
                 @error('password')
                 <span class="error-message">{{ $message }}</span>
                 @enderror
