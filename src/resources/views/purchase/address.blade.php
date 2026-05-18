@@ -23,7 +23,7 @@
             <input type="text" name="building" value="{{ old('building', $user->profile->building ?? '') }}" class="form-control">
         </div>
 
-        <button type="submit" class="btn-submit">
+        <button type="submit" class="btn-submit c-btn-submit--address">
             更新する
         </button>
     </form>

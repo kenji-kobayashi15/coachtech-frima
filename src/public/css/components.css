@@ -97,6 +97,29 @@
     }
 
     /* --------------------------------------------------------------------------
+    【拡張】住所入力画面用のサイズ・形（更新するボタン）
+    -------------------------------------------------------------------------- */
+    .c-btn-submit--address {
+        width: 680px;
+        height: 60px;
+        background-color: #ff5555;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 26px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.3s;
+    }
+
+    .c-btn-submit--address:hover {
+        opacity: 0.8;
+    }
+
+    /* --------------------------------------------------------------------------
     【拡張】商品購入画面用のサイズ・形（購入確定ボタン）
        -------------------------------------------------------------------------- */
     .c-btn-submit--purchase {
@@ -107,18 +130,6 @@
         background-color: #ff4b4b; /* 💡ここも詳細画面と同じ鮮やかな赤ですね */
     }
 
-    /* 共通入力欄（インプットボックス） */
-    .c-form-control {
-        width: 680px;
-        height: 58px;
-        border: 1px solid rgba(95, 95, 95, 1);
-        border-radius: 4px;
-        box-sizing: border-box;
-        padding: 0 16px;
-        outline: none;
-        font-size: 18px;
-        background-color: #ffffff;
-    }
     /* ==========================================================================
     認証画面下部の共通リンク
     ========================================================================== */
@@ -238,7 +249,7 @@
     }
 
     /* ==========================================================================
-       共通パーツ：画像（Images）
+    共通パーツ：画像（Images）
        ========================================================================== */
     /* 💡 枠線のサイズに合わせて、画像を綺麗に中央でトリミングする共通クラス */
     .c-img-cover {
@@ -343,6 +354,19 @@
         padding: 15px;
         resize: vertical;
         margin-bottom: 46px;
+    }
+
+    /* 共通入力欄（インプットボックス） */
+    .c-form-control {
+        width: 680px;
+        height: 55px;
+        border: 1px solid rgba(95, 95, 95, 1);
+        border-radius: 4px;
+        box-sizing: border-box;
+        padding: 0 16px;
+        outline: none;
+        font-size: 18px;
+        background-color: #ffffff;
     }
 
     /* --------------------------------------------------------------------------

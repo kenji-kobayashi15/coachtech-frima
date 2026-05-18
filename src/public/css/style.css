@@ -927,24 +927,7 @@ address入力画面 (purchase/address.blade.php)
 
     /* 6-7. 更新するボタン */
     .address-form .btn-submit {
-        width: 680px;
-        height: 60px;
-        background-color: #ff5555;
-        border: none;
-        border-radius: 5px;
-        color: #fff;
-        cursor: pointer;
-        font-size: 26px;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         margin-top: 80px;
-        transition: opacity 0.3s;
-    }
-
-    .address-form .btn-submit:hover {
-        opacity: 0.8;
     }
 }
 
