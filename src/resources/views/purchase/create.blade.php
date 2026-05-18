@@ -15,7 +15,7 @@
                     @endphp
 
                     @if($item->image_url)
-                    <img src="{{ $imageSrc }}" class="item-image" alt="{{ $item->name }}">
+                    <img src="{{ $imageSrc }}" class="c-img-cover" alt="{{ $item->name }}">
                     @else
                     <div class="no-image">No Image</div>
                     @endif
@@ -30,7 +30,7 @@
             <div class="setting-section">
                 <h3 class="section-title">支払い方法</h3>
                 {{-- form="purchase-form" 属性により、離れた場所のformと紐づいています --}}
-                <select name="payment_method" form="purchase-form" class="form-select">
+                <select name="payment_method" form="purchase-form" class="form-select c-form-control--select">
                     <option value="">選択してください</option>
                     <option value="konbini">コンビニ払い</option>
                     <option value="card">カード支払い</option>
@@ -41,7 +41,7 @@
             <div class="setting-section">
                 <div class="section-header">
                     <h3 class="section-title">配送先</h3>
-                    <a href="{{ route('purchase.address', $item->id) }}" class="link-edit">変更する</a>
+                    <a href="{{ route('purchase.address', $item->id) }}" class="c-link-text">変更する</a>
                 </div>
                 <div class="address-display">
                     <p>〒 {{ $user->profile->post_code ?? '未設定' }}</p>
@@ -70,7 +70,7 @@
                     @csrf
                     {{-- サーバーに値を送るための隠し入力 --}}
                     <input type="hidden" name="payment_method_value" id="hidden-payment-method">
-                    <button type="submit" class="btn-submit">購入する</button>
+                    <button type="submit" class="c-btn-submit c-btn-submit--purchase">購入する</button>
                 </form>
             </div>
         </div>
