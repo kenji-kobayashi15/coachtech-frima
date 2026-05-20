@@ -33,6 +33,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    platform: linux/x86_64
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=mysql
@@ -41,4 +42,4 @@ services:
     depends_on:
       - mysql
     ports:
-      - 8080:80
+      - "8080:80"

@@ -12,8 +12,8 @@ Route::get('/', [ItemController::class, 'index'])->name('items.index');
 Route::get('/item/{id}', [ItemController::class, 'show'])->name('items.show');
 
 //認証必須ルート
-// Route::middleware(['auth'])->group(function () {
-Route::middleware(['auth', 'verified'])->group(function (){
+Route::middleware(['auth'])->group(function () {
+// Route::middleware(['auth', 'verified'])->group(function (){
     // プロフィール関連
     Route::get('/mypage', [ProfileController::class, 'index'])->name('mypage');
     Route::get('/mypage/profile', [ProfileController::class, 'edit'])->name('profile.edit');
