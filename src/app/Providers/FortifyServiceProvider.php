@@ -32,6 +32,8 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->app->bind(\Laravel\Fortify\Http\Requests\LoginRequest::class, LoginRequest::class);
+
         Fortify::registerView(function () {
             return view('auth.register');
         });
@@ -50,12 +52,8 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
 
         Fortify::authenticateUsing(function (Request $request) {
-            // 1. 自作 LoginRequest バリデーションを実行
-            $loginRequest = app(LoginRequest::class);
-            $validator = \Validator::make($request->all(), $loginRequest->rules(), $loginRequest->messages());
-            $validator->validate();
 
-            // 2. ユーザーの照合
+            //  ユーザーの照合
             $user = User::where('email', $request->email)->first();
 
             if ($user && Hash::check($request->password, $user->password)) {
